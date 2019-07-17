@@ -1,0 +1,87 @@
+@import "../../../theme/variables";
+@import "../../../theme/general";
+@import "../../../theme/styles/recurring-elements/select-element";
+@import "../../../theme/styles/recurring-elements/textarea";
+
+.save-wrapper {
+  height: 70vmin;
+  width: 55vmin;
+  display: flex;
+  flex-direction: column;
+  padding: 1vmin;
+
+  img {
+    width: 100%;
+    border-radius: $border-radius;
+    flex: 0 0 30%;
+    margin-bottom: 3vmin;
+  }
+
+  .info-container {
+    flex: 0 0 43%;
+    display: flex;
+    flex-direction: column;
+
+    .select-option {
+      padding-right: 0;
+    }
+
+    input, select, textarea {
+      margin-bottom: 1.5vmin;
+    }
+
+    input, select {
+      height: 5vmin;
+    }
+
+    select {
+      color: $button-active;
+    }
+
+    textarea {
+      height: 8vmin;
+    }
+  }
+
+  .hint {
+    width: 100%;
+    color: $button-active;
+    font-size: 1.5vmin;
+    text-align: center;
+    margin-bottom: 2vmin;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .save-button {
+      position: relative;
+    }
+
+    button {
+      height: 5vmin;
+      width: 10vmin;
+      padding: 1vmin;
+      cursor: pointer;
+      border: 0;
+      color: $textcolor;
+      border-radius: $border-radius;
+      margin: 0 1vmin;
+      background-color: $search-list-background;
+      font-size: 1.5vmin;
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: default;
+        background-color: $search-list-background !important;
+        transform: scale(1) !important;
+      }
+
+      &:hover {
+        background-color: $popup-button-background;
+        transform: scale(1.05);
+      }
+    }
+  }
+}

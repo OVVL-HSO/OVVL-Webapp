@@ -1,0 +1,30 @@
+<button (click)="showModelDetails()"
+        [ngClass]="(selectedProject$ | async) === storedProject.projectID && 'selected'"
+        class="list-item">
+  <img alt="Project" class="main-icon" src="../../../../assets/project.svg">
+  <span class="general-info">
+    <span class="name">{{storedProject.title ? storedProject.title : "Missing Title"}}</span>
+    <span class="summary">{{storedProject.description ? storedProject.description : "Missing Description"}}</span>
+    <span class="date-wrapper">
+      <span class="created-at">
+        <img alt="created" src="../../../../assets/released.svg" title="Created">
+        <span>{{getCreationDate()}}</span>
+      </span>
+    </span>
+  </span>
+  <span class="project-data">
+    <span class="owner">
+      <img alt="profile" class="profile-icon" src="../../../../assets/profile.png">
+      Created by {{displayedOwnerName}}
+    </span>
+    <span class="collaborator-count">
+      <img alt="profile" src="../../../../assets/network.svg">
+      {{storedProject.collaborators.length}} collaborator<span *ngIf="storedProject.collaborators.length > 1">s</span>
+    </span>
+    <span class="model-count">
+      <img alt="profile" src="../../../../assets/dfd.svg">
+      {{storedProject.models.length}} model<span
+      *ngIf="storedProject.models.length > 1 || storedProject.models.length == 0">s</span>
+    </span>
+  </span>
+</button>

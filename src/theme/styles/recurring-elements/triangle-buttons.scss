@@ -1,0 +1,31 @@
+@import "../../variables";
+
+.triangle-right-button, .triangle-left-button {
+  height: 100%;
+  display: flex;
+  flex: 0 0;
+  justify-content: center;
+  align-items: center;
+
+  &[hidden] {
+    opacity: 0;
+    max-width: 0;
+  }
+
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    img {
+      height: 3vmin;
+      filter: $black-to-button-active-filter;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.triangle-left-button img {
+  transform: scaleX(-1);
+}

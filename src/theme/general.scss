@@ -1,0 +1,23 @@
+* {
+  font-family: 'Comfortaa', cursive;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+*::-moz-focus-outer {
+  outline: 0 !important;
+}
+
+input[type='range']::-moz-focus-outer {
+  border: 0;
+}
+
+button {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}

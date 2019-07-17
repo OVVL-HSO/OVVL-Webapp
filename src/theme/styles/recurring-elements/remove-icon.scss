@@ -1,0 +1,22 @@
+@import "../../variables";
+
+.remove-icon {
+  border-radius: 50%;
+  position: absolute;
+  right: - 0.5vmin;
+  top: -0.5vmin;
+  border: 0;
+  background: rgba($red-border, 0.8);
+  padding: 0.4vmin;
+  cursor: pointer;
+  display: flex;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    height: 1vmin;
+    filter: $black-to-white-filter;
+  }
+}

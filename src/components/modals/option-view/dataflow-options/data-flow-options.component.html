@@ -1,0 +1,34 @@
+<form (change)="selectOptions()">
+  <div class="select-option">
+    <label for="transfersSensitiveData">Transfers Sensitive Data</label>
+    <select [(ngModel)]="dataFlow.options.transfersSensitiveData"
+            id="transfersSensitiveData"
+            name="transfersSensitiveData">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="networkType">Network Type</label>
+    <select [(ngModel)]="dataFlow.options.networkType"
+            id="networkType"
+            name="networkType">
+      <option *ngFor="let networkType of networkTypeOptions">{{networkType}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="trustedNetwork">Trusted Network</label>
+    <select [(ngModel)]="dataFlow.options.trustedNetwork"
+            id="trustedNetwork"
+            name="trustedNetwork">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="payload">Transported Data Format</label>
+    <select [(ngModel)]="dataFlow.options.payload"
+            id="payload"
+            name="payload">
+      <option *ngFor="let payload of payloadTypeOptions">{{payload}}</option>
+    </select>
+  </div>
+</form>

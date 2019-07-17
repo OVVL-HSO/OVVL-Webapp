@@ -1,0 +1,14 @@
+@import "../../../theme/general";
+@import "../../../theme/variables";
+@import "../../../theme/styles/profile/profile-tab-info";
+@import "../../../theme/styles/profile/profile-window-wrapper";
+@import "../../../theme/styles/recurring-elements/scrollbar";
+@import "../../../theme/styles/recurring-elements/triangle-buttons";
+@import "../../../theme/styles/profile/profile-scrollbar-wrapper";
+
+.wrapper {
+  .model-details {
+    flex: 0 1 25%;
+  }
+}
+

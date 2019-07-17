@@ -1,0 +1,31 @@
+@import "../../../theme/general";
+@import "../../../theme/variables";
+@import "../../../theme/styles/profile/profile-tab-info";
+@import "../../../theme/styles/profile/profile-window-wrapper";
+@import "../../../theme/styles/profile/profile-scrollbar-wrapper";
+@import "../../../theme/styles/recurring-elements/scrollbar";
+@import "../../../theme/styles/recurring-elements/triangle-buttons";
+
+.wrapper {
+  .float-button {
+    position: absolute;
+    right: 5vmin;
+    bottom: 5vmin;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: $search-list-background;
+    padding: 1vmin;
+    box-shadow: $float-button-box-shadow;
+
+    &:hover {
+      background: $popup-button-background;
+      transform: scale(1.05);
+    }
+
+    img {
+      filter: $black-to-button-active-filter;
+      height: 3vmin;
+    }
+  }
+}

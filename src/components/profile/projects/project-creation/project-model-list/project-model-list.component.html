@@ -1,0 +1,21 @@
+<div class="model-list">
+  <perfect-scrollbar [style.maxHeight]="listHeightStyle">
+    <button (click)="view == 'selection' && handleModelProjectLink(model.modelID)"
+            *ngFor="let model of displayedModels"
+            [ngClass]="(modelIsSelected(model.modelID) ? 'selected ' : '') +  view"
+            [title]="model.summary ? model.summary : 'Missing Description'"
+            class="small-model-item">
+      <img [src]="model.screenshot" alt="screenshot" class="model-screenshot">
+      <span class="model-name">{{model.name ? model.name : "Missing Name."}}</span>
+      <span class="model-release">
+            <img alt="Released" src="../../../../../assets/released.svg">
+            <span>{{getCreationDate(model.date)}}</span>
+      </span>
+      <button (click)="handleModelProjectLink(model.modelID)"
+              *ngIf="view == 'summary'"
+              class="remove-icon">
+        <img alt="R" src="../../../../../assets/cancel-no-border.png">
+      </button>
+    </button>
+  </perfect-scrollbar>
+</div>

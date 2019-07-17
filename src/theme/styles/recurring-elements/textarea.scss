@@ -1,0 +1,15 @@
+@import "../../variables";
+
+textarea {
+  margin-top: $element-spacing * 3;
+  padding: $element-spacing;
+  border-radius: $border-radius;
+  background-color: $popup-button-background;
+  color: $textcolor;
+  width: 100%;
+  text-align: center;
+  font-size: 1.7vmin;
+  border: 0;
+  box-sizing: border-box;
+  resize: none;
+}

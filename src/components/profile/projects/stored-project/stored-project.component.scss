@@ -1,0 +1,33 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/general";
+@import "../../../../theme/styles/profile/profile-list-item";
+
+.list-item {
+
+  .general-info {
+    flex: 0 0 53vmin;
+  }
+
+  .project-data {
+    flex: 0 0 25vmin;
+    display: flex;
+    flex-direction: column;
+
+    .owner, .collaborator-count, .model-count {
+      display: flex;
+      color: $button-active;
+      font-size: 1.8vmin;
+      margin: 0.7vmin 0;
+      align-items: center;
+
+      img {
+        height: 2vmin;
+        margin-right: 1.5vmin;
+      }
+
+      img:not(.profile-icon) {
+        filter: $black-to-button-active-filter;
+      }
+    }
+  }
+}

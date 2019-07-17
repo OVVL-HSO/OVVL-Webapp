@@ -1,0 +1,81 @@
+<form (change)="optionChanged()">
+  <div class="select-option">
+    <label for="trustLevel">Trust Level</label>
+    <select [(ngModel)]="dataStore.options.trustLevel" id="trustLevel"
+            name="trustLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="privilegeLevel">Privilege Level</label>
+    <select [(ngModel)]="dataStore.options.privilegeLevel"
+            id="privilegeLevel"
+            name="privilegeLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="storesSensitiveData">Stores Sensitive Data</label>
+    <select [(ngModel)]="dataStore.options.storesSensitiveData"
+            id="storesSensitiveData"
+            name="storesSensitiveData">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="storesPersonalData">Stores Personal Data</label>
+    <select [(ngModel)]="dataStore.options.storesPersonalData"
+            id="storesPersonalData"
+            name="storesPersonalData">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="encrypted">Encrypted</label>
+    <select [(ngModel)]="dataStore.options.encrypted"
+            id="encrypted"
+            name="encrypted">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="removableStorage">Removable Storage</label>
+    <select [(ngModel)]="dataStore.options.removableStorage"
+            id="removableStorage"
+            name="removableStorage">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="backup">Backup</label>
+    <select [(ngModel)]="dataStore.options.backup"
+            id="backup"
+            name="backup">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="shared">Shared</label>
+    <select [(ngModel)]="dataStore.options.shared"
+            id="shared"
+            name="shared">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="shellEnabled">Shell Enabled</label>
+    <select [(ngModel)]="dataStore.options.shellEnabled"
+            id="shellEnabled"
+            name="shellEnabled">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="storesLogs">Stores Logs</label>
+    <select [(ngModel)]="dataStore.options.storesLogs"
+            id="storesLogs"
+            name="storesLogs">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+</form>

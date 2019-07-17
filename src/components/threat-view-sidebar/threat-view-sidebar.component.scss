@@ -1,0 +1,73 @@
+@import "../../theme/variables";
+@import "../../theme/general";
+@import "../../theme/styles/recurring-elements/scrollbar";
+@import "../../theme/styles/slider";
+
+.sidebar-wrapper {
+  z-index: $sidebar-z-index;
+  position: absolute;
+  height: 94vh;
+  width: $threat-sidebar-width;
+  top: 6vh;
+  right: 0;
+  background-color: $top-toolbar-background;
+  box-shadow: 26px 0 18px 26px rgba(0, 0, 0, 0.75);
+
+  .button-wrapper {
+    margin: 2vmin auto 2vmin auto;
+    height: 5vmin;
+
+    .threats-button, .vulnerability-button {
+      cursor: pointer;
+      border-radius: $border-radius;
+      background-color: $light-gray-background;
+      font-size: $threat-sidebar-width * 0.05;
+      color: $button-active;
+      border: 0;
+      height: 100%;
+      width: $threat-sidebar-width * 0.44;
+    }
+
+    .threats-button {
+      margin: 0 $threat-sidebar-width * 0.02 0 $threat-sidebar-width * 0.04;
+    }
+
+    .vulnerability-button {
+      margin: 0 $threat-sidebar-width * 0.04 0 $threat-sidebar-width * 0.02;
+    }
+
+    button:hover {
+      background-color: $button-unfolded;
+      color: $top-toolbar-background !important;
+    }
+
+    .button-clicked {
+      background-color: $button-active !important;
+      color: $top-toolbar-background !important;
+    }
+  }
+
+  .nothing-found {
+    text-align: center;
+    font-size: 2vmin;
+    margin: 50% 1.5vw;
+    color: $button-unfolded;
+  }
+
+  .weakness-wrapper {
+    margin: 1vmin 1vmin;
+  }
+}
+
+.highlight-stage-container {
+  position: absolute;
+  height: 94vh;
+  width: 94vw;
+  top: 6vh;
+  left: 0;
+  z-index: $highlight-stage-default;
+}
+
+.highlight-stage-top {
+  z-index: $above-drawing-stage-z-index !important;
+}

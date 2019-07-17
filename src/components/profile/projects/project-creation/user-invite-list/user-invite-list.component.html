@@ -1,0 +1,8 @@
+<div class="invited-users-list">
+  <div *ngFor="let user of project.invites" class="single-invite">
+    {{user}}
+    <button (click)="removeUser(user)" class="remove-icon">
+      <img alt="R" src="../../../../../assets/cancel-no-border.png">
+    </button>
+  </div>
+</div>

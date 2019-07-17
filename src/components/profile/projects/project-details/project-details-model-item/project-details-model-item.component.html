@@ -1,0 +1,25 @@
+<button [title]="model.summary ? model.summary : 'Missing Description'"
+        class="small-model-item">
+  <span class="normal-display">
+    <img [src]="model.screenshot" alt="screenshot" class="model-screenshot">
+    <span class="model-name">{{model.name ? model.name : "Missing Name."}}</span>
+    <span class="model-release">
+      <img alt="Released" src="../../../../../assets/released.svg">
+      <span>{{getCreationDate(model.date)}}</span>
+    </span>
+  </span>
+  <span class="hover-display">
+    <span class="created-by" title="Model creator">
+      <img src="../../../../../assets/profile.png" alt="O">
+      {{model.owner === nameOfCurrentUser ? 'You' : model.owner}}
+    </span>
+    <span class="unlink" (click)="unlinkModelFromProject()"
+          *ngIf="model.owner === nameOfCurrentUser || ownerOfProject === nameOfCurrentUser"
+          title="Unlink model from project">
+      <img src="../../../../../assets/unlink.svg" alt="D">
+    </span>
+    <span class="load" (click)="loadModelFromServer()" title="Load model">
+      <img src="../../../../../assets/download.svg" alt="D">
+    </span>
+  </span>
+</button>

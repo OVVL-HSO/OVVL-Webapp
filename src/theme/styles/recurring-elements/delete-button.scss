@@ -1,0 +1,20 @@
+@import "../../variables";
+
+.delete-button {
+  border: none;
+  background: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-image: url('/assets/delete.png');
+  margin-bottom: 1vmin;
+  cursor: pointer;
+}
+
+.delete-button:hover, .delete-button-active {
+  background-image: url('/assets/deleteHover.png');
+}
+
+.delete-button-active:hover {
+  transform: $button-hover-scale;
+}

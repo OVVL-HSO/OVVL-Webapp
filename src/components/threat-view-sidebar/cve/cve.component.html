@@ -1,0 +1,63 @@
+<div [ngClass]="getCSSSeverityStyle(cve.cvss)" class="collapsible">
+  <button (click)="selectVulnerability(cve)"
+          [ngClass]="getCVEDropdownStyle(cve)"
+          class="toggle-button cve">
+    <span class="cve-title-wrapper">
+      <span class="cve-id">
+        {{cve.cveID}}
+      </span>
+      <img alt="Caution"
+           src="../../../assets/caution-sign.svg">
+    </span>
+    <span class="severity">
+      <span class="cvss-score">{{getSeverityScore(cve.cvss)}}</span>
+      <span class="impact-level">{{getSeverityImpactLevel(cve.cvss)}}</span>
+    </span>
+  </button>
+  <div *ngIf="cve.selected" class="dropdown-data">
+    <div class="cve-info">
+      <p>
+        {{cve.descriptions ? cve.descriptions[0].content : ""}}
+      </p>
+    </div>
+    <div class="meta-data">
+      <div class="impact-segment" title="Impact Score">
+        <img alt="Impact:"
+             src="../../../assets/caution-sign.svg">
+        <p>{{getSeverityScore(cve.cvss)}}</p>
+      </div>
+      <div *ngIf="cve.publishedDate" class="date-segment" title="Date Published">
+        <img alt="Released:" src="../../../assets/released.svg">
+        <p>{{convertToDate(cve.publishedDate)}}</p>
+      </div>
+      <div *ngIf="cve.lastModifiedDate" class="date-segment" title="Last Modified">
+        <img alt="Edited:" src="../../../assets/edit.svg">
+        <p>{{convertToDate(cve.lastModifiedDate)}}</p>
+      </div>
+      <div class="more-info-segment">
+        <a class="nvd-link"
+           href="{{'https://nvd.nist.gov/vuln/detail/' + cve.cveID}}"
+           target="_blank"
+           title="View on the NVD">
+          <img alt="Info" src="../../../assets/leave.svg">
+        </a>
+      </div>
+    </div>
+    <div class="hover-card-wrapper">
+      <div class="abstract">
+        <p>Advisory</p>
+      </div>
+      <div class="details">
+        <a *ngFor="let reference of cve.references;"
+           class="reference"
+           href="{{reference.url}}"
+           target="_blank">
+          <img alt="advisory"
+               src="../../../assets/advisory.svg">
+          <p class="advisory-source">{{reference.refSource}}</p>
+          <p class="advisory-type">{{getReferenceTag(reference.tags)}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+@import "../../variables";
+
+.select-option, .search-cpe {
+  margin-top: $element-spacing;
+  padding-right: $element-spacing * 1.5;
+  color: $textcolor;
+
+  select, input {
+    margin-top: $element-spacing / 2;
+    border-radius: $border-radius;
+    background-color: $popup-button-background;
+    color: $textcolor;
+    width: 100%;
+    height: $element-size;
+    text-align: center;
+    font-size: 2.5vmin;
+    border: 0;
+  }
+}
+
+select {
+  text-align-last: center;
+
+  // Fixes an issue with firefox displaying a weird arrow
+  -moz-appearance: none;
+
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+@import "../variables";
+
+.modal, .modal-overlay, .show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal.feedback-container, .modal.save-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: $light-gray-background;
+  border-radius: $border-radius;
+  box-shadow: $modal-box-shadow;
+  z-index: 5;
+}
+
+.modal.option-container {
+  position: fixed;
+  top: 14vh;
+  left: 20vw;
+  width: $base-modal-width;
+  height: $base-modal-height;
+  text-align: center;
+  background: $light-gray-background;
+  border-radius: $border-radius;
+  box-shadow: $modal-box-shadow;
+  z-index: 5;
+}
+
+.modal.login-container, .modal.alert-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: $light-gray-background;
+  border-radius: $border-radius;
+  box-shadow: $modal-box-shadow;
+  z-index: 7;
+}
+
+.modal-overlay.option-container, .modal-overlay.save-container, .modal-overlay.feedback-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: $overlay-background;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay.login-container, .modal-overlay.alert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  background: $overlay-background;
+  width: 100%;
+  height: 100%;
+}
+
+.modal.login-container {
+  width: $login-modal-width;
+  height: $login-modal-height;
+}
+
+.modal.alert-container {
+  width: auto;
+  height: auto;
+}
+

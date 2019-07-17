@@ -1,0 +1,124 @@
+@import "../../../../../theme/variables";
+@import "../../../../../theme/styles/profile/small-model-item";
+
+.small-model-item {
+  width: 99%;
+  background: $button-unfolded-darkened !important;
+  color: $search-list-background;
+  cursor: default !important;
+  position: relative;
+  padding-right: 0;
+  .normal-display {
+    background: $button-active;
+    color: $search-list-background;
+    height: 6vmin;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: width .1s ease-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 0.25vmin;
+    z-index: 5;
+
+    .model-name {
+      transition: all .3s ease-out;
+      flex: 0 0 48%;
+    }
+
+    .model-release, .model-screenshot {
+      flex: 0 0 25%;
+      width: 100%;
+      transition: all .3s ease-out;
+    }
+    .model-release {
+      opacity: 1;
+      transition: all .3s ease-out 0.15s;
+    }
+    .model-screenshot {
+      transition: all .3s ease-out;
+    }
+  }
+
+  .hover-display {
+    display: none;
+  }
+  &:hover {
+    transform: none !important;
+
+    .normal-display {
+      width: 40%;
+      transition: width .4s ease-out;
+
+      .model-name {
+        text-align: center;
+        flex: 0 0 100%;
+        padding-right: 2.5vmin;
+      }
+
+      .model-release {
+        transition: all .3s ease-out;
+      }
+
+      .model-screenshot, .model-release {
+        flex: 0 0 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+    }
+
+    .hover-display {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+
+      .created-by {
+        color: $sidebar-background;
+        display: flex;
+        align-items: center;
+        margin-right: 6vmin;
+        font-size: 1.8vmin;
+        img {
+          height: 3vmin;
+          filter: $black-to-search-list-background-filter;
+          margin-right: 1vmin;
+        }
+      }
+
+      .unlink, .load {
+        display: flex;
+        background: $main-background;
+        align-items: center;
+        justify-content: center;
+        height: 6vmin;
+        width: 4vmin;
+        cursor: pointer;
+
+        &:hover {
+          background: $sidebar-background;
+        }
+        img {
+          height: 2.5vmin;
+          filter: $black-to-button-active-filter;
+        }
+      }
+
+      .unlink {
+        border-right: 1px solid $button-unfolded-darkened;
+      }
+
+      .load {
+        margin-right: -0.1vmin;
+        border-radius: 0 $border-radius $border-radius 0;
+      }
+    }
+  }
+
+  .model-release img {
+    filter: $black-to-search-list-background-filter;
+  }
+}

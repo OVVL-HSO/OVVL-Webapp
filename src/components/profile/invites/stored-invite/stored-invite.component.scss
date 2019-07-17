@@ -1,0 +1,123 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/general";
+@import "../../../../theme/styles/profile/profile-list-item";
+.list-item-wrapper {
+  background: $button-unfolded-darkened;
+  display: flex;
+  border-radius: $border-radius;
+  height: $profile-list-item-height;
+  width: $profile-list-item-width;
+  margin: $profile-list-item-margin;
+  position: relative;
+  padding-left: 2vmin;
+  box-sizing: border-box;
+
+  .list-item {
+    position: absolute;
+    border-radius: $border-radius;
+    left: 0;
+    cursor: default;
+    margin: 0;
+    z-index: 5;
+    transition: width 0.2s ease-out;
+
+    .date-wrapper {
+      img {
+        height: 1.8vmin;
+        filter: $black-to-button-active-filter;
+        margin-right: 1vmin;
+      }
+    }
+    .general-info {
+      flex: 1 1;
+    }
+
+    .project-data {
+      flex: 0 0 25vmin;
+      display: flex;
+      flex-direction: column;
+
+      .owner, .collaborator-count {
+        display: flex;
+        color: $button-active;
+        font-size: 1.8vmin;
+        margin: 0.7vmin 0;
+        align-items: center;
+
+        img {
+          height: 2vmin;
+          margin-right: 1.5vmin;
+        }
+
+        img:not(.profile-icon) {
+          filter: $black-to-button-active-filter;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .list-item {
+      cursor: default;
+      background: $search-list-background;
+      flex: 1;
+      width: $profile-list-item-width * 0.9;
+      .general-info {
+        padding-left: 2vmin;
+      }
+
+      .main-icon {
+        display: none;
+      }
+
+      .project-data {
+        padding-right: 2vmin;
+      }
+    }
+    .accept-decline {
+      position: absolute;
+      right: 10vmin;
+      width: $profile-list-item-width * 0.15;
+      display: flex;
+      flex-direction: column;
+      height: $profile-list-item-height;
+      flex: 1;
+
+      img {
+        height: 2.5vmin;
+        filter: $black-to-search-list-background-filter;
+      }
+
+      .accept, .decline {
+        padding-left: -1vmin;
+        background: $button-unfolded-darkened;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: -1vmin;
+        width: 10vmin;
+        height: $profile-list-item-height / 2;
+        cursor: pointer;
+        border: 0;
+
+        &:hover {
+          background: $button-active;
+          box-shadow: inset 0 0 9px -2px rgba(0,0,0,0.75);
+        }
+      }
+
+      .accept {
+        border-top-right-radius: $border-radius;
+        img {
+          height: 2.9vmin;
+        }
+      }
+      .decline {
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+  .accept-decline {
+    max-width: 0;
+  }
+}

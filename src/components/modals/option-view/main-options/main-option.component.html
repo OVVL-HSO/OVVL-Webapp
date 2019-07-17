@@ -1,0 +1,107 @@
+<div class="option-modal-wrapper">
+  <div
+    [ngClass]="currentElementData.elementToBeChanged.cpe
+    || (availableCPEs$ | async)?.length
+     || (currentlyLoadingCPEs$ | async)
+      || cpeSearchStarted ? 'cpe-shown' : ''"
+    class="main-container">
+    <div class="options-wrapper">
+      <div class="section-wrapper-left">
+        <div class="summary-wrapper">
+          <button [ngClass]="getButtonBackgroundClass()"></button>
+          <p>{{currentElementData.elementToBeChanged.name}}</p>
+        </div>
+        <div class="select-option">
+          <label for="elementName">Name</label>
+          <input [(ngModel)]="currentElementData.elementToBeChanged.name"
+                 id="elementName"
+                 maxlength="20"
+                 name="elementName"
+                 placeholder="Enter name..."
+                 type="text">
+        </div>
+        <div class="select-option">
+          <label for="elementType">Type</label>
+          <select [(ngModel)]="currentElementData.elementToBeChanged.type"
+                  (ngModelChange)="elementTypeChanged()"
+                  id="elementType"
+                  name="elementType">
+            <option *ngFor="let elementType of typeOptions">{{elementType}}</option>
+          </select>
+        </div>
+        <div *ngIf="!isDataFlow && !isTrustBoundary" class="select-option">
+          <label for="ipAddress">IP Address</label>
+          <input [(ngModel)]="currentElementData.elementToBeChanged.ip"
+                 [pattern]="ipv4Patter"
+                 id="ipAddress"
+                 maxlength="15"
+                 name="ipAddress"
+                 placeholder="Enter IPv4 Address..."
+                 type="text">
+        </div>
+        <div *ngIf="!isTrustBoundary" class="search-cpe">
+          <label for="softwareName">Software Make (CPE)</label>
+          <input [(ngModel)]="cpeTerm"
+                 id="softwareName"
+                 name="softwareName"
+                 placeholder="Enter Software..."
+                 type="text">
+          <button (click)="searchCPE()" [disabled]="!cpeTerm.length">
+            <img src="../../../../assets/search.png">
+          </button>
+        </div>
+      </div>
+      <div class="section-wrapper-right">
+        <perfect-scrollbar class="perfect-scrollbar" style="max-width: 100%; max-height: 100%;">
+          <app-interactor-options (optionsUpdated)="updateElementOptions($event)"
+                                  *ngIf="isInteractor"
+                                  [selectedElementData]="currentElementData"></app-interactor-options>
+          <app-process-options (optionsUpdated)="updateElementOptions($event)"
+                               *ngIf="isProcess"
+                               [selectedElementData]="currentElementData"></app-process-options>
+          <app-datastore-options (optionsUpdated)="updateElementOptions($event)"
+                                 *ngIf="isDataStore"
+                                 [selectedElementData]="currentElementData"></app-datastore-options>
+          <app-dataflow-options (optionsUpdated)="updateElementOptions($event)"
+                                *ngIf="isDataFlow"
+                                [selectedElementData]="currentElementData"></app-dataflow-options>
+          <app-trust-boundary-options (optionsUpdated)="updateElementOptions($event)"
+                                      *ngIf="isTrustBoundary"
+                                      [selectedElementData]="currentElementData.elementToBeChanged"></app-trust-boundary-options>
+        </perfect-scrollbar>
+      </div>
+    </div>
+    <div class="update-wrapper">
+      <div class="delete-container">
+        <button (click)="deleteConfirmation()" [ngClass]="confirmDelete ? 'delete-button-active' : ''"
+                class="delete-button">
+        </button>
+        <button (click)="deleteElement()" *ngIf="confirmDelete" class="confirm-delete">
+          Are you sure?
+        </button>
+      </div>
+      <div class="save-close-container">
+        <button (click)="updateElement()" id="save-button">
+          Save
+        </button>
+        <button (click)="closeOptions()" id="close-button">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="currentElementData.elementToBeChanged.cpe || (availableCPEs$ | async)?.length || (currentlyLoadingCPEs$ | async) || cpeSearchStarted"
+    class="cpe-wrapper">
+    <app-cpe-list
+      (cpeSelection)="addCPE($event)"
+      (reset)="resetCPE()"
+      [cpeOfCurrentElement]="currentElementData.elementToBeChanged.cpe"
+      class="search-result-wrapper">
+    </app-cpe-list>
+  </div>
+</div>
+
+
+
+

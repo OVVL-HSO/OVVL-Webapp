@@ -1,0 +1,49 @@
+<form (change)="optionChanged()">
+  <div class="select-option">
+    <label for="trustLevel">Trust Level</label>
+    <select [(ngModel)]="interactor.options.trustLevel" id="trustLevel"
+            name="trustLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="privilegeLevel">Privilege Level</label>
+    <select [(ngModel)]="interactor.options.privilegeLevel"
+            id="privilegeLevel"
+            name="privilegeLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="authenticatesItself">Authenticates Itself</label>
+    <select [(ngModel)]="interactor.options.authenticatesItself"
+            id="authenticatesItself"
+            name="authenticatesItself">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="inputSanitization">Sanitizes Input</label>
+    <select [(ngModel)]="interactor.options.sanitizesInput" id="inputSanitization" name="inputSanitization">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option" *ngIf="interactor.type == 'Mobile Application'">
+    <label for="appType">App Type</label>
+    <select [(ngModel)]="interactor.options.appType" id="appType" name="appType">
+      <option *ngFor="let appType of appTypeOptions">{{appType}}</option>
+    </select>
+  </div>
+  <div class="select-option" *ngIf="interactor.type == 'Human'">
+    <label for="employee">Employee</label>
+    <select [(ngModel)]="interactor.options.employee" id="employee" name="employee">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option" *ngIf="interactor.type == 'IoT Gateway' || interactor.type == 'Sensor'">
+    <label for="accessible">Accessible</label>
+    <select [(ngModel)]="interactor.options.accessible" id="accessible" name="accessible">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+</form>

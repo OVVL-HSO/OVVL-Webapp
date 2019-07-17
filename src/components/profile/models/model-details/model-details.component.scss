@@ -1,0 +1,220 @@
+@import "../../../../theme/general";
+@import "../../../../theme/variables";
+@import "../../../../theme/styles/recurring-elements/delete-button";
+@import "../../../../theme/styles/profile/details-view";
+@import "../../../../theme/styles/recurring-elements/select-element";
+
+.details-wrapper {
+  .screenshot {
+    width: 48vmin;
+    border-radius: $border-radius;
+  }
+
+  .info-wrapper {
+    display: flex;
+    align-items: center;
+
+    .info {
+      flex: 1 1 75%;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin: 0 1vmin;
+      color: $textcolor;
+
+      #name {
+        font-size: 2.5vmin;
+        margin: 3vmin 0 1vmin 0;
+      }
+
+      #summary {
+        font-size: 1.8vmin;
+        margin-bottom: 2vmin;
+      }
+
+      .date-wrapper {
+        display: flex;
+
+        .created-at, .edited-at, .owner {
+          font-size: 1.6vmin;
+          img {
+            height: 1.6vmin;
+            margin-right: 1vmin;
+          }
+        }
+
+        .created-at, .edited-at {
+          img {
+            filter: $black-to-button-active-filter;
+          }
+        }
+
+        .edited-at, .owner {
+          margin-left: 2vmin;
+        }
+      }
+    }
+
+    .download-wrapper {
+      flex: 0 0 25%;
+      text-align: center;
+      button {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        margin-left: 3vmin;
+
+        img {
+          height: 4vmin;
+          filter: $black-to-button-active-filter;
+          transition: all 0.2s ease-out;
+        }
+
+        &:hover img {
+          filter: $black-to-white-filter;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  .project-info-wrapper {
+    display: flex;
+    margin-top: 3vmin;
+    justify-content: center;
+    .no-projects-available {
+      color: $textcolor;
+      padding: 0 1vmin;
+      font-size: 1.8vmin;
+    }
+    .project-link-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      padding: 0 1vmin;
+
+      .select-option {
+        flex: 0 0 85%;
+        box-sizing: border-box;
+        margin-top: 0;
+
+        select, .linked-project {
+          height: 5vmin;
+          background: $button-unfolded-darkened;
+          color: $search-list-background;
+          font-size: 2vmin;
+        }
+
+        .linked-project {
+          border-radius: $border-radius;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+        }
+
+        select {
+          margin-top: 0;
+          &:hover {
+            background: $button-unfolded;
+          }
+        }
+      }
+
+      .link-button {
+        flex: 0 0 15%;
+        background: $button-unfolded-darkened;
+        border: 0;
+        border-radius: $border-radius;
+        height: 5vmin;
+        padding: 1vmin;
+        cursor: pointer;
+
+        &[disabled] {
+          opacity: 0.5;
+          cursor: default;
+          background: $button-unfolded-darkened !important;
+        }
+
+        &:hover {
+          background: $button-unfolded;
+        }
+
+        img {
+          height: 3vmin;
+          filter: $black-to-search-list-background-filter;
+        }
+      }
+    }
+    .project-info {
+      position: relative;
+      width: 100%;
+      border: 5px solid $button-active;
+      background: $button-unfolded-darkened;
+      margin-top: 1.8vmin;
+      border-radius: $border-radius;
+      display: flex;
+      padding: 1.5vmin 1vmin;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20%;
+        width: 0;
+        height: 0;
+        border: 17px solid transparent;
+        border-bottom-color:$button-unfolded-darkened;
+        border-top: 0;
+        margin-left: -17px;
+        margin-top: -17px;
+      }
+
+      .owner, .collaborators, .project-title, .creation-date {
+        color: $search-list-background;
+        display: flex;
+        align-items: center;
+        font-size: 1.8vmin;
+
+        p {
+          margin: 0;
+          padding-top: 0.2vmin;
+        }
+
+        img {
+          width: 2vmin;
+          margin-right: 1vmin;
+          filter: $black-to-search-list-background-filter;
+        }
+      }
+
+      .project-title {
+        flex: 0 0 10%;
+        .title {
+          margin-right: 1vmin;
+        }
+      }
+
+      .owner, .collaborators {
+        img {
+          height: 2.4vmin;
+        }
+      }
+
+      .owner, .collaborators, .creation-date {
+        flex: 0 0 30%;
+        margin-left: 2vmin;
+      }
+    }
+  }
+
+  .delete-button {
+    position: absolute;
+    bottom: 2vmin;
+    right: 2vmin;
+    width: 4vmin;
+    height: 4vmin;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="collapsible">
+  <button (click)="selectThreat(threat)"
+          [ngClass]="threat.selected ? 'dropdown-toggled' : ''"
+          class="toggle-button">
+    Threat {{currentThreat + 1}}: {{threat.strideCategory}}
+  </button>
+  <div *ngIf="threat.selected" class=dropdown-data>
+    <div class="threat-info">
+      <p class="title">{{threat.title}}</p>
+      <p>
+        {{threat.description}}
+      </p>
+    </div>
+    <div class="threat-adjust">
+      <div class="applicable-wrapper">
+        <button (click)="setThreatApplicableState('Not Selected', threat)"
+                [class.selected]="threat.applicable === 'Not Selected'"
+                class="applicable-button left">
+          Not Selected
+        </button>
+        <button (click)="setThreatApplicableState('Applicable', threat)"
+                [class.selected]="threat.applicable === 'Applicable'"
+                class="applicable-button center">
+          Applicable
+        </button>
+        <button (click)="setThreatApplicableState('Not Applicable', threat)"
+                [class.selected]="threat.applicable === 'Not Applicable'"
+                class="applicable-button right">
+          Not Applicable
+        </button>
+      </div>
+      <div class="priority-wrapper">
+        <p>Priority:</p>
+        <div class="priority-slider-2">
+          <input #ref
+                 (change)="setThreatPriority(ref.value, threat)"
+                 [value]="threat.priority === 'low' ? '1' : threat.priority === 'medium' ? '2' : threat.priority === 'high' ? '3' : '2'"
+                 class="slider"
+                 id="myRange"
+                 max="3"
+                 min="1" type="range">
+          <div class="slider-description">
+            <button (click)="setThreatPriority('1', threat)"
+                    [class.selected]="threat.priority === 'low'"
+                    id="low">low
+            </button>
+            <button (click)="setThreatPriority('2', threat)"
+                    [class.selected]="threat.priority === 'medium'"
+                    id="medium">medium
+            </button>
+            <button (click)="setThreatPriority('3', threat)"
+                    [class.selected]="threat.priority === 'high'"
+                    id="high">high
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="details-wrapper">
+  <div class="header-wrapper">
+    <div class="general-info">
+      <p class="title">{{project.title}}</p>
+      <p class="description">{{project.description}}</p>
+    </div>
+    <img src="../../../../assets/project.svg" alt="Project">
+  </div>
+  <div class="info-icons">
+    <div class="created-at">
+      <img alt="created" src="../../../../assets/released.svg" title="Created">
+      <span>{{getCreationDate(project.creationDate)}}</span>
+    </div>
+    <div class="owner">
+      <img alt="profile" class="profile-icon" src="../../../../assets/profile.png">
+      {{displayedOwnerName}} Project
+    </div>
+  </div>
+  <div class="collaborator-list">
+    <div *ngFor="let collaborator of project.collaborators"
+         class="collaborator" [title]="collaborator === project.owner && 'Project Owner'">
+      <img *ngIf="collaborator === project.owner" alt="O" src="../../../../assets/crown.svg">
+      {{collaborator}}
+    </div>
+    <div *ngFor="let invitedUser of project.invites"
+         class="invited-user" [title]="project.invites">
+      {{invitedUser}}
+    </div>
+  </div>
+  <div class="collaborator-invite" *ngIf="project.owner == username">
+    <button class="invite-users"
+            [ngClass]="inviteEnabled && 'invite-enabled'"
+            (click)="toggleUserInvites()">
+      Invite Users
+    </button>
+    <div class="invite-field" *ngIf="inviteEnabled">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Username" [(ngModel)]="userToBeInvited">
+        <button
+          class="invite-button"
+          title="Invite"
+          [disabled]="!userToBeInvited"
+          (click)="inviteUser()">
+          <img src="../../../../assets/invitation.svg" alt="Invite">
+        </button>
+       </div>
+      <div class="error-message" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+    </div>
+  </div>
+  <div class="model-list">
+    <perfect-scrollbar class="perfect-scrollbar" style="max-height: 25vmin;">
+      <div *ngIf="!(linkedModels$ | async).length" class="no-models-available-hint">
+        There currently aren't any models linked to the project. Any models linked to the project will be accessible here.
+      </div>
+      <app-project-details-model-item
+        [linkedModel]="model"
+        [username]="username"
+        [projectOwner]="project.owner"
+        (loadModel)="loadModelFromServer($event)"
+        (unlinkModel)="unlinkModelFromProject($event)"
+        *ngFor="let model of (linkedModels$ | async)"></app-project-details-model-item>
+    </perfect-scrollbar>
+  </div>
+  <button (click)="deleteProject()" *ngIf="project.owner === username" class="delete-button">
+  </button>
+  <button (click)="leaveProject()" *ngIf="project.owner !== username" class="cancel-button" title="Leave Project">
+    <img src="../../../../assets/cancel-no-border.png" alt="Leave">
+  </button>
+</div>

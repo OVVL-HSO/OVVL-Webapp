@@ -1,0 +1,31 @@
+<div class="main-wrapper">
+  <app-spinner-big *ngIf="isLoading$ | async"></app-spinner-big>
+  <app-landing-view [hidden]="!landingViewShown"></app-landing-view>
+  <app-profile *ngIf="profileViewShown"></app-profile>
+  <app-drawing-board *ngIf="!landingViewShown"
+                     [freeDrawStage]="freeDrawStage"
+                     [hidden]="profileViewShown"
+                     [images]="images"
+                     [stage]="drawingStage"
+  ></app-drawing-board>
+  <div
+    #freeDrawingStageContainer
+    [hidden]="profileViewShown"
+    [ngClass]="getDrawingStageClass()"
+    class="free-drawing-stage-container"></div>
+  <div
+    #drawingStageContainer
+    [hidden]="profileViewShown"
+    [ngClass]="getDrawingStageClass()"
+    class="drawing-stage-container"></div>
+  <app-threat-view-sidebar *ngIf="analysisViewShown" [stage]="drawingStage"></app-threat-view-sidebar>
+  <app-toolbar-left
+    *ngIf="designViewShown || profileViewShown"
+    [hidden]="profileViewShown"></app-toolbar-left>
+  <app-toolbar-top *ngIf="!landingViewShown"></app-toolbar-top>
+</div>
+
+<div *ngFor="let activeModal of $activeModals | async">
+  <div class="modal" [ngClass]="activeModal.modalID"></div>
+  <div class="modal-overlay" [ngClass]="activeModal.modalID" (click)="removeLastModal(activeModal)"></div>
+</div>

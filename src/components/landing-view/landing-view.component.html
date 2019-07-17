@@ -1,0 +1,46 @@
+<div class="landing-wrapper">
+  <div class="logo-wrapper">
+    <img (mouseenter)="logoHover()"
+         [ngClass]="showDefaultLogo ? '' : 'hidden'"
+         alt="logo"
+         id="logo"
+         src="../../assets/logo.png">
+    <img (mouseleave)="logoHover()"
+         [ngClass]="!showDefaultLogo ? '' : 'hidden'"
+         alt="logo"
+         id="logo-hover"
+         src="../../assets/logo-eyes-closed.png">
+    <img alt="title" id="title" src="../../assets/title.png">
+  </div>
+  <div class="button-wrapper">
+    <button
+      #gradientButton
+      (click)="createThreatModel()"
+      (mousemove)="createGradient($event)"
+      class="gradient-button"
+      id="new-model">
+      <span class="icon">
+        <img alt="New Model" src="../../assets/process-normal.png">
+      </span>
+      <span class="text">
+        Create a new Threat Model
+      </span>
+    </button>
+    <button (click)="loadThreatModel()" disabled id="open-model">
+      <span class="icon">
+        <img alt="Saved Model" src="../../assets/datastore-normal.png">
+      </span>
+      <span class="text">
+        Open a saved Threat Model
+      </span>
+    </button>
+    <button id="view-guide">
+      <span class="icon">
+        <img alt="Starting Guide" src="../../assets/interactor-normal.png">
+      </span>
+      <span class="text">
+        Use the Starting Guide
+      </span>
+    </button>
+  </div>
+</div>

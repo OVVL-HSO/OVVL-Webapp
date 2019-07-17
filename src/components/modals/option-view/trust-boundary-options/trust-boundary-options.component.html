@@ -1,0 +1,18 @@
+<form (change)="optionChanged()">
+  <div class="select-option">
+    <label for="requiresAuthentication">Authentication Needed To Enter</label>
+    <select [(ngModel)]="trustBoundary.options.requiresAuthentication"
+            id="requiresAuthentication"
+            name="requiresAuthentication">
+      <option *ngFor="let genericSelectionOption of genericSelectionOptions">{{genericSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="physicalAccess">Physical Access</label>
+    <select [(ngModel)]="trustBoundary.options.physicalAccess"
+            id="physicalAccess"
+            name="physicalAccess">
+      <option *ngFor="let accessOption of physicalAccessOptions">{{accessOption}}</option>
+    </select>
+  </div>
+</form>

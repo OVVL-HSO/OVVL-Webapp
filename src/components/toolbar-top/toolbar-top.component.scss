@@ -1,0 +1,115 @@
+@import "../../theme/toolbar-position-variables";
+@import "../../theme/variables";
+@import "../../theme/general";
+
+.toolbar-wrapper {
+  position: absolute;
+  z-index: $toolbar-top-z-index;
+  top: 0;
+  width: 100vw;
+  background-color: $top-toolbar-background;
+  height: $toolbar-top-height;
+  box-shadow: $toolbar-top-box-shadow;
+
+  .name-wrapper {
+    position: absolute;
+    height: $toolbar-top-name-element-height * 2;
+    justify-content: center;
+    align-items: center;
+    left: 1vw;
+    display: flex;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    img {
+      width: auto;
+      height: $toolbar-top-name-element-height * 1.5;
+      flex: 1 0;
+    }
+
+    p {
+      flex: 1 0;
+      margin: 0 0 0 0.5vw;
+      font-size: $toolbar-top-name-element-height;
+      color: $textcolor;
+    }
+  }
+
+  .button-wrapper {
+    position: absolute;
+    right: 2vw;
+    top: $toolbar-top-button-wrapper-margin;
+
+    .button-content {
+      margin-left: 1.5vw;
+      display: inline-block;
+
+      button {
+        width: $toolbar-top-button-size;
+        height: $toolbar-top-button-size;
+        border-radius: 50%;
+        border: 0;
+        background-color: $main-background;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60%;
+      }
+
+      button[disabled] {
+        cursor: auto !important;
+        transform: none !important;
+        opacity: 0.5;
+        background-color: $main-background !important;
+        box-shadow: none !important;
+      }
+
+      #analysis-button:hover,
+      #save-button:hover,
+      #undo-button:hover,
+      #redo-button:hover,
+      #profile-button:hover {
+        cursor: pointer;
+        transform: $button-hover-scale;
+        background-color: $light-gray-background;
+        box-shadow: $float-button-box-shadow;
+      }
+
+      .button-clicked {
+        background-color: $light-gray-background !important;
+        transform: $button-hover-scale;
+        box-shadow: $float-button-box-shadow;
+      }
+
+      #search-button {
+        opacity: 0.5;
+        background-image: url('../../assets/search.png');
+      }
+
+      #analysis-button {
+        background-image: url('../../assets/analyze.png');
+      }
+
+      #undo-button {
+        background-image: url('../../assets/undo-arrow.png');
+      }
+
+      #redo-button {
+        background-image: url('../../assets/redo-arrow.png');
+      }
+
+      #save-button {
+        background-image: url('../../assets/save.png');
+      }
+
+      #help-button {
+        opacity: 0.5;
+        background-image: url('../../assets/help.png');
+      }
+
+      #profile-button {
+        background-image: url('../../assets/profile.png');
+      }
+    }
+  }
+}

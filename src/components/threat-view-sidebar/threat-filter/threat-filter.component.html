@@ -1,0 +1,99 @@
+<div class="filter">
+  <div class="general-wrapper">
+    <button (click)="toggleFilter()" id="filter-toggle">
+      <img [ngClass]="filterActive ? 'filter-active' : ''" alt="filter" src="../../../assets/filter.svg">
+      <Span [ngClass]="filterActive ? 'filter-active' : ''">Filter</Span>
+    </button>
+    <button (click)="resetFilter()"
+            *ngIf="filterApplied"
+            [ngClass]="filterActive ? 'filter-active' : ''" id="reset-button">Reset
+    </button>
+  </div>
+  <div *ngIf="filterActive" class="filter-selector">
+    <div class="stride-filter">
+      <p class="title">Threat Type</p>
+      <div class="stride-types">
+        <button (click)="setStrideFilter('spoofing')"
+                [class.selected]="filter.stride.spoofing"
+                class="filter-button">
+          Spoofing
+        </button>
+        <button (click)="setStrideFilter('tampering')"
+                [class.selected]="filter.stride.tampering"
+                class="filter-button">
+          Tampering
+        </button>
+        <button (click)="setStrideFilter('repudiation')"
+                [class.selected]="filter.stride.repudiation"
+                class="filter-button">
+          Repudiation
+        </button>
+        <button (click)="setStrideFilter('dos')"
+                [class.selected]="filter.stride.dos"
+                class="filter-button">
+          DoS
+        </button>
+        <button (click)="setStrideFilter('infoDiscl')"
+                [class.selected]="filter.stride.infoDiscl"
+                class="filter-button">
+          Info Disclosure
+        </button>
+        <button (click)="setStrideFilter('elevationOfP')"
+                [class.selected]="filter.stride.elevationOfP"
+                class="filter-button">
+          Elevation of P.
+        </button>
+      </div>
+    </div>
+    <div class="breaker"></div>
+    <div class="priority-filter">
+      <p class="title">Priority</p>
+      <div class="priority-slider">
+        <input #ref
+               (change)="setPriorityFilter(ref.value)"
+               [(ngModel)]="priorityRangeValue"
+               class="slider"
+               id="myRange"
+               max="3"
+               min="1"
+               type="range" value="2">
+        <div class="slider-description">
+          <button (click)="updateRange('1')"
+                  [class.selected]="filter.priority === 'low'"
+                  id="low">low
+          </button>
+          <button (click)="updateRange('2')"
+                  [class.selected]="filter.priority === 'medium'"
+                  id="medium">medium
+          </button>
+          <button (click)="updateRange('3')"
+                  [class.selected]="filter.priority === 'high'"
+                  id="high">high
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="breaker"></div>
+    <div class="applicable-filter">
+      <p class="title">Applicable Status</p>
+      <div class="applicable-types">
+        <button (click)="setApplicableFilter('Not Selected')"
+                [class.selected]="filter.applicable.notSelected"
+                class="filter-button">
+          Not Selected
+        </button>
+        <button (click)="setApplicableFilter('Applicable')"
+                [class.selected]="filter.applicable.applicable"
+                class="filter-button">
+          Applicable
+        </button>
+        <button (click)="setApplicableFilter('Not Applicable')"
+                [class.selected]="filter.applicable.notApplicable"
+                class="filter-button">
+          Not Applicable
+        </button>
+      </div>
+    </div>
+    <div class="breaker"></div>
+  </div>
+</div>

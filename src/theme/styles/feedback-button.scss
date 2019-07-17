@@ -1,0 +1,51 @@
+@import "../variables";
+@import "animations/tracking-in-expand";
+
+.feedback-button {
+  float: bottom;
+  display: flex;
+  position: absolute;
+  bottom: 2.5vmin;
+  padding: 1vmin;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 100%;
+
+  button {
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid $button-active;
+    color: $button-active;
+    padding: 0.6vmin;
+    font-size: 1.5vmin;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 2vmin;
+      filter: invert(82%) sepia(63%) saturate(0%) hue-rotate(178deg) brightness(93%) contrast(83%);
+    }
+
+    span {
+      display: none;
+    }
+
+    &:hover {
+      color: $textcolor;
+      border: 2px solid $textcolor;
+      border-radius: $border-radius;
+
+      img {
+        filter: $black-to-white-filter;
+      }
+
+      span {
+        margin-left: .3vmin;
+        display: block;
+        -webkit-animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+      }
+    }
+  }
+}

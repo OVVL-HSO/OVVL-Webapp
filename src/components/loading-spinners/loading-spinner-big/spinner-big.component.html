@@ -1,0 +1,31 @@
+<div class="loading-wrapper">
+  <!-- Google Chrome -->
+  <div [style.display]="!isChrome ? 'none' : ''" class="infinityChrome">
+    <div class="interactor"></div>
+    <div class="process"></div>
+    <div class="datastore"></div>
+  </div>
+
+  <!-- Safari and others -->
+  <div [style.display]="!isChrome ? 'block' : ''" class="infinity">
+    <div>
+      <span class="interactor"></span>
+    </div>
+    <div>
+      <span class="process"></span>
+    </div>
+    <div>
+      <span class="datastore"></span>
+    </div>
+  </div>
+
+  <svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="6"/>
+        <feColorMatrix in="blur" mode="matrix" result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"/>
+        <feBlend in="SourceGraphic" in2="goo"/>
+      </filter>
+    </defs>
+  </svg>
+</div>

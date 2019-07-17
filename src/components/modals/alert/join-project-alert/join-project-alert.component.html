@@ -1,0 +1,16 @@
+<div class="leave-alert">
+  <div class="title">
+    Are you sure you want to join {{alert.owner}}'s project '{{alert.projectTitle}}'?
+  </div>
+  <div class="summary">
+    You can always leave the project later.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="joinProject()" class="leave-button">
+      Join
+    </button>
+    <button (click)="close()" class="cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>

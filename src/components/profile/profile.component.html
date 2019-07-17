@@ -1,0 +1,6 @@
+<div class="profile-wrapper">
+  <app-profile-sidebar></app-profile-sidebar>
+  <app-projects *ngIf="(shownTab$ | async) == 'projects'" [projects]="projects"></app-projects>
+  <app-models *ngIf="(shownTab$ | async) == 'models'" [models]="models"></app-models>
+  <app-invites *ngIf="(shownTab$ | async) == 'invites'" [invites]="invites"></app-invites>
+</div>

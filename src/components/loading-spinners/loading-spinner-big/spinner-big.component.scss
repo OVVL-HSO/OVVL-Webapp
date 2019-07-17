@@ -1,0 +1,226 @@
+@import "../../../theme/variables";
+
+
+.loading-wrapper {
+  position: fixed;
+  z-index: 12;
+}
+
+.loading-wrapper, .infinity, .infinityChrome {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.infinityChrome {
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent !important;
+}
+
+.infinity {
+  margin: 50vh 0;
+}
+
+.loading-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.infinity, .infinityChrome {
+  .interactor {
+    background: $orange-shape-highlight;
+    box-shadow: 2px 2px 8px rgba($orange-shape-highlight, .09);
+  }
+
+  .process {
+    background: $green-shape-highlight;
+    box-shadow: 2px 2px 8px rgba($green-shape-highlight, .09);
+  }
+
+  .datastore {
+    background: $blue-shape-highlight;
+    box-shadow: 2px 2px 8px rgba($blue-shape-highlight, .09);
+  }
+}
+
+.infinity {
+  position: relative;
+
+  div,
+  span {
+    position: absolute;
+  }
+
+  div {
+    top: 0;
+    left: 50%;
+    width: 10vmin;
+    height: 10vmin;
+    animation: rotate 6.9s linear infinite;
+
+    span {
+      left: -1.5vmin;
+      top: 50%;
+      margin: -1.5vmin 0 0 0;
+      width: 3vmin;
+      height: 3vmin;
+      display: block;
+      border-radius: 50%;
+      transform: rotate(90deg);
+      animation: move 6.9s linear infinite;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        width: 2.5vmin;
+        height: 2.5vmin;
+        background: inherit;
+        top: 50%;
+        left: 50%;
+        margin: -1.25vmin 0 0 -1.25vmin;
+        box-shadow: inherit;
+      }
+
+      &:before {
+        animation: drop1 .8s linear infinite;
+      }
+
+      &:after {
+        animation: drop2 .8s linear infinite .4s;
+      }
+    }
+
+    &:nth-child(2) {
+      animation-delay: -2.3s;
+
+      span {
+        animation-delay: -2.3s;
+      }
+    }
+
+    &:nth-child(3) {
+      animation-delay: -4.6s;
+
+      span {
+        animation-delay: -4.6s;
+      }
+    }
+  }
+}
+
+.infinityChrome {
+  width: 10vmin;
+  height: 10vmin;
+
+  div {
+    position: absolute;
+    width: 2.5vmin;
+    height: 2.5vmin;
+    border-radius: 50%;
+    animation: moveSvg 6.9s linear infinite;
+    transform: scaleX(-1);
+    offset-path: path("M64.3636364,29.4064278 C77.8909091,43.5203348 84.4363636,56 98.5454545,56 C112.654545,56 124,44.4117395 124,30.0006975 C124,15.5896556 112.654545,3.85282763 98.5454545,4.00139508 C84.4363636,4.14996252 79.2,14.6982509 66.4,29.4064278 C53.4545455,42.4803627 43.5636364,56 29.4545455,56 C15.3454545,56 4,44.4117395 4,30.0006975 C4,15.5896556 15.3454545,4.00139508 29.4545455,4.00139508 C43.5636364,4.00139508 53.1636364,17.8181672 64.3636364,29.4064278 Z");
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      width: 1.5vmin;
+      height: 1.5vmin;
+      background: inherit;
+      top: 50%;
+      left: 50%;
+      margin: -.75vmin 0 0 -.75vmin;
+      box-shadow: inherit;
+    }
+
+    &:before {
+      animation: drop1 .8s linear infinite;
+    }
+
+    &:after {
+      animation: drop2 .8s linear infinite .4s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -2.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -4.6s;
+    }
+  }
+}
+
+@keyframes moveSvg {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(360deg);
+    margin-left: 0;
+  }
+  50.0001%,
+  100% {
+    margin-left: -10vmin;
+  }
+}
+
+@keyframes move {
+  0%, 50% {
+    left: -1.5vmin;
+  }
+  50.0001%,
+  100% {
+    left: auto;
+    right: -1.5vmin;
+  }
+}
+
+@keyframes drop1 {
+  100% {
+    transform: translate(10vmin, 1.5vmin) scale(0);
+  }
+}
+
+@keyframes drop2 {
+  0% {
+    transform: translate(0, 0) scale(.9);
+  }
+  100% {
+    transform: translate(10vmin, -1.5vmin) scale(0);
+  }
+}
+
+// Demo
+
+.infinity {
+  display: none;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}

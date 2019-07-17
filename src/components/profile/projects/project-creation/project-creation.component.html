@@ -1,0 +1,94 @@
+<div class="project-creation-wrapper">
+  <div *ngIf="currentStep != 'general'" class="triangle-left-button">
+    <button (click)="manageProjectCreationStep(false)">
+      <img alt="Continue" src="../../../../assets/triangle-right.svg">
+    </button>
+  </div>
+  <div *ngIf="currentStep === 'general'" [@creation-transition] class="enter-basic-info">
+    <div class="call-to-action">
+      <p class="title">Create a new Project</p>
+      <p class="description">A project allows you to link multiple models together and to collaborate with others.</p>
+    </div>
+    <div class="general">
+      <input [(ngModel)]="project.title" placeholder="Enter a project name" type="text">
+      <textarea [(ngModel)]="project.description" class="select-option" placeholder="What is you project about?"
+                type="textarea"></textarea>
+    </div>
+  </div>
+  <div *ngIf="currentStep === 'linking'" [@creation-transition] class="link-models">
+    <div class="call-to-action">
+      <p class="title">Link Models</p>
+      <p class="description">Link existing models to the project. You can also add some after creating the project.</p>
+    </div>
+    <app-project-model-list
+      (updatedProject)="updatedProject($event)"
+      [currentProject]="project"
+      [currentView]="'selection'"
+      [models]="existingModels"
+      [scrollbarHeight]="'40vmin'">
+    </app-project-model-list>
+  </div>
+  <div *ngIf="currentStep === 'invites'" [@creation-transition] class="invite-users">
+    <div class="call-to-action">
+      <p class="title">Invite Users</p>
+      <p class="description">Invite other users to collaborate on your project.</p>
+    </div>
+    <div class="search-user">
+      <input [(ngModel)]="currentInvite" placeholder="Enter username" type="text">
+      <button (click)="inviteUser()" [disabled]="isLoading">Add</button>
+    </div>
+    <div class="error-field">
+      {{errorMessage}}
+    </div>
+    <app-user-invite-list
+      (updatedProject)="updatedProject($event)"
+      [currentProject]="project"
+    ></app-user-invite-list>
+  </div>
+  <div *ngIf="currentStep === 'summary'" [@creation-transition] class="summary">
+    <div class="info-wrapper">
+      <div class="main-info">
+        <div class="info-text">
+          <div class="call-to-action">
+            <p class="title">{{project.title}}</p>
+            <p class="description">{{project.description}}</p>
+          </div>
+        </div>
+        <img alt="Project" src="../../../../assets/project.svg">
+      </div>
+      <div *ngIf="project.models.length" class="model-list">
+        <div class="call-to-action">
+          <p class="title">Selected Models</p>
+        </div>
+        <app-project-model-list
+          (updatedProject)="updatedProject($event)"
+          [currentProject]="project"
+          [currentView]="'summary'"
+          [models]="mapModelIDsToModelData()"
+          [scrollbarHeight]="'20vmin'">
+        </app-project-model-list>
+      </div>
+      <div *ngIf="project.invites.length" class="user-list">
+        <div class="call-to-action">
+          <p class="title">Invited Users</p>
+        </div>
+        <app-user-invite-list
+          (updatedProject)="updatedProject($event)"
+          [currentProject]="project"></app-user-invite-list>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="currentStep == 'summary'" class="completion-button-wrapper">
+    <button (click)="createProject()">
+      Create
+    </button>
+    <button (click)="cancelProjectCreation()">
+      Cancel
+    </button>
+  </div>
+  <div *ngIf="currentStep != 'summary'" class="triangle-right-button">
+    <button (click)="manageProjectCreationStep(true)" [disabled]="cantContinueProcess()">
+      <img alt="Continue" src="../../../../assets/triangle-right.svg">
+    </button>
+  </div>
+</div>

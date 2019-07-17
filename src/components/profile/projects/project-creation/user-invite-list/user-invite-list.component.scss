@@ -1,0 +1,18 @@
+@import "../../../../../theme/variables";
+@import "../../../../../theme/styles/recurring-elements/remove-icon";
+
+.invited-users-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .single-invite {
+    font-size: 2vmin;
+    color: $button-active;
+    border-radius: $border-radius;
+    background: $popup-button-background;
+    padding: 1.3vmin;
+    margin: 0 1vmin 1vmin 0;
+    position: relative;
+  }
+}

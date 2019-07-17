@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div *ngIf="userModels.length" class="profile-scrollbar-wrapper">
+    <perfect-scrollbar class="perfect-scrollbar" style="max-width: 95vmin; max-height: 98%;">
+      <app-stored-model *ngFor="let model of userModels" [model]="model"></app-stored-model>
+    </perfect-scrollbar>
+  </div>
+  <div [hidden]="!(selectedModel$ | async)" class="triangle-right-button">
+    <button (click)="closeDetailsView()">
+      <img alt="Close" src="../../../assets/triangle-right.svg">
+    </button>
+  </div>
+  <app-model-details *ngIf="(selectedModel$ | async)" [@sidebar-transition] class="model-details">
+  </app-model-details>
+  <div *ngIf="!userModels.length" class="no-items">
+    <img alt="project" src="../../../assets/dfd.svg">
+    <p class="greeting">Welcome to Models!</p>
+    <p class="info">Models let you analyze your software systems for potential weaknesses.<br> All your projects will be
+      listed here.</p>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="leave-alert">
+  <div class="title">
+    Confirm element deletion.
+  </div>
+  <div *ngIf="alert.elements.length > 1" class="summary">
+    You are about to delete {{alert.elements.length}} elements.
+  </div>
+  <div *ngIf="alert.elements.length == 1" class="summary">
+    You are about to delete an element.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="deleteElements()" class="leave-button">
+      Delete
+    </button>
+    <button (click)="close()" class="cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>

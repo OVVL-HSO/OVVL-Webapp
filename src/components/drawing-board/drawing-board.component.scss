@@ -1,0 +1,101 @@
+@import "../../theme/toolbar-position-variables";
+@import "../../theme/variables";
+@import "../../theme/general";
+@import "../../theme/styles/recurring-elements/spinner";
+
+#drawing-board-wrapper {
+  position: absolute;
+  height: $drawing-stage-height;
+  width: $drawing-stage-width;
+  top: $toolbar-top-height;
+  background-color: $main-background;
+
+  .drawing-board {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.zoom {
+  position: absolute;
+  right: 3vmin;
+  bottom: 3vmin;
+  z-index: $toolbar-top-z-index;
+  display: flex;
+
+  button {
+    cursor: pointer;
+    border: 0;
+  }
+
+  .zoom-active {
+    background-color: rgba($button-unfolded, 0.5) !important;
+  }
+
+  .zoom-level-indicator {
+    background-color: transparent;
+    color: $textcolor;
+    font-size: 2vmin;
+    width: 8.5vmin;
+    padding: 0.7vmin 0.5vmin 0.5vmin 0.5vmin;
+    user-select: none;
+
+    .math-symbol {
+      float: left;
+      margin-left: 0.5vmin;
+    }
+
+    .zoom-level {
+      float: right;
+      margin-right: 0.5vmin;
+    }
+  }
+
+  .zoom-button-wrapper {
+    .zoom-button {
+      height: 3vmin;
+      margin-left: 0.4vmin;
+      background-color: $sidebar-background;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 1.5vmin;
+        filter: $black-to-white-filter;
+      }
+    }
+
+    #plus-button {
+      border-radius: $border-radius $border-radius 0 0;
+      margin-bottom: 0.5vmin;
+    }
+
+    #minus-button {
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+  }
+
+  .zoom-level-indicator:hover {
+    transform: $button-hover-scale;
+    background: transparent;
+  }
+
+  .zoom-button:hover {
+    transform: $button-hover-scale;
+    background-color: $top-toolbar-background !important;
+  }
+}
+
+.zoom.move-left {
+  right: 32vmin !important;
+}
+
+.design-view {
+  left: $toolbar-left-width;
+}
+
+.analysis-view {
+  left: 0;
+}
+
+

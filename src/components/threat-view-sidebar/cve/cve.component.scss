@@ -1,0 +1,238 @@
+@import "../../../theme/styles/recurring-elements/collapsible-button";
+@import "../../../theme/styles/hover-card";
+@import "../../../theme/variables";
+
+.collapsible {
+  &.high-severity {
+    .cve {
+      background: $severity-high !important;
+    }
+
+    .cve-title-wrapper {
+      img {
+        filter: $severity-high-filter;
+      }
+    }
+
+    .dropdown-data {
+      border-right: 0.85vmin solid $severity-high;
+
+      .impact-segment img {
+        filter: $severity-high-filter !important;
+      }
+    }
+  }
+
+  &.medium-severity {
+    .cve {
+      background: $severity-medium !important;
+
+      .cvss-score, .impact-level {
+        color: $top-toolbar-background !important;
+      }
+
+      .cve-title-wrapper img {
+        filter: $severity-medium-filter;
+      }
+    }
+
+    .dropdown-data {
+      border-right: 0.85vmin solid $severity-medium;
+
+      .impact-segment img {
+        filter: $severity-medium-filter !important;
+      }
+    }
+  }
+
+  &.low-severity {
+    .cve {
+      background: $severity-low !important;
+
+      .cve-title-wrapper img {
+        filter: $severity-low-filter;
+      }
+    }
+
+    .dropdown-data {
+      border-right: 0.85vmin solid $severity-low;
+
+      .impact-segment img {
+        filter: $severity-low !important;
+      }
+    }
+  }
+
+  .cve {
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 0 !important;
+
+    &.dropdown-toggled {
+      padding-right: 0.8vmin;
+
+      .cve-title-wrapper {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
+
+    .cve-title-wrapper {
+      flex: 1 1 85%;
+      display: flex;
+      height: 6vmin;
+      background: $light-gray-background;
+      border-radius: $border-radius;
+      align-items: center;
+      padding-left: 5vmin;
+      box-shadow: 4px 0 4px -3px rgba(0, 0, 0, 0.75);
+
+      .cve-id {
+        font-size: 2vmin;
+        flex: 1 1 90%;
+      }
+
+      img {
+        flex: 1 1 10%;
+        height: 2.5vmin;
+        margin-top: -0.35vmin;
+        padding-right: 1vmin;
+      }
+    }
+
+    .severity {
+      display: none;
+    }
+  }
+
+  .cve:hover {
+    img {
+      display: none;
+    }
+
+    .severity {
+      flex: 1 1 15%;
+      height: 6vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 1vmin;
+      color: $button-active;
+
+      .cvss-score, .impact-level {
+        font-weight: bold;
+      }
+
+      .cvss-score {
+        font-size: 1.5vmin;
+      }
+
+      .impact-level {
+        margin-top: 0.3vmin;
+        font-size: 1.2vmin;
+      }
+    }
+  }
+
+  .dropdown-data {
+    .cve-info {
+      background: $button-unfolded;
+      padding: 1vmin 1.5vmin 1.5vmin 1.5vmin;
+    }
+
+    .reference {
+      display: flex;
+      padding: 0.5vmin 1.5vmin;
+      align-items: center;
+      text-decoration: none;
+
+      &:hover {
+        p {
+          color: $button-active !important;
+        }
+
+        img {
+          filter: invert(93%) sepia(5%) saturate(0%) hue-rotate(157deg) brightness(91%) contrast(84%);
+        }
+      }
+
+      img {
+        flex: 1 1 10%;
+      }
+
+      .advisory-source {
+        padding-left: 2vmin;
+        text-align: left;
+      }
+
+      p {
+        flex: 1 1 45%;
+        text-align: center;
+        color: $button-unfolded;
+        padding: 0;
+        font-size: 1.5vmin;
+      }
+
+      img {
+        height: 2vmin;
+        filter: invert(81%) sepia(0%) saturate(33%) hue-rotate(139deg) brightness(94%) contrast(95%);
+      }
+    }
+
+    .meta-data {
+      display: flex;
+      padding: 0 1.5vmin 1vmin 1.5vmin;
+      color: $popup-button-background;
+      flex-wrap: wrap;
+
+      .impact-segment, .date-segment, .more-info-segment {
+        margin-top: 1vmin;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: 1.7vmin;
+        }
+
+        img {
+          height: 1.9vmin;
+          width: auto;
+          margin-right: 0.8vmin;
+          filter: invert(27%) sepia(3%) saturate(0%) hue-rotate(278deg) brightness(101%) contrast(83%);
+          margin-top: -0.2vmin;
+        }
+
+        .nvd-link {
+          display: flex;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+          text-wrap: none;
+
+          img {
+            margin-top: -0.2vmin;
+            margin-left: 1.6vmin;
+          }
+        }
+      }
+
+      .impact-segment {
+        flex: 1 1 15%
+      }
+
+      .date-segment {
+        flex: 1 1 35%;
+      }
+
+      .more-info-segment {
+        flex: 1 1 15%;
+      }
+    }
+  }
+}
+
+
+
+

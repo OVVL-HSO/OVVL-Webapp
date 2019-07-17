@@ -1,0 +1,120 @@
+@import "../../theme/toolbar-position-variables";
+@import "../../theme/styles/feedback-button";
+@import "../../theme/variables";
+@import "../../theme/general";
+
+.toolbar-wrapper {
+  position: absolute;
+  top: $toolbar-top-height;
+  left: 0;
+  width: $toolbar-left-width;
+  height: $drawing-stage-height;
+  background-color: $sidebar-background;
+  box-shadow: $toolbar-left-box-shadow;
+  z-index: $sidebar-z-index;
+
+  .button-wrapper {
+    padding-top: 1vh;
+    position: relative;
+    height: 100%;
+
+    .button-content {
+      margin: $toolbar-left-button-wrapper-margin;
+
+      button {
+        position: relative;
+        width: $toolbar-left-button-size;
+        height: $toolbar-left-button-size;
+        border-radius: 50%;
+        transition: $button-transition;
+        border: 0;
+        cursor: grab;
+        background-color: transparent;
+      }
+
+      p {
+        margin: 0.3vw;
+        font-size: 0.7vw;
+        text-align: center;
+        color: $textcolor;
+      }
+
+      button:hover {
+        transform: $button-hover-scale;
+      }
+
+      #interactor-button:hover, #process-button:hover, #datastore-button:hover, #trustboundary-button:hover, .boundary-toggle {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.55);
+      }
+
+      #interactor-button, #process-button, #datastore-button {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 70%;
+      }
+
+      #interactor-button {
+        background-image: url('../../assets/interactor-normal.png');
+        background-color: $orange-shape;
+      }
+
+      #process-button {
+        background-image: url('../../assets/process-normal.png');
+        background-color: $green-shape;
+      }
+
+      #datastore-button {
+        background-image: url('../../assets/datastore-normal.png');
+        background-color: $blue-shape;
+      }
+
+      #dataflow-button {
+        cursor: pointer;
+
+        #dataflow-button-image {
+          width: $toolbar-left-button-size !important;
+          height: $toolbar-left-button-size !important;
+        }
+      }
+
+      #trustboundary-button {
+        border-radius: $border-radius;
+        cursor: pointer;
+        background-color: $light-gray-background;
+      }
+
+      #interactor-button:hover {
+        background-color: $orange-shape-highlight;
+      }
+
+      #process-button:hover {
+        background-image: url('../../assets/process-highlight.png');
+        background-color: $green-shape-highlight;
+      }
+
+      #datastore-button:hover {
+        background-image: url('../../assets/datastore-highlight.png');
+        background-color: $blue-shape-highlight;
+      }
+
+      #dataflow-button-image:hover, .data-flow-toggle {
+        filter: invert(28%) sepia(0%) saturate(249%) hue-rotate(158deg) brightness(81%) contrast(86%) drop-shadow(0 0 5px rgba(0, 0, 0, 0.55));
+      }
+
+      #trustboundary-button:hover, .boundary-toggle {
+        background-color: $button-active !important;
+      }
+    }
+  }
+}
+
+.drag-drop-stage-container {
+  margin-top: $toolbar-top-height;
+  height: $drawing-stage-width;
+  width: 100vw;
+}
+
+.drag-drop-stage-to-top {
+  position: absolute;
+  z-index: $above-drawing-stage-z-index;
+}

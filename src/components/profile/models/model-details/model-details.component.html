@@ -1,0 +1,92 @@
+<div class="details-wrapper">
+  <img [src]="model.screenshot" alt="Screenshot" class="screenshot">
+  <div class="info-wrapper">
+    <div class="info">
+      <p id="name">{{model.name ? model.name : "Missing Name"}}</p>
+      <p id="summary">{{model.summary ? model.summary : "Missing Summary"}}</p>
+      <div class="date-wrapper">
+        <span class="created-at">
+          <img alt="created" src="../../../../assets/released.svg" title="Created">
+          <span>{{convertDateStringToDate(model.date)}}</span>
+        </span>
+        <span *ngIf="model.editedDate" class="edited-at">
+          <img alt="created" src="../../../../assets/edit.svg" title="Last Edited">
+          <span>{{convertDateStringToDate(model.editedDate)}}</span>
+       </span>
+        <span class="owner">
+          <img alt="created" src="../../../../assets/profile.png" title="Owner">
+          <span>{{model.owner}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="download-wrapper">
+      <button class="download" (click)="downloadModel()">
+        <img src="../../../../assets/download.svg" alt="Download">
+      </button>
+    </div>
+  </div>
+  <div class="project-info-wrapper">
+    <div class="no-projects-available" *ngIf="!model.projectID && !(existingProjects$ | async).length">
+        You are currently not part of any projects. Create a project to link your models!
+    </div>
+    <div class="project-link-wrapper project-is-not-linked" *ngIf="!model.projectID && (existingProjects$ | async).length">
+      <div class="select-option" *ngIf="!model.projectID">
+        <select [(ngModel)]="idOfProjectSupposedToBeLinkedToModel"
+                id="projectLink"
+                name="projectLink">
+          <option hidden selected value="">Select Project</option>
+          <option *ngFor="let project of (existingProjects$ | async)"
+                  value="{{project.projectID}}">{{project.title}}</option>
+        </select>
+      </div>
+      <button class="link-button"
+              title="Link to project"
+              [disabled]="!idOfProjectSupposedToBeLinkedToModel"
+              *ngIf="!model.projectID"
+              (click)="handleProjectLink()">
+        <img src="../../../../assets/link.svg" alt="Link">
+      </button>
+    </div>
+    <div class="project-link-wrapper project-is-linked" *ngIf="model.projectID && project && (existingProjects$ | async).length">
+      <div class="select-option" *ngIf="model.projectID && project">
+        <div class="linked-project">
+          {{project.title}}
+        </div>
+      </div>
+      <button class="link-button"
+              title="Unlink from project"
+              *ngIf="userIsAllowedToUnlinkModel()"
+              (click)="handleProjectLink()">
+        <img src="../../../../assets/unlink.svg" alt="Link">
+      </button>
+      <div class="project-info">
+        <div class="project-title" title="Project title">
+          <img src="../../../../assets/project.svg" alt="Project">
+          <p class="title">
+            |
+          </p>
+        </div>
+        <div class="creation-date" title="Created at">
+          <img src="../../../../assets/released.svg" alt="Project">
+          <p class="title">
+            {{convertDateStringToDate(project.creationDate)}}
+          </p>
+        </div>
+        <div class="owner" title="Owner">
+          <img src="../../../../assets/profile.png" alt="Owner">
+          <p class="name">
+            {{getProjectOwnerName()}}
+          </p>
+        </div>
+        <div class="collaborators" [title]="getCollaboratorNames()">
+          <img src="../../../../assets/network.svg" alt="C">
+          <p class="collaborator-count">
+            {{project.collaborators.length}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="deleteModel()" *ngIf="userCanDeleteModel()" class="delete-button">
+  </button>
+</div>

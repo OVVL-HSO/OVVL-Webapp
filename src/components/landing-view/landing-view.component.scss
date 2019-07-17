@@ -1,0 +1,125 @@
+@import "../../theme/general";
+@import "../../theme/variables";
+@import "../../theme/styles/modal";
+
+.landing-wrapper {
+  background: linear-gradient(135deg, $light-gray-background 0%, $search-list-background 100%);
+  display: flex;
+
+  .logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    #logo, #logo-hover {
+      width: 60%;
+      margin-bottom: 2vh;
+    }
+
+    #title {
+      width: 60%;
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 15vh;
+    flex-grow: 1;
+
+    button {
+      border: 0;
+      border-radius: $large-button-border-radius;
+      height: 26vh;
+      width: 30vw;
+      margin: 2vh 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transform: $button-default-scale;
+      transition: $button-transition;
+
+      div {
+        margin: 2vh;
+        overflow-wrap: normal;
+        font-weight: bold;
+      }
+
+      .icon {
+        flex-grow: 1;
+        height: 100%;
+        width: auto;
+        display: flex;
+        align-items: center;
+      }
+
+      .text {
+        font-size: 2vw;
+        text-wrap: normal;
+        flex-grow: 1;
+      }
+    }
+
+    .gradient-button {
+      padding: 0.5rem 1rem;
+      overflow: hidden;
+    }
+
+    .gradient-button::before {
+      --size: 0;
+      content: '';
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--size);
+      height: var(--size);
+      background: radial-gradient(circle closest-side, rgba($green-border, .2), transparent);
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease;
+    }
+
+    .gradient-button:hover::before {
+      --size: 25vw;
+    }
+
+
+    #new-model {
+      background: $green-shape-highlight;
+      color: $green-content;
+    }
+
+    #open-model {
+      cursor: default;
+      opacity: 0.5;
+      background: $blue-shape;
+      color: $blue-content;
+    }
+
+    #view-guide {
+      cursor: default;
+      opacity: 0.5;
+      background: $orange-shape;
+      color: $orange-content;
+    }
+
+    #new-model:hover {
+      transform: $button-hover-scale;
+      transition: $button-transition;
+      background: $green-shape-highlight;
+      color: $green-content;
+      box-shadow: $large-button-box-shadow;
+    }
+
+    /*    #open-model:hover {
+          background: $blue-shape-highlight;
+          color: $blue-content;
+        }
+
+        #view-guide:hover {
+          background: $orange-shape-highlight;
+          color: $orange-content;
+        }*/
+  }
+}

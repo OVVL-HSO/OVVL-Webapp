@@ -1,0 +1,135 @@
+@import "../../../theme/general";
+@import "../../../theme/variables";
+@import "../../../theme/styles/recurring-elements/select-element";
+@import "../../../theme/styles/animations/tracking-in-expand";
+@import "../../../theme/styles/recurring-elements/textarea";
+
+.feedback-wrapper {
+  padding: $element-spacing * 4;
+  height: $base-modal-height * 0.84;
+
+  .general {
+    margin-bottom: 3vmin;
+    color: $textcolor;
+    text-align: left;
+
+    .title {
+      margin-top: 1vmin;
+      margin-bottom: 2vmin;
+      font-size: 2.5vmin;
+      font-weight: bold;
+    }
+
+    .text {
+      font-size: 1.8vmin;
+      margin-bottom: 1vmin;
+    }
+
+    .info {
+      font-size: 1.5vmin;
+      font-style: italic;
+    }
+  }
+
+  .select-option {
+    margin: 2.5vmin 0;
+    padding-right: 0;
+  }
+
+  .button-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: $element-spacing * 5;
+
+    button {
+      margin-top: 1.6vmin;
+      padding: .7vmin 1.5vmin;
+      background: transparent;
+      font-size: 2.5vmin;
+      cursor: pointer;
+      color: $textcolor;
+      border: 1px solid $textcolor;
+      border-radius: $border-radius;
+      transition: $button-small-transition;
+
+      &:hover {
+        transform: $button-hover-small-scale;
+      }
+
+      &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .feedback-sent {
+    display: none;
+    position: relative;
+    height: 100%;
+
+    p {
+      color: $textcolor;
+      font-size: 2.5vmin;
+    }
+
+    .notify {
+      font-size: 2vmin;
+      font-style: italic;
+      margin-top: 0;
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    top: 2.5vmin;
+    right: 2.5vmin;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: $button-small-transition;
+
+    &:hover {
+      transform: $button-hover-small-scale;
+    }
+
+    img {
+      height: 3.5vmin;
+      filter: $black-to-white-filter;
+    }
+  }
+
+  &.success {
+    height: auto;
+    align-items: center;
+
+    .feedback-sent {
+      display: flex;
+      flex-direction: column;
+      -webkit-animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+      animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1.5vmin;
+      right: 1vmin;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: $button-small-transition;
+
+      &:hover {
+        transform: $button-hover-small-scale;
+      }
+
+      img {
+        height: 2.5vmin;
+      }
+    }
+  }
+}

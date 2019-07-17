@@ -1,0 +1,16 @@
+<div *ngIf="alert" class="leave-alert">
+  <div class="title">
+    Are you sure you want to load the model '{{alert.modelTitle}}'?
+  </div>
+  <div class="summary">
+    Any unsaved work will be deleted and you will be returned to your workspace.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="loadModel()" class="leave-button">
+      Load
+    </button>
+    <button (click)="close()" class="cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>

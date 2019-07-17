@@ -1,0 +1,37 @@
+@import "../../../../theme/styles/options/options";
+@import "../../../../theme/styles/recurring-elements/spinner";
+
+.search-cpe {
+  position: relative;
+
+  input, button {
+    border-radius: $border-radius;
+  }
+
+  input {
+    box-sizing: border-box;
+    padding: 0 $element-spacing * 3 0 $element-spacing;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  button {
+    cursor: pointer;
+    position: absolute;
+    height: $element-size;
+    top: $element-spacing * 2;
+    right: $element-spacing * 2;
+    bottom: 0;
+    border: 0;
+    background: transparent;
+
+    img {
+      height: $element-size / 2;
+      width: $element-size / 2;
+    }
+  }
+}
+
+
+

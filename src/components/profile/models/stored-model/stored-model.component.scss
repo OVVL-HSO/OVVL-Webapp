@@ -1,0 +1,46 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/general";
+@import "../../../../theme/styles/profile/profile-list-item";
+
+.list-item {
+  .screenshot-wrapper {
+    flex: 22vmin;
+    display: flex;
+  }
+
+  .project-info {
+    flex: 0 0 10vmin;
+  }
+
+  .screenshot-wrapper {
+    .screenshot {
+      margin-right: 5vmin;
+      border-radius: $border-radius;
+      height: 13vmin;
+    }
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 5vmin;
+      filter: $black-to-button-active-filter;
+      margin-bottom: 1vmin;
+    }
+
+    span {
+      text-align: center;
+
+      &.project-linked {
+        font-size: 1.5vmin;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 10vmin;
+      }
+    }
+  }
+}

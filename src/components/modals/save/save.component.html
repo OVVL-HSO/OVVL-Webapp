@@ -1,0 +1,30 @@
+<div class="save-wrapper">
+  <img [src]="screenshot" alt="Screenshot">
+  <div class="info-container">
+    <div class="select-option">
+      <input [(ngModel)]="modelStorageData.name" placeholder="Enter model name" type="text">
+    </div>
+    <div class="select-option">
+      <select *ngIf="(existingProjects$ | async).length"
+              [(ngModel)]="modelStorageData.projectID"
+              id="projectLink"
+              name="projectLink">
+        <option hidden selected value="">Select Project</option>
+        <option *ngFor="let project of (existingProjects$ | async)"
+                value="{{project.projectID}}">{{project.title}}</option>
+      </select>
+    </div>
+    <textarea [(ngModel)]="modelStorageData.summary" class="select-option" placeholder="Enter description"
+              type="text"></textarea>
+  </div>
+  <div class="hint">
+    Your can access your stored models in the profile page.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="saveDFDModel()" [disabled]="storageDataContainsAllRequiredInfo()" class="save-button">
+      <span *ngIf="!(saving$ | async)">Save</span>
+      <app-spinner-small *ngIf="saving$ | async" [marginTop]="0"></app-spinner-small>
+    </button>
+    <button (click)="cancel()">Cancel</button>
+  </div>
+</div>

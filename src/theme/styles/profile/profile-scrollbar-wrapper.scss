@@ -1,0 +1,14 @@
+.profile-scrollbar-wrapper {
+  flex: 0 1 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 7vmin;
+
+  perfect-scrollbar {
+    margin: 3vmin 0;
+    .ps {
+      padding: 0 3vmin 0 1vmin;
+    }
+  }
+}

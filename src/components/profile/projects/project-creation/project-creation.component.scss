@@ -1,0 +1,206 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/general";
+@import "../../../../theme/styles/recurring-elements/triangle-buttons";
+@import "../../../../theme/styles/recurring-elements/scrollbar";
+
+.project-creation-wrapper {
+  width: 80vmin;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .triangle-right-button {
+    margin-left: 5vmin;
+  }
+
+  .triangle-left-button {
+    margin-right: 5vmin;
+  }
+
+  .triangle-right-button, .triangle-left-button {
+    width: 5vmin;
+
+    button {
+      img {
+        height: 5vmin;
+      }
+
+      &[disabled] {
+        opacity: 0.4;
+        cursor: default;
+        transform: none;
+      }
+    }
+  }
+
+  .completion-button-wrapper {
+    width: 10vmin;
+    margin-left: 5vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+      background: $search-list-background;
+      border: 0;
+      border-radius: $border-radius;
+      cursor: pointer;
+      padding: 1vmin;
+      color: $textcolor;
+      font-size: 2vmin;
+      height: 4vmin;
+      margin: 0.5vmin 0;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+  .enter-basic-info, .link-models, .invite-users, .summary {
+    flex: 0 0 60vmin;
+  }
+
+  .call-to-action {
+    .title {
+      font-size: 2.8vmin;
+      color: $textcolor;
+      margin-bottom: 2vmin;
+    }
+
+    .description {
+      font-size: 1.7vmin;
+      color: $button-active;
+    }
+  }
+
+  .enter-basic-info {
+
+    .general {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      input {
+        margin-bottom: 0;
+        margin-top: 1vmin;
+        border-radius: $border-radius;
+        background-color: $search-list-background;
+        color: $textcolor;
+        width: 52vmin;
+        height: 5vmin;
+        text-align: center;
+        font-size: 2.5vmin;
+        border: 0;
+        padding: 1vmin;
+      }
+
+      textarea {
+        background-color: $search-list-background;
+        width: 52vmin;
+        height: 10vmin;
+        resize: none;
+        border-radius: $border-radius;
+        border: 0;
+        color: $button-active;
+        margin-top: 2vmin;
+        text-align: center;
+        padding: 1vmin;
+      }
+    }
+  }
+
+  .invite-users {
+    .search-user {
+      display: flex;
+      margin: 3vmin 0 1vmin 0;
+
+      input, button {
+        border-radius: $border-radius;
+        background-color: $search-list-background;
+        height: 5vmin;
+        font-size: 2vmin;
+        text-align: center;
+        border: 0;
+      }
+
+      input {
+        margin-right: 2vmin;
+        width: 30vmin;
+        color: $textcolor;
+      }
+
+      button {
+        height: 5vmin;
+        width: 10vmin;
+        border-radius: $border-radius;
+        cursor: pointer;
+        padding: 1vmin;
+        color: $button-active;
+
+        &:hover {
+          background: $popup-button-background;
+          transform: scale(1.02);
+        }
+      }
+    }
+
+    .error-field {
+      margin: 1vmin 0 1.5vmin 0;
+      width: 100%;
+      font-size: 1.5vmin;
+      text-align: left;
+      height: 1.5vmin;
+      color: $button-active;
+    }
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: row;
+
+    app-user-invite-list, app-project-model-list {
+      margin: 2vmin 0;
+    }
+
+    .info-wrapper {
+      border: 2px solid $button-active;
+      border-radius: $border-radius;
+      padding: 2vmin;
+      display: flex;
+      flex-direction: column;
+      box-shadow: $float-button-box-shadow;
+      width: 100%;
+
+      .main-info {
+        display: flex;
+        align-items: center;
+
+        .info-text {
+          margin-bottom: 1vmin;
+          flex: 0 0 85%;
+
+          p {
+            max-width: 50vmin;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        img {
+          flex: 0 0 10%;
+          height: 5vmin;
+          filter: $black-to-button-active-filter;
+          margin-right: 3vmin;
+        }
+      }
+
+      .model-list, .user-list {
+        margin: 1vmin 0;
+      }
+    }
+  }
+
+}

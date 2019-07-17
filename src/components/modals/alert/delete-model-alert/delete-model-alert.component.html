@@ -1,0 +1,20 @@
+<div class="leave-alert">
+  <div class="title">
+    Are you sure you want to delete the model '{{alert.modelTitle}}'?
+  </div>
+  <div *ngIf="!alert.projectTitle" class="summary">
+    You won't be able to restore it later.
+  </div>
+  <div *ngIf="alert.projectTitle" class="summary">
+    The model will be removed from the project '<span>{{alert.projectTitle}}</span>' and won't be
+    accessible to its members anymore.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="deleteModel()" class="leave-button">
+      Delete
+    </button>
+    <button (click)="close()" class="cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>

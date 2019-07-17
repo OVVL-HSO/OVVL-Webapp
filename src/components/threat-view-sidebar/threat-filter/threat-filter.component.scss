@@ -1,0 +1,50 @@
+@import "../../../theme/variables";
+@import "../../../theme/styles/slider";
+@import "../../../theme/styles/filter";
+
+.stride-filter, .priority-filter {
+  height: 10vmin;
+  width: 100%;
+  background: 0;
+}
+
+.stride-filter {
+  padding: 1vmin 0 0.5vmin 0;
+}
+
+.applicable-filter {
+  padding-bottom: 0.5vmin;
+}
+
+.stride-types, .applicable-types {
+  display: flex;
+  flex-wrap: wrap;
+
+  .filter-button {
+    flex: 1 1 $threat-sidebar-width * 0.3;
+    color: $textcolor;
+    background: $light-gray-background;
+    border-radius: $border-radius;
+    opacity: 0.3;
+    box-sizing: border-box;
+    margin: $threat-sidebar-width * 0.007 $threat-sidebar-width * 0.016666;
+    font-size: 1vmin;
+    height: $filter-button-height;
+    cursor: pointer;
+  }
+
+  .filter-button.selected {
+    opacity: 1;
+  }
+
+  .filter-button:hover {
+  }
+}
+
+
+.priority-filter {
+  height: 10vmin;
+  width: 100%;
+  padding: 0 $threat-sidebar-width * 0.03;
+  box-sizing: border-box;
+}

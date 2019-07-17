@@ -1,0 +1,467 @@
+[33mcommit 369c4a709125be8d89965643a60e4f1a140a9d47[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 18:08:36 2019 +0100
+
+    Clipping out elements from the overlay when clicking on the respective threat
+
+[33mcommit 8848d4375a3eca75cf1995acc9cc70dae806c16d[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 16:49:27 2019 +0100
+
+    Collecting threats and affected elements in the threat view sidebar
+
+[33mcommit 794259d04af7fcdea89eaacf6cbbe6627433fb0c[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 16:15:00 2019 +0100
+
+    Added and styled collapsible elements to show found threats
+
+[33mcommit 4aba350e2cfbf0e05b0f8b115029daf785f56071[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 15:10:45 2019 +0100
+
+    Added and styled sidebar threat-element view toggle
+
+[33mcommit d5a2671ac73503fd51e2dfb36ce17b598e2ca2fb[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 14:40:43 2019 +0100
+
+    Implemented DFD analysis
+
+[33mcommit 1990551ed7a5ad0e1c1e3b08b984800091ab3c2b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 14:10:02 2019 +0100
+
+    Fixed issue with drawing stage positioning after placing top toolbar above the other components
+
+[33mcommit dbdf4e108329b015f8a447e69f8fcf52eb0b80ec[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 13:58:31 2019 +0100
+
+    Background styling of threat sidebar and added box shadows to the toolbars
+
+[33mcommit c33a2769e90fd68a151f8e3873ad41a8f400f844[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 13:39:50 2019 +0100
+
+    Generated threatViewSidebar component
+
+[33mcommit 43afd36cbb57cff2f585b4d6c9bebb933389d94b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 13:38:13 2019 +0100
+
+    Elements are now only draggable and editable in the design view
+
+[33mcommit fbb09c0b0dc1916ba6aab96cb62a41bc8fce1f99[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 13:12:48 2019 +0100
+
+    Removing left toolbar on view change
+
+[33mcommit a62ef0b2d3bbb1ae973c556f1f8112b72750f683[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 13:10:16 2019 +0100
+
+    Moving drawing board on view switch
+
+[33mcommit 6605619ef0414444793f09c72ce7e66d8d39b067[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 10:56:16 2019 +0100
+
+    Clicking the analysis button now dispatches the change view action
+
+[33mcommit 2403af891581fdb5e2eabda703e679c91f3557cc[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Thu Jan 17 10:47:08 2019 +0100
+
+    Added view reducer and actions
+
+[33mcommit 9253a77b90ed6a5f03b8b5d332fe9676240e33cd[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 18:41:49 2019 +0100
+
+    Added name to DataFlow
+
+[33mcommit 5fc3c99567c71d7d8ead6fe620ff890979d648d9[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 18:12:07 2019 +0100
+
+    Dataflow tips are now drawn all the way aroung
+
+[33mcommit a759b87d4bcd6f2d5cb1a136386fc15bfa99b886[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 17:51:10 2019 +0100
+
+    Added dataflow tip for one half of the possible movement
+
+[33mcommit 4dc6e0f1c19063a711c04a3cfb572d250b4ba6dc[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 16:54:27 2019 +0100
+
+    Added text below the elements. Limiting element names to 10 characters
+
+[33mcommit 45eebe38971bb3b23d77f00b8d718272c77f6c75[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 16:40:21 2019 +0100
+
+    Added generic options to all elements
+
+[33mcommit 80fd43919a31852da355aa0accfe22369d67200d[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 16:13:42 2019 +0100
+
+    Added genericOptions to interactor options
+
+[33mcommit a29f50a97f57ed3d1165460646825552b03da8e6[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 15:10:40 2019 +0100
+
+    Added action and reducer logic to update dataflows
+
+[33mcommit e4f1663bbadd7276343ddb539da43bb9e5ffcd79[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 15:07:13 2019 +0100
+
+    Removed dataflow component and added all logic to the dfdcomponent to keep all drawings on the samelayer
+
+[33mcommit 907a69c058105667863fb5fa77ccc16ff0bf9cae[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 14:44:55 2019 +0100
+
+    All elements now have basic options
+
+[33mcommit c156b5f11f002434a98748963d40a4bb79000d67[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 14:21:47 2019 +0100
+
+    Added components for all element options
+
+[33mcommit 3b1cf3e816fd605a1b0be77f49da61eef41ca8a2[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 14:09:32 2019 +0100
+
+    Added save and close button in interactor options
+
+[33mcommit 26860a403d324e2e6509e7f7904f94f183caad43[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 13:57:24 2019 +0100
+
+    Added the main options for interactor
+
+[33mcommit cdf2e7b9fda2d1059512eafd8893dfab7520f559[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 13:18:22 2019 +0100
+
+    Styled options sidebar and title
+
+[33mcommit 98a300ce80f82f4da5b7308a78816abfef2a8756[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 12:27:23 2019 +0100
+
+    Changed options component to interactor component, so each element has its own options separately
+
+[33mcommit a56dfcadd8672973e3878fe26b09046b83ea5761[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 12:17:20 2019 +0100
+
+    Created options component
+
+[33mcommit 82b7ad94a0454df48ce1c1369ef5545bcac5c5b6[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 12:12:56 2019 +0100
+
+    Styled options modal container
+
+[33mcommit 5fc0e276d23dd1bc51dab9392a5c5ea9d1fec96f[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 11:59:59 2019 +0100
+
+    Now opening options window when double clicking an element. It knows about the clicked element
+
+[33mcommit 36f19ae213c8e8ec2b942aea0a83bc8eff09fba1[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 11:36:53 2019 +0100
+
+    Added modal and dom service to add options modal later
+
+[33mcommit 28cfb8fc59df0287523738011f727da97ae1116a[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 11:25:23 2019 +0100
+
+    Changing dataflow color on toggle
+
+[33mcommit eca59d20db0719b7da3ff23c2c4e987bd23539f8[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Wed Jan 16 11:15:25 2019 +0100
+
+    Placed elements now also show their picture
+
+[33mcommit d2ef735afe60dc4fa47a93dc3fec6f4a551be815[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 19:11:44 2019 +0100
+
+    All Drag&drop elments now include their respective image
+
+[33mcommit 6acd4b2cf956ae76478678283287f5749c031ec0[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 17:31:16 2019 +0100
+
+    Element images follows the interactor shape on drag & drop
+
+[33mcommit 1b4f952a753f691df440519bebd6397db31193e1[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 16:55:16 2019 +0100
+
+    Added images and to the html elements
+
+[33mcommit 3a95ffddcf583f25379612ae8b27a02ad4a322d1[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 15:56:52 2019 +0100
+
+    Updating dataflow positions on elemnt dragging, implemented ngrx effects
+
+[33mcommit caa4344bbb0cf01cf41e9321321e261418de39af[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 13:09:26 2019 +0100
+
+    Dataflows are now drawn as a rectangle, with the tip still missing
+
+[33mcommit ae96dfeb1328829f95437c63cacbf432f6249b1e[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Tue Jan 15 12:05:18 2019 +0100
+
+    Now drawing dataflows as arrows
+
+[33mcommit caf1a76e3c7ee8aae8f8fd0839ca46c00c3e468b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 16:20:01 2019 +0100
+
+    Refactoring of data flow service
+
+[33mcommit f71a71bf70ccd7fdfc8049476d0c174baef87547[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 16:17:56 2019 +0100
+
+    Highlighted elements now get reset correctly when the drawingboard is clicked during data flow drawing
+
+[33mcommit f630d16475a8f1dfa11d669cb46666dae7983fa7[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 16:09:17 2019 +0100
+
+    Free drawing now symbolizes the actual connection happening.
+
+[33mcommit a5c7fb726dfbdfbbe499d28c4b3aeb933a24fb7a[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 15:06:39 2019 +0100
+
+    DataFlow service now allows for free drawing
+
+[33mcommit 70a97f62edade7a488ea758dacd24b5142243816[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 14:27:20 2019 +0100
+
+    Refactored event listener on the shapes
+
+[33mcommit 11ef58bb1fbf5ae0856ac8875d9b552a60bd5069[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 14:02:07 2019 +0100
+
+    Elements can now be connected
+
+[33mcommit 198271b364315ca1183c28a814e4a49679ff4e60[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 13:48:42 2019 +0100
+
+    When clicked while dataflowdrawing is active, interactors toggle their highlighting
+
+[33mcommit b51488b4f8d1d6b1432be2d34c5afc3ea90510f7[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 13:38:59 2019 +0100
+
+    Changed way elements are highlighted on hover. Added Dataflow service to manage dataflow drawing later
+
+[33mcommit ad8f2de988027d3de1a6d27ca49d17684a986647[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 12:34:22 2019 +0100
+
+    DataFlow drawing can now be toggled. When active, elements cannot be dragged anymore
+
+[33mcommit 900383a5bf858f52251b0e3e9af8bfc347584ede[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 14 12:18:45 2019 +0100
+
+    Created DataFlow action, reducer and model. Added additional properties in all element models
+
+[33mcommit eefb84d769561b550a3910b67758000e2d24a752[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 17:12:35 2019 +0100
+
+    Created dataflow component
+
+[33mcommit a02679dd1fc290f786bf5794457b53a2807457e7[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 15:42:57 2019 +0100
+
+    Added update actions and reducers for elements. Shapes can now be moved
+
+[33mcommit 697ba4ad4ae5753711a75d645af8bf32fd4cbd4e[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 15:07:47 2019 +0100
+
+    Removed unused layer
+
+[33mcommit 1894f3a7794c956b6e1a1cdbc97fc6f460cf9591[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 15:05:01 2019 +0100
+
+    Removed stroke from shapes
+
+[33mcommit 75d8cf344c477d1f2ee4fc6cdce3d29c94cc227a[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 15:03:24 2019 +0100
+
+    Buttons aren't highlighted anymore on focus
+
+[33mcommit 6f2da0390058767c3e1994862f7e9b4b384d2b6e[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 15:02:12 2019 +0100
+
+    Dropped elements are now placed taking the toolbar offset into account
+
+[33mcommit 09eb4ac1c18f2346c180740c81647b0d2a6d7d94[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 14:58:47 2019 +0100
+
+    The drawing board can now be zoomed
+
+[33mcommit bc7331b7fd70cfa74f755de5e3bba3c7f835b66e[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 14:52:32 2019 +0100
+
+    Drag and drop elements are now placed correctly depending on window size
+
+[33mcommit 8a3a9aaaef13d5b820454fb2e50cc1cb72ec6e34[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sun Jan 13 14:03:55 2019 +0100
+
+    Elements are now highlighted on hover
+
+[33mcommit 8ece6826d833ad14b8765e4eeef35890c2c0efe6[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 18:06:37 2019 +0100
+
+    Saving elements with an offset position for correct placement
+
+[33mcommit c1ebee2649eeeb8e5b2608267e05230da8facdfa[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 17:57:53 2019 +0100
+
+    Combined the element components to one single components, which now displays all added elements.
+
+[33mcommit 061d3435aed0294e6c8cd5b4a120a5a4642a364c[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 17:15:14 2019 +0100
+
+    Created datastore, process and interactor components
+
+[33mcommit 065e89f6778ac92cbf12f3621f017e9f9e985b4d[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 17:01:11 2019 +0100
+
+    Toolbar elements can now be draggend after generating them
+
+[33mcommit 991bfdc7a2ed4c2f20311b80de28399e829044bf[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 16:29:40 2019 +0100
+
+    Updated angular to version 7
+
+[33mcommit cb44038665e4f4e96cd4bdca159ce60486983e23[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 16:20:12 2019 +0100
+
+    Added state definition, reducers and actions for interactors, processes and datastores
+
+[33mcommit d81c2c0253b2454a9510631f06e4b14e56bd2c3b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 16:10:37 2019 +0100
+
+    Added ngrx store and devtools
+
+[33mcommit 2ac024ddb247e2d390ad7605840533f8e1b3601b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 15:29:31 2019 +0100
+
+    Reversed mainStage creation and passing. Now a DragDropStage is created in the toolbar itself. When a button is pressed, the respective element is drawn.
+
+[33mcommit 1904d10d210abadff87907742b81aa6f37ab1ed5[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 13:26:41 2019 +0100
+
+    Made mainDrawingStage invisible initially, so the buttons can be interacted with
+
+[33mcommit f8c104cec3c2a0bd70fba576588239ae6c63bc2c[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 13:18:43 2019 +0100
+
+    Added main stage to handled drag and drop, passing it to the left toolbar where a drawing layer is added
+
+[33mcommit 0156c06ab8acfeeaaa7735de800245d6f9d25046[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 13:03:58 2019 +0100
+
+    Added Konva
+
+[33mcommit 65adf163741b3647956b56804fe3fbe9a307dec5[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Sat Jan 12 12:58:40 2019 +0100
+
+    Changed style so toolbars are a little smaller, adderd font
+
+[33mcommit 625261880573c0ed7c1e182cf6e82b147cedb703[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 15:53:20 2019 +0100
+
+    Styled top toolbar
+
+[33mcommit 5e6f21a8a47a628a0c9b4c45944b757c2867f17c[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 15:23:03 2019 +0100
+
+    Added and styled sidebar buttons
+
+[33mcommit e1e1c0e69b9333afc34b8181183e7a8fb4e81566[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 14:45:03 2019 +0100
+
+    Styled drawing board component
+
+[33mcommit afb589ca9a933cc12ead64bacb009a3f2618416b[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 14:29:33 2019 +0100
+
+    Added drawing board component
+
+[33mcommit 5baa280b8066a338acf9646d927180a7522bde70[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 14:28:54 2019 +0100
+
+    Styled sidebar
+
+[33mcommit efa3cd200ab3d1126b20b0f8737d166ca614e043[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 14:25:48 2019 +0100
+
+    Added side toolbar
+
+[33mcommit ee353efb22d6ec1d33ec6197ce0234d9abd6cca1[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 14:23:15 2019 +0100
+
+    Added main container and top toolbar. Removed default body margin
+
+[33mcommit d1ac8d831c304afa59b05328c8c7506cd71847a3[m
+Author: Tobi <tobias.reski@gmail.com>
+Date:   Mon Jan 7 13:34:20 2019 +0100
+
+    initial commit, generic angular application

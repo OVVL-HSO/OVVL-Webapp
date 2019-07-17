@@ -1,0 +1,74 @@
+@import "../../../theme/styles/recurring-elements/collapsible-button";
+@import "../../../theme/styles/slider";
+@import "../../../theme/variables";
+
+.threat-info {
+  padding: 1.5vmin;
+  background: $button-unfolded;
+}
+
+.threat-adjust {
+  width: 100%;
+
+  .applicable-wrapper, .priority-wrapper {
+    padding: 1.5vmin;
+    display: flex;
+  }
+
+  .applicable-wrapper {
+    .applicable-button {
+      border-radius: $border-radius;
+      height: $filter-button-height;
+      background: $light-gray-background;
+      color: $top-toolbar-background;
+      opacity: 0.6;
+      border: 0;
+      cursor: pointer;
+      flex: 1 0 33%;
+      font-size: 1vmin;
+    }
+
+    .applicable-button:hover {
+      opacity: 1;
+    }
+
+    .applicable-button.selected {
+      opacity: 1;
+      background: $sidebar-background;
+      color: $button-active;
+    }
+
+    .left {
+      margin-right: .2vmin;
+    }
+
+    .center {
+      margin: 0 .2vmin;
+    }
+
+    .right {
+      margin-left: .2vmin;
+    }
+  }
+
+  .priority-wrapper {
+    padding-top: 0.5vmin;
+
+    p {
+      flex: 1 1 10%;
+      font-weight: bold;
+    }
+
+    .priority-slider-2 {
+      flex: 1 1 90%;
+      padding-left: 1.5vmin;
+      margin-top: -0.3vmin;
+    }
+  }
+}
+
+.title {
+  font-size: 1.5vmin;
+  font-weight: bold;
+  margin-bottom: 0.8vmin;
+}

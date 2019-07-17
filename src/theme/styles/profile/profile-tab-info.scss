@@ -1,0 +1,46 @@
+@import "../../variables";
+
+.no-items {
+  width: 37vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .greeting {
+    font-size: 3vmin;
+    margin-bottom: 3vmin;
+  }
+
+  .info {
+    font-size: 1.7vmin;
+    margin-bottom: 4.5vmin;
+  }
+
+  img {
+    height: 12vmin;
+    filter: invert(98%) sepia(0%) saturate(453%) hue-rotate(266deg) brightness(119%) contrast(100%);
+  }
+
+  p {
+    text-align: center;
+    color: white;
+  }
+
+  button {
+    box-sizing: border-box;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    height: 6vmin;
+    width: 21vmin;
+    font-size: 2vmin;
+    align-items: center;
+    padding: 1vmin 1.5vmin;
+    background: $top-toolbar-background;
+    border-radius: $border-radius;
+    &:hover {
+      background: $search-list-background;
+    }
+  }
+}

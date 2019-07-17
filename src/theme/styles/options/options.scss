@@ -1,0 +1,177 @@
+@import "../../variables";
+@import "../../general";
+@import "../recurring-elements/select-element";
+@import "../recurring-elements/scrollbar";
+@import "../recurring-elements/delete-button";
+
+.option-modal-wrapper {
+  height: 100%;
+  display: flex;
+
+  .main-container {
+    padding: $element-spacing * 4;
+    width: 100%;
+
+    .options-wrapper {
+      height: 90%;
+      display: flex;
+
+      .section-wrapper-left, .section-wrapper-right {
+        flex: 1 1 40%;
+        padding: $element-spacing;
+      }
+
+      .section-wrapper-left {
+        margin-right: $element-spacing / 2;
+
+        .summary-wrapper {
+          display: flex;
+          align-items: center;
+
+          button {
+            width: $option-modal-title-size;
+            height: $option-modal-title-size;
+            background-color: transparent;
+            border-radius: 50%;
+            border: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 70%;
+          }
+
+          p {
+            color: $textcolor;
+            margin: 0 0 0 $element-spacing * 2;
+            font-size: 2.5vmin;
+            word-wrap: break-word;
+            width: 20vmin;
+          }
+
+          .interactor-button {
+            background-color: $orange-shape;
+            background-image: url('/assets/interactor-normal.png');
+          }
+
+          .process-button {
+            background-color: $green-shape;
+            background-image: url('/assets/process-normal.png');
+          }
+
+          .data-store-button {
+            background-color: $blue-shape;
+            background-image: url('/assets/datastore-normal.png');
+          }
+
+          .data-flow-button {
+            background-image: url('/assets/dfIcon.png');
+            background-size: 75%;
+            width: 9vmin;
+            height: 9vmin;
+          }
+
+          .trust-boundary-button {
+            border-radius: $border-radius;
+            background-color: $button-active;
+          }
+        }
+      }
+
+      .section-wrapper-right {
+        margin-left: $element-spacing / 2;
+      }
+    }
+
+    .update-wrapper {
+      display: flex;
+      box-sizing: border-box;
+      min-height: 10%;
+      max-height: 10%;
+
+      .delete-container, .save-close-container {
+        flex: 1 1 40%;
+        padding: $element-spacing;
+      }
+
+      .save-close-container {
+        margin-left: $element-spacing / 2;
+      }
+
+      .delete-container {
+        display: flex;
+        align-items: center;
+        margin-right: $element-spacing / 2;
+        text-align: left;
+
+        button {
+          cursor: pointer;
+          border-radius: $border-radius;
+          font-size: 2vmin;
+        }
+
+        .confirm-delete {
+          border: 2px solid $button-unfolded;
+          color: $button-unfolded;
+          border-radius: $border-radius;
+          height: $option-modal-title-size * 0.5;
+          background: transparent;
+          margin-left: 0.8vmin;
+        }
+
+        .confirm-delete:hover {
+          border: 2px solid $button-active;
+          color: $button-active;
+          transform: $button-hover-scale;
+        }
+
+        .delete-button {
+          width: $option-modal-title-size * 0.6;
+          height: $option-modal-title-size * 0.6;
+        }
+
+      }
+
+      .save-close-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-right: $element-spacing * 1.5;
+
+        button {
+          cursor: pointer;
+          flex: 1 0 40%;
+          font-size: 2.5vmin;
+          height: $option-modal-title-size * 0.5;
+          background: $button-active;
+          border: 0;
+          border-radius: $border-radius;
+          color: $popup-button-background;
+        }
+
+        button:hover {
+          cursor: pointer;
+          background: $button-unfolded;
+        }
+
+        #save-button {
+          margin-right: $element-spacing / 2;
+        }
+
+        #close-button {
+          margin-left: $element-spacing / 2;
+        }
+      }
+    }
+  }
+
+  .main-container.cpe-shown {
+    padding-right: 0;
+  }
+
+  .cpe-wrapper {
+    box-sizing: border-box;
+    height: 100%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+

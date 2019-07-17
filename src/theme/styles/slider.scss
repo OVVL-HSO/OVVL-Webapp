@@ -1,0 +1,142 @@
+@import "../variables";
+@import "../general";
+
+
+::ng-deep {
+
+  .year-selector, .severity-selector {
+    .ng5-slider {
+      margin: 3vmin 0 1vmin 0 !important;
+    }
+
+    .ng5-slider .ng5-slider-bar {
+      background: $light-gray-background;
+      height: 2px;
+    }
+
+    .ng5-slider .ng5-slider-selection {
+      background: $button-active;
+    }
+
+    .ng5-slider .ng5-slider-bubble {
+      color: $button-unfolded !important;
+    }
+
+    .ng5-slider .ng5-slider-bubble.ng5-slider-limit {
+      color: $light-gray-background !important;
+    }
+
+    .ng5-slider .ng5-slider-pointer {
+      cursor: pointer;
+      width: 1.5vmin;
+      height: 1.5vmin;
+      top: -0.75vmin;
+      background-color: $button-unfolded;
+    }
+
+    .ng5-slider .ng5-slider-pointer:after {
+      display: none;
+    }
+
+    .ng5-slider .ng5-slider-bubble {
+      bottom: 14px;
+    }
+
+  }
+}
+
+.priority-slider, .priority-slider-2 {
+  .slider {
+    width: 100%;
+    height: 0.2vmin;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity .2s;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0;
+  }
+
+  button {
+    border: 0;
+    cursor: pointer;
+    height: 1.3vmin;
+    background: transparent;
+  }
+
+  #low, #medium, #high {
+    flex: 1 1 33.333%;
+    text-align: center;
+    font-size: 1.3vmin;
+  }
+
+  #low {
+    text-align: left;
+  }
+
+  #medium {
+    text-align: center;
+  }
+
+  #high {
+    text-align: right;
+  }
+}
+
+.priority-slider {
+  .slider {
+    background: $main-background;
+  }
+
+  .slider::-moz-range-thumb {
+    background: $button-unfolded;
+  }
+
+  .slider-description {
+    display: flex;
+
+    button {
+      color: $main-background;
+    }
+
+    button.selected {
+      color: $button-unfolded-darkened;
+    }
+
+    #low, #medium, #high {
+      margin: 0.8vmin 0 0 0.1vmin;
+    }
+  }
+}
+
+.priority-slider-2 {
+  .slider {
+    background: $light-gray-background;
+  }
+
+  .slider::-moz-range-thumb {
+    background: $sidebar-background;
+  }
+
+  .slider-description {
+    display: flex;
+
+    button {
+      color: $light-gray-background;
+    }
+
+    button.selected {
+      color: $top-toolbar-background;
+    }
+
+    #low, #medium, #high {
+      margin: 0.4vmin 0 0 0.1vmin;
+    }
+  }
+}

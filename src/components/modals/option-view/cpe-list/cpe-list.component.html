@@ -1,0 +1,48 @@
+<div class="search-results">
+  <!--Weird bug, when the spinner is shown, an unstyled scrollbar appears. So we just hide it when CPEs are loading. -->
+  <div *ngIf="foundCPEs.length && !cpeWasPassed" class="cpe-count">
+    <p>{{displayedCPEs.length.toString()}} CPEs displayed.</p>
+  </div>
+  <div *ngIf="foundCPEs.length && !cpeWasPassed" class="cpe-search">
+    <input (ngModelChange)="setSearchFilter($event)"
+           [(ngModel)]="keywordFilter"
+           placeholder="Exclude keywords..."
+           type="text">
+  </div>
+  <perfect-scrollbar class="perfect-scrollbar"
+                     style="max-width: 100%; max-height: 96%;">
+    <app-spinner-small *ngIf="currentlyLoading$ | async" [marginTop]="30"></app-spinner-small>
+    <div *ngIf="!(currentlyLoading$ | async)">
+      <div *ngIf="!foundCPEs.length && !cpeWasPassed" class="none-found">No CPEs found.</div>
+      <div *ngFor="let cpe of displayedCPEs, trackBy: trackCPEsByFn" class="wrap-collapsible">
+        <div class="collapsible">
+          <button (click)="toggleCPE(cpe)"
+                  [ngClass]="cpe.selected ? 'dropdown-toggled' : ''"
+                  [title]="getCPETitle(cpe)"
+                  class="toggle-button">
+            <img [src]="'../../../../assets/' + getCPEType(cpe) + '.svg'" alt="CPE Type">
+            <span>
+              {{cpe.title}}
+            </span>
+          </button>
+          <div *ngIf="cpe.selected" class="dropdown-data">
+            <div *ngFor="let reference of cpe.references" class="reference">
+              <img alt="info" src="../../../../assets/information.svg">
+              <a href="{{reference.referenceContent}}" target="_blank">{{reference.referenceType}}</a>
+            </div>
+            <button (click)="selectCPE(cpe)"
+                    *ngIf="cpe.id != currentCPE?.id"
+                    class="cpe-button">
+              Add CPE
+            </button>
+            <button (click)="unselectCPE()"
+                    *ngIf="cpe.id == currentCPE?.id"
+                    class="cpe-button">
+              Remove CPE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </perfect-scrollbar>
+</div>

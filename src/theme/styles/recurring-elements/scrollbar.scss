@@ -1,0 +1,31 @@
+@import "../../variables";
+
+// THUMB BAR RAIL
+perfect-scrollbar > .ps.ps--active-y > .ps__rail-y {
+  background-color: transparent !important;
+}
+
+// THUMB BAR RAIL WIDTH
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  width: 11px !important;
+}
+
+// THUMB BAR RAIL WIDTH HOVER
+.ps__rail-y:hover .ps__thumb-y {
+  width: 9px !important;
+}
+
+.selection-wrapper-right {
+  // THUMB BAR ON CLICK AND HOVER
+  .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {
+    background-color: $sidebar-background !important;
+  }
+}
+
+.search-results, .sidebar-wrapper {
+  // THUMB BAR ON CLICK AND HOVER
+  .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {
+    background-color: $button-unfolded !important;
+  }
+}
+

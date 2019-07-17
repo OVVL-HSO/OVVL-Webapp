@@ -1,0 +1,117 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/styles/recurring-elements/collapsible-button";
+
+.search-results {
+  border-radius: $border-radius;
+  margin-left: $element-spacing;
+  padding: $element-spacing;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: $search-list-background;
+
+  .cpe-count {
+    width: 100%;
+    margin-bottom: 0.2vmin;
+    box-sizing: border-box;
+
+    p {
+      text-align: center;
+      color: $button-active;
+      font-size: 1.3vmin;
+      margin: 0;
+    }
+  }
+
+  .cpe-search {
+    padding: 0.5vmin 0;
+
+    input {
+      background: $main-background;
+      border: 0;
+      color: $button-unfolded;
+      height: 2.5vmin;
+      width: 100%;
+      padding-left: 1vmin;
+      border-radius: $border-radius;
+      box-sizing: border-box;
+    }
+  }
+
+  .none-found {
+    color: $textcolor;
+    font-size: 2vmin;
+    height: 100%;
+    width: 100%;
+    margin-top: $base-modal-height / 2.5;
+  }
+
+  .collapsible {
+    margin-top: 1.2vmin;
+
+    .toggle-button {
+      height: auto;
+      padding: 1vmin 1.3vmin;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        flex: 0 0 80%;
+        font-size: 1.6vmin;
+        padding-left: 1.2vmin;
+      }
+
+      img {
+        filter: invert(89%) sepia(2%) saturate(0%) hue-rotate(50deg) brightness(93%) contrast(93%);
+        height: 2.5vmin;
+      }
+
+      &:hover img {
+        filter: invert(39%) sepia(0%) saturate(0%) hue-rotate(236deg) brightness(97%) contrast(89%);
+      }
+
+      &.dropdown-toggled img {
+        filter: invert(33%) sepia(0%) saturate(60%) hue-rotate(162deg) brightness(98%) contrast(83%);
+      }
+    }
+
+    .dropdown-data {
+      padding: 1vmin;
+
+      .reference {
+        display: flex;
+        margin: 0.5vmin 0 1vmin 0;
+
+        img {
+          height: 1.6vmin;
+          flex: 0 0 20%;
+          filter: invert(33%) sepia(0%) saturate(60%) hue-rotate(162deg) brightness(98%) contrast(83%);
+        }
+
+        a {
+          text-align: left;
+          padding-left: 1vmin;
+          flex: 1 1 80%;
+          font-size: 1.6vmin;
+          color: $top-toolbar-background;
+          text-decoration: none;
+        }
+      }
+
+      button {
+        border-radius: $border-radius;
+        background: $search-list-background;
+        cursor: pointer;
+        color: $button-active;
+        padding: 1vmin;
+        border: 0;
+        font-size: 1.5vmin;
+
+        &:hover {
+          color: $textcolor;
+        }
+      }
+    }
+  }
+}
+

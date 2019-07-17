@@ -1,0 +1,140 @@
+@import "../../../theme/general";
+@import "../../../theme/variables";
+
+.sidebar-wrapper {
+  width: $profile-sidebar-width;
+  background: $sidebar-background;
+  height: 100%;
+  box-shadow: $toolbar-left-box-shadow;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+
+  .profile-info {
+    padding: 3.5vmin 3vmin;
+    flex-basis: 10%;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        background: $orange-shape;
+        background-image: url('../../../assets/interactor-normal.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 70%;
+        border-radius: 50%;
+        height: 6vmin;
+        width: 6vmin;
+      }
+
+      #username {
+        flex: 1 1 40%;
+        color: white;
+        font-size: 2.5vmin;
+        margin-left: 2vmin;
+      }
+    }
+  }
+
+  .button-wrapper {
+    width: 100%;
+    flex-basis: 55%;
+    margin-top: 3vmin;
+
+    button {
+      box-sizing: border-box;
+      color: white;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      height: 6vmin;
+      width: 100%;
+      margin: 0.2vmin 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.8vmin;
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: default;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+
+      #notification {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $border-radius;
+        width: 3.5vmin;
+        height: 1.8vmin;
+        font-size: 1.3vmin;
+        background: rgba($red-border, 0.8);
+        margin-right: 1vmin;
+      }
+
+      .button-text {
+        flex: 1 1 60%;
+        margin-left: 4vmin;
+        text-align: left;
+      }
+
+      span {
+        padding-top: 0.1vmin;
+      }
+
+      img {
+        margin-left: 2.5vmin;
+        height: 3vmin;
+        filter: $black-to-white-filter;
+      }
+
+      &:hover {
+        background: $search-list-background;
+      }
+
+      &.button-active {
+        background: $light-gray-background;
+      }
+    }
+  }
+
+  .sign-out {
+    flex: 1 1 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      display: flex;
+      cursor: pointer;
+      background: transparent;
+      border-radius: $border-radius;
+      border: 0;
+      align-items: center;
+      padding: 1vmin 2vmin;
+
+      img {
+        height: 2vmin;
+        filter: $black-to-white-filter;
+      }
+
+      span {
+        flex: 1 1 85%;
+        font-size: 2vmin;
+        margin-left: 2vmin;
+        color: $textcolor;
+        text-align: left;
+      }
+
+      &:hover {
+        background: $search-list-background;
+      }
+    }
+  }
+}

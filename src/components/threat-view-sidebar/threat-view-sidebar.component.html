@@ -1,0 +1,50 @@
+<div #highlightStageContainer [ngClass]="moveHighlightStageToTop ? 'highlight-stage-top' : ''"
+     class="highlight-stage-container"></div>
+<div class="sidebar-wrapper">
+  <div class="button-wrapper">
+    <button class="threats-button"
+            (click)="toggleThreatElementView()"
+            [ngClass]="showThreats ? 'button-clicked' : ''">
+      Threats
+    </button>
+    <button class="vulnerability-button"
+            (click)="toggleThreatElementView()"
+            [ngClass]="!showThreats ? 'button-clicked' : ''">
+      Vulnerabilities
+    </button>
+  </div>
+  <app-threat-filter *ngIf="showThreats && foundThreats.length > 1"
+                     [threats]="foundThreats"
+                     (updatedThreats)="updatedDisplayedThreats($event)"></app-threat-filter>
+  <app-cve-filter *ngIf="!showThreats && foundCVEs.length > 1"
+                  [vulnerabilities]="foundCVEs"
+                  (updatedCVEs)="updatedDisplayedCVEs($event)"></app-cve-filter>
+  <perfect-scrollbar style="max-width: 100%; max-height: 92%;" class="perfect-scrollbar">
+    <div class="nothing-found" *ngIf="showThreats && foundThreats.length < 1">
+      No threats found.
+    </div>
+    <div class="nothing-found" *ngIf="!showThreats && foundCVEs.length < 1">
+      No vulnerabilities found.
+    </div>
+    <div class="weakness-wrapper">
+      <div *ngFor="let threat of displayedThreats; let i = index; trackBy: trackThreatsByFn">
+        <app-threat
+          *ngIf="showThreats"
+          [threatData]="threat"
+          [index]="i"
+          (threatSelected)="selectThreat($event)"
+          (priorityUpdated)="setThreatPriority($event)"
+          (applicableStateUpdated)="setThreatApplicableState($event)">
+        </app-threat>
+      </div>
+      <div *ngFor="let cve of displayedVulnerabilities; let n = index; trackBy: trackCVEsByFn">
+        <app-cve
+          *ngIf="!showThreats"
+          [cveData]="cve"
+          [index]="n"
+          (cveSelected)="selectVulnerability($event)">
+        </app-cve>
+      </div>
+    </div>
+  </perfect-scrollbar>
+</div>

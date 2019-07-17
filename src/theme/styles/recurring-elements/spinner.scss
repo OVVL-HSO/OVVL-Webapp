@@ -1,0 +1,14 @@
+@import "../../variables";
+
+.black-overlay {
+  position: relative !important;
+
+  p {
+    margin-top: -1.5vmin;
+  }
+}
+
+.storage-wrapper .black-overlay {
+  position: absolute !important;
+  border-radius: $border-radius;
+}

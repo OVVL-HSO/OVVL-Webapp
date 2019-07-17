@@ -1,0 +1,20 @@
+<div *ngIf="alert" class="leave-alert">
+  <div class="title">
+    Are you sure you want to delete the project '{{alert.projectTitle}}'?
+  </div>
+  <div *ngIf="alert.modelCount == 0" class="summary">
+    You won't be able to restore it later.
+  </div>
+  <div *ngIf="alert.modelCount > 0" class="summary">
+    {{alert.modelCount}} model<span *ngIf="alert.modelCount > 1">s</span> will
+    be unlinked.
+  </div>
+  <div class="button-wrapper">
+    <button (click)="deleteProject()" class="leave-button">
+      Delete
+    </button>
+    <button (click)="close()" class="cancel-button">
+      Cancel
+    </button>
+  </div>
+</div>

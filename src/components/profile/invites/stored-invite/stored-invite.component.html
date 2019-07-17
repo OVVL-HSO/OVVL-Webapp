@@ -1,0 +1,33 @@
+<div class="list-item-wrapper">
+  <div class="list-item">
+    <img alt="Project" class="main-icon" src="../../../../assets/invitation.svg">
+    <div class="general-info">
+      <div class="name">{{invitation.title ? invitation.title : "Missing Title"}}</div>
+      <div class="summary">{{invitation.description ? invitation.description : "Missing Description"}}</div>
+      <div class="date-wrapper">
+        <img alt="Invited" src="../../../../assets/sent.svg" title="Invited at">
+        <div>{{getInviteDate()}}</div>
+    </div>
+  </div>
+    <div class="project-data">
+      <div class="owner">
+        <img alt="profile" class="profile-icon" src="../../../../assets/profile.png">
+        Invited by {{invitation.owner}}
+      </div>
+      <div class="collaborator-count">
+        <img alt="profile" src="../../../../assets/network.svg">
+        {{invitation.numberOfCollaborators}} collaborator<div *ngIf="invitation.numberOfCollaborators > 1">s</div>
+      </div>
+    </div>
+  </div>
+  <div class="accept-decline">
+    <button class="accept" (click)="acceptInvitation()">
+      <img src="../../../../assets/accept.svg" alt="Accept">
+    </button>
+    <button class="decline" (click)="declineInvitation()">
+      <img src="../../../../assets/decline.svg" alt="Decline">
+    </button>
+  </div>
+</div>
+
+

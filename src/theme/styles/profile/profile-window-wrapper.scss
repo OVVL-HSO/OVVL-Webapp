@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: $profile-sidebar-width;
+  position: relative;
+}

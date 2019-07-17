@@ -1,0 +1,33 @@
+@import "../../theme/toolbar-position-variables";
+@import "../../theme/general";
+@import "../../theme/styles/modal";
+@import "../../theme/variables";
+
+.main-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+}
+
+.drawing-stage-container {
+  position: absolute;
+  height: $drawing-stage-height;
+  width: $drawing-stage-width;
+  top: $toolbar-top-height;
+  left: $toolbar-left-width;
+  z-index: $drawing-stage-z-index;
+}
+
+.free-drawing-stage-container {
+  position: absolute;
+  height: $drawing-stage-height;
+  width: $drawing-stage-width;
+  top: $toolbar-top-height;
+  left: $toolbar-left-width;
+  z-index: $drawing-stage-z-index;
+}
+
+.drawing-stage-container.analysis-view {
+  left: 0;
+}

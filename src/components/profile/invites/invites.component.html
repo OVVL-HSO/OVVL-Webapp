@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div *ngIf="!invitations.length" class="no-items">
+    <img alt="project" src="../../../assets/invitation.svg">
+    <p class="greeting">Welcome to Invites!</p>
+    <p class="info">To join a project, its owner must invite you. All your invitations
+      will be listed here.</p>
+  </div>
+  <div *ngIf="invitations.length" class="profile-scrollbar-wrapper">
+    <perfect-scrollbar class="perfect-scrollbar"
+                       style="max-width: 95vmin; max-height: 98%;">
+      <app-stored-invite *ngFor="let invitation of invitations"
+                         (join)="joinProject(invitation)"
+                         (decline)="declineInvitation(invitation)"
+                         [invite]="invitation"></app-stored-invite>
+    </perfect-scrollbar>
+  </div>
+</div>

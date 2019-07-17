@@ -1,0 +1,87 @@
+@import "../../variables";
+
+.list-item {
+  margin: $profile-list-item-margin;
+  height: $profile-list-item-height;
+  width: $profile-list-item-width;
+  background: $search-list-background;
+  padding: 1vmin;
+  border-radius: $border-radius;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  box-sizing: border-box;
+  color: $button-active;
+  align-items: center;
+
+  .main-icon {
+    height: 5vmin;
+    filter: $black-to-button-active-filter;
+    flex: 0 0 10vmin;
+    margin-right: 2vmin;
+  }
+
+  &.selected {
+    border: 0.5vmin solid $button-active;
+    box-shadow: $float-button-box-shadow;
+    // Because a border affects the element size, we add the border size once for each side to width and height
+    height: 15vmin + 2 * 0.5vmin;
+    width: 90vmin + 2 * 0.5vmin;
+  }
+
+  &:hover {
+    background: $popup-button-background;
+  }
+
+  .general-info {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 46vmin;
+
+    span {
+      text-align: left;
+    }
+
+    .name {
+      font-size: 2.3vmin;
+      margin-bottom: 1vmin;
+    }
+
+    .summary {
+      font-size: 1.8vmin;
+      margin-bottom: 2vmin;
+      flex: 1 0;
+      max-width: 50vmin;
+      max-height: 5.8vmin;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .date-wrapper {
+      display: flex;
+
+      .created-at, .edited-at, .profile {
+        display: flex;
+        align-items: center;
+
+        span {
+          padding-top: 0.25vmin;
+        }
+
+        img {
+          height: 1.8vmin;
+          margin-right: 1vmin;
+        }
+        img:not(.profile-img) {
+          filter: $black-to-button-active-filter;
+        }
+
+        font-size: 1.8vmin;
+      }
+
+      .edited-at, .profile {
+        margin-left: 2vmin;
+      }
+    }
+  }
+}

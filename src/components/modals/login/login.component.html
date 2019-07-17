@@ -1,0 +1,97 @@
+<div class="registration-wrapper">
+  <form #credentialForm="ngForm" (submit)="confirm(credentialForm.valid)">
+    <div class="switch-wrapper">
+      <button (click)="switchBetweenLoginAndSignUp()" [class.selected]="loginSelected" id="login-switch" type="button">
+        Login
+      </button>
+      <button (click)="switchBetweenLoginAndSignUp()" [class.selected]="!loginSelected" id="signup-switch"
+              type="button">
+        Signup
+      </button>
+      <app-spinner-small *ngIf="authenticating$ | async" marginTop="1"
+                         style="position: absolute; right: 0;"></app-spinner-small>
+    </div>
+    <div *ngIf="loginSelected && somethingIsWeird" class="login-warning">
+      Make sure you entered the correct username and password.
+    </div>
+    <div class="input-wrapper">
+      <div class="input-container">
+        <label for="uName">Username
+          <span
+            *ngIf="!loginSelected"
+            [hidden]="uName.valid || uName.untouched || usernameTaken" class="warning"> Please enter a username!</span>
+          <span
+            *ngIf="usernameTaken" class="warning">Username taken.</span>
+        </label>
+        <input #uName="ngModel"
+               [(ngModel)]="username"
+               class="form-control"
+               id="uName"
+               name="uName"
+               required
+               type="text">
+      </div>
+      <div class="input-container">
+        <label for="pw">Password
+          <span [hidden]="!passwordUnsafe"
+                class="warning">Try a different Password</span>
+          <span [hidden]="pw.untouched || password.length > 0 || passwordUnsafe"
+                class="warning"> Please enter a password!</span>
+          <span *ngIf="!loginSelected"
+                [hidden]="password.length > 7 || password.length < 1 || passwordUnsafe"
+                class="warning">8+ characters!</span>
+          <span *ngIf="!loginSelected"
+                [hidden]="password.length < 8 || hasUpperAndLowerCaseLetter() || passwordUnsafe"
+                class="warning small-text">lower- and uppercase letter</span>
+          <span *ngIf="!loginSelected"
+                [hidden]="password.length < 8 || !hasUpperAndLowerCaseLetter() || hasSpecialCharOrNumber() || passwordUnsafe"
+                class="warning small-text">special character or number</span>
+        </label>
+        <input #pw="ngModel"
+               [(ngModel)]="password"
+               [ngClass]="getPasswordValidationHighlightClass()"
+               class="form-control"
+               id="pw"
+               minlength="8"
+               name="pw"
+               type="password">
+      </div>
+      <div *ngIf="!loginSelected"
+           class="input-container">
+        <label for="mail">E-Mail
+          <span
+            *ngIf="emailTaken" class="warning">E-Mail taken.</span>
+          <span [hidden]="mail.valid || mail.untouched || emailTaken"
+                class="warning"> Please enter a correct E-Mail!</span>
+        </label>
+        <input #mail="ngModel"
+               [(ngModel)]="email"
+               class="form-control"
+               email
+               id="mail"
+               name="mail"
+               required
+               type="email">
+      </div>
+    </div>
+    <div class="confirm-wrapper">
+      <button *ngIf="loginSelected"
+              [disabled]="!credentialForm.valid || !password.length"
+              autofocus
+              class="confirm"
+              type="submit">
+        Login
+      </button>
+      <button *ngIf="!loginSelected"
+              [disabled]="!credentialForm.valid || !fulfillsPasswordValidation()"
+              autofocus
+              class="confirm"
+              type="submit">
+        Sign Up
+      </button>
+      <button (click)="cancel()" class="cancel">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

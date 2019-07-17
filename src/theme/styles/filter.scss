@@ -1,0 +1,93 @@
+@import "../variables";
+@import "../general";
+
+.filter {
+  width: $threat-sidebar-width;
+
+  button {
+    cursor: pointer;
+    border: 0;
+  }
+
+  .general-wrapper {
+    position: relative;
+
+    button {
+      background: $search-list-background;
+    }
+
+    #filter-toggle {
+      width: 100%;
+      height: 5vmin;
+
+      span {
+        float: left;
+        font-size: 2vmin;
+        height: 5vmin;
+        color: $main-background;
+        padding: 1.5vmin;
+        box-sizing: border-box;
+      }
+
+      span.filter-active {
+        color: $textcolor;
+      }
+
+      img {
+        float: left;
+        height: 2.5vmin;
+        width: auto;
+        margin: 1.25vmin 0 1.25vmin 1vmin;
+        filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(81deg) brightness(87%) contrast(84%);
+      }
+
+      img.filter-active {
+        filter: invert(79%) sepia(0%) saturate(600%) hue-rotate(149deg) brightness(112%) contrast(78%);
+      }
+    }
+
+    #reset-button {
+      width: 20%;
+      height: 3vmin;
+      position: absolute;
+      top: 1vmin;
+      right: 1vmin;
+      bottom: 1vmin;
+      color: $main-background;
+      font-size: 1vmin;
+      border: 1px solid $main-background;
+      border-radius: $border-radius;
+      transform: $button-default-scale;
+    }
+
+    #reset-button:hover {
+      transform: $button-hover-small-scale;
+      color: $textcolor;
+      border: 1px solid $textcolor;
+    }
+
+    #reset-button.filter-active {
+      color: $textcolor;
+      border: 1px solid $textcolor;
+    }
+  }
+
+  .filter-selector {
+    margin: -1vmin 0 0 0;
+    background: $popup-button-background;
+    width: $threat-sidebar-width;
+
+    .breaker {
+      height: 1.5vmin;
+      background: $search-list-background;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 1.8vmin;
+      color: $textcolor;
+      margin: 0;
+      padding: 1vmin 0;
+    }
+  }
+}

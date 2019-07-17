@@ -1,0 +1,49 @@
+<div class="toolbar-wrapper">
+  <div class="button-wrapper">
+    <div class="button-content">
+      <button (mousedown)="drawDragElement('interactor')" id="interactor-button">
+      </button>
+      <p>
+        Interactor
+      </p>
+    </div>
+    <div class="button-content">
+      <button (mousedown)="drawDragElement('process')" id="process-button"></button>
+      <p>
+        Process
+      </p>
+    </div>
+    <div class="button-content">
+      <button (mousedown)="drawDragElement('datastore')" id="datastore-button"></button>
+      <p>
+        Data Store
+      </p>
+    </div>
+    <div class="button-content">
+      <button (click)="toggleDataFlowDrawing()" id="dataflow-button">
+        <img [ngClass]="drawingDataflow ? 'data-flow-toggle' : ''"
+             alt="Dataflow Icon"
+             id="dataflow-button-image"
+             src="../../assets/dfIcon.png">
+      </button>
+      <p>
+        Data Flow
+      </p>
+    </div>
+    <div class="button-content">
+      <button (click)="toggleBoundaryDrawing()" [ngClass]="drawingTrustBoundary ? 'boundary-toggle' : ''"
+              id="trustboundary-button"></button>
+      <p>
+        Trust Boundary
+      </p>
+    </div>
+    <div class="feedback-button">
+      <button (click)="openFeedback()">
+        <img alt="Feedback" src="../../assets/feedback.svg"> <span>Contact</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="drag-drop-stage-container" [ngClass]="moveDrawingStageToTopOfView ? 'drag-drop-stage-to-top' : ''"
+     #dragDropStageContainer></div>
+

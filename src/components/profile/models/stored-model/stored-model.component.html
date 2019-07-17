@@ -1,0 +1,30 @@
+<button (click)="showModelDetails()"
+        [ngClass]="(selectedModel$ | async) === storedModel.modelID && 'selected'"
+        class="list-item">
+  <span class="screenshot-wrapper">
+      <img [src]="storedModel.screenshot" alt="screenshot" class="screenshot">
+  </span>
+  <span class="general-info">
+    <span class="name">{{storedModel.name ? storedModel.name : "Missing Name"}}</span>
+    <span class="summary">{{storedModel.summary ? storedModel.summary : "Missing Summary"}}</span>
+    <span class="date-wrapper">
+      <span class="created-at">
+        <img alt="created" src="../../../../assets/released.svg" title="Created">
+        <span>{{getCreationDate()}}</span>
+      </span>
+      <span *ngIf="storedModel.editedDate" class="edited-at">
+        <img alt="created" src="../../../../assets/edit.svg" title="Last Edited">
+        <span>{{getEditedDate()}}</span>
+      </span>
+      <span class="profile">
+        <img alt="Owner" class="profile-img" src="../../../../assets/profile.png" title="Owner">
+        <span>{{storedModel.owner}}</span>
+      </span>
+    </span>
+  </span>
+  <span class="project-info">
+      <img [src]=" '../../../assets/' + (storedModel.projectID ? 'project.svg' : 'noproject.png')" alt="project">
+      <span
+        [ngClass]="storedModel.projectID && 'project-linked'">{{storedModel.projectID ? (projectTitle$ | async) : "Not part of any project."}}</span>
+    </span>
+</button>

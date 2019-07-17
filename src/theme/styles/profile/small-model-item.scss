@@ -1,0 +1,58 @@
+@import "../../variables";
+
+.small-model-item {
+  position: relative;
+  margin: 1.5vmin 0;
+  width: 55vmin;
+  height: 6vmin;
+  border-radius: $border-radius;
+  background: $search-list-background;
+  border: 0;
+  display: flex;
+  padding: 0.25vmin;
+  color: $button-active;
+  align-items: center;
+
+  &.selected {
+    border: 0.1vmin solid $button-active;
+    box-shadow: $float-button-box-shadow;
+    // Because a border affects the element size, we add the border size once for each side to width and height
+    height: 6vmin + 2 * 0.1vmin;
+    width: 55vmin + 2 * 0.1vmin;
+  }
+
+  &:hover:not(.summary) {
+    background: $popup-button-background;
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+
+  .model-screenshot {
+    flex: 0 0 25%;
+    height: 5.5vmin;
+    border-radius: $border-radius;
+  }
+  .model-name {
+    flex: 0 0 50%;
+    font-size: 2vmin;
+    overflow: hidden;
+    text-align: left;
+    padding-left: 3vmin;
+    box-sizing: border-box;
+  }
+  .model-release {
+    flex: 0 0 25%;
+    display: flex;
+    height: 5.5vmin;
+    align-items: center;
+    justify-content: right;
+    font-size: 1.5vmin;
+    padding-right: 2vmin;
+    box-sizing: border-box;
+    img {
+      height: 2vmin;
+      margin-right: 1vmin;
+      filter: $black-to-button-active-filter;
+    }
+  }
+}

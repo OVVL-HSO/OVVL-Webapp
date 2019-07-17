@@ -1,0 +1,68 @@
+@import "../variables";
+
+.hover-card-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  perspective: 800px;
+  transform-style: preserve-3d;
+  border-radius: 0 0 $border-radius / 2 $border-radius / 2;
+}
+
+.abstract,
+.details {
+  width: 100%;
+  padding: 0.8vmin 1.5vmin;
+  position: relative;
+  background: $light-gray-background;
+
+  p {
+    color: $button-unfolded-darkened !important;
+  }
+
+  .hover-card-wrapper:hover & {
+    background: darken($light-gray-background, 2%);
+
+    p {
+      color: $button-active !important;
+    }
+  }
+}
+
+.abstract {
+  //z-index: 10;
+  transition: .2s ease all;
+}
+
+.details {
+  max-height: 0;
+  padding: 0;
+
+  overflow: hidden;
+  visibility: hidden;
+
+  transform: rotateX(-180deg);
+  transform-origin: top center;
+  backface-visibility: hidden;
+  transition: .2s transform ease;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: grey;
+  }
+
+  .hover-card-wrapper:hover & {
+    max-height: none;
+    overflow: visible;
+    visibility: visible;
+    transform: rotateX(0deg);
+  }
+}
+

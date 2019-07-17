@@ -1,0 +1,44 @@
+<div class="sidebar-wrapper">
+  <div class="profile-info">
+    <div class="user-info">
+      <div class="icon">
+      </div>
+      <div id="username" *ngIf="(profile$ | async)?.username">
+        {{(profile$ | async).username}}
+      </div>
+    </div>
+  </div>
+  <div class="button-wrapper">
+    <button (click)="switchTab('projects')"
+            [ngClass]="(shownTab$ | async) === 'projects' ? 'button-active' : ''"
+            class="projects">
+      <img alt="P" src="../../../assets/project.svg">
+      <span class="button-text">Projects</span>
+    </button>
+    <button (click)="switchTab('models')"
+            [ngClass]="(shownTab$ | async) === 'models' ? 'button-active' : ''"
+            class="models">
+      <img alt="M" src="../../../assets/dfd.svg">
+      <span class="button-text">Models</span>
+    </button>
+    <button (click)="switchTab('invites')"
+            [ngClass]="(shownTab$ | async) === 'invites' ? 'button-active' : ''"
+            class="invites">
+      <img alt="M" src="../../../assets/invitation.svg">
+      <span class="button-text">Invites</span>
+      <span id="notification"><span>{{inviteCount$  | async}}</span></span>
+    </button>
+    <button [disabled]="true"
+            [ngClass]="((shownTab$ | async) === 'settings') ? 'button-active' : ''"
+            class="settings">
+      <img alt="S" src="../../../assets/settings.svg">
+      <span class="button-text">Settings</span>
+    </button>
+  </div>
+  <div (click)="confirmSignOut()" class="sign-out">
+    <button>
+      <img src="../../../assets/sign-out.svg">
+      <span>Sign out</span>
+    </button>
+  </div>
+</div>

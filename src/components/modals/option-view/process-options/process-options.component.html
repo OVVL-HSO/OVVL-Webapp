@@ -1,0 +1,90 @@
+<form (change)="selectOptions()">
+  <div class="select-option">
+    <label for="trustLevel">Trust Level</label>
+    <select [(ngModel)]="process.options.trustLevel" id="trustLevel"
+            name="trustLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="privilegeLevel">Privilege Level</label>
+    <select [(ngModel)]="process.options.privilegeLevel"
+            id="privilegeLevel"
+            name="privilegeLevel">
+      <option *ngFor="let scaleSelectionOption of scaleSelectionOptions">{{scaleSelectionOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="managed">Managed System</label>
+    <select [(ngModel)]="process.options.managed"
+            id="managed"
+            name="managed">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="handlesSensitiveData">Data Handling</label>
+    <select [(ngModel)]="process.options.dataHandling"
+            id="handlesSensitiveData"
+            name="handlesSensitiveData">
+      <option *ngFor="let dataHandlingOption of dataHandlingOptions">{{dataHandlingOption}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="inputOrigin">Input Origin</label>
+    <select [(ngModel)]="process.options.inputOrigin"
+            id="inputOrigin"
+            name="inputOrigin">
+      <option *ngFor="let inputOrigin of inputOriginOptions">{{inputOrigin}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="sanitizesInput">Sanitizes Input</label>
+    <select [(ngModel)]="process.options.sanitizesInput"
+            id="sanitizesInput"
+            name="sanitizesInput">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="validatesInput">Validates Input</label>
+    <select [(ngModel)]="process.options.validatesInput"
+            id="validatesInput"
+            name="validatesInput">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="requiresAuthentication">Requires Authentication</label>
+    <select [(ngModel)]="process.options.requiresAuthentication"
+            id="requiresAuthentication"
+            name="requiresAuthentication">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="authenticatesItself">Authenticates Itself</label>
+    <select [(ngModel)]="process.options.authenticatesItself"
+            id="authenticatesItself"
+            name="authenticatesItself">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="ddosProtection">DDoS Protection</label>
+    <select [(ngModel)]="process.options.ddosProtection"
+            id="ddosProtection"
+            name="ddosProtection">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
+    <label for="customCommunicationProtocol">Custom Communication Protocol</label>
+    <select [(ngModel)]="process.options.customCommunicationProtocol"
+            id="customCommunicationProtocol"
+            name="customCommunicationProtocol">
+      <option *ngFor="let genericSelection of genericSelectionOptions">{{genericSelection}}</option>
+    </select>
+  </div>
+</form>
+

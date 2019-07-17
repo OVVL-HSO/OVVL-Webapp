@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div *ngIf="!(creatingProject$ | async) && userProjects.length" class="profile-scrollbar-wrapper">
+    <perfect-scrollbar class="perfect-scrollbar" style="max-width: 95vmin; max-height: 98%;">
+      <app-stored-project *ngFor="let project of userProjects" [project]="project"></app-stored-project>
+    </perfect-scrollbar>
+  </div>
+  <div [hidden]="!(selectedProject$ | async)" class="triangle-right-button">
+    <button (click)="closeDetailsView()">
+      <img alt="Close" src="../../../assets/triangle-right.svg">
+    </button>
+  </div>
+  <div *ngIf="!userProjects.length && !(creatingProject$ | async)" class="no-items">
+    <img alt="project" src="../../../assets/network.svg">
+    <p class="greeting">Welcome to Projects!</p>
+    <p class="info">Projects help you organize your diagrams and let you collaborate with others.<br> All your projects
+      will be listed here.</p>
+    <button (click)="startProjectCreation()">Create a Project</button>
+  </div>
+  <app-project-creation *ngIf="(creatingProject$ | async)"></app-project-creation>
+  <app-project-details *ngIf="(selectedProject$ | async)" [@sidebar-transition] class="model-details">
+  </app-project-details>
+  <button (click)="startProjectCreation()"
+          *ngIf="!(creatingProject$ | async) && !(selectedProject$ | async)"
+          class="float-button"
+          title="Create a new project">
+    <img alt="Add" src="../../../assets/add.svg">
+  </button>
+</div>

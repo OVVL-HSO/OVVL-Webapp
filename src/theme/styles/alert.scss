@@ -1,0 +1,44 @@
+@import "../variables";
+
+.leave-alert {
+  width: 30vmin;
+  text-align: left;
+
+  .title {
+    margin-bottom: $element-spacing;
+    color: white;
+    font-weight: bold;
+  }
+
+  .summary {
+    margin-bottom: $element-spacing;
+    color: white;
+    font-style: italic;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .button-wrapper {
+    margin: $element-spacing * 2 0 0 0;
+    text-align: center;
+
+    .leave-button, .cancel-button {
+      cursor: pointer;
+      border-radius: $border-radius;
+      background-color: $popup-button-background;
+      width: 12vmin;
+      height: 5vmin;
+      font-size: 1.8vmin;
+      font-family: 'Comfortaa', cursive;
+      margin: 0 $element-spacing;
+      color: $textcolor;
+      border: 0;
+    }
+
+    button:hover {
+      background-color: $top-toolbar-background;
+    }
+  }
+}

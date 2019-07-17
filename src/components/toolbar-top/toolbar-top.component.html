@@ -1,0 +1,45 @@
+<div class="toolbar-wrapper">
+  <button (click)="switchToLandingView()" class="name-wrapper">
+    <img alt="Logo" src="../../assets/logo.png">
+    <p>OVVL</p>
+  </button>
+  <div class="button-wrapper">
+    <div class="button-content">
+      <button (click)="undo()"
+              *ngIf="designViewActive && ((undoState$ | async)?.length || (redoState$ | async)?.length)"
+              [disabled]="!(undoState$ | async)?.length"
+              id="undo-button">
+      </button>
+    </div>
+    <div class="button-content">
+      <button (click)="redo()"
+              *ngIf="designViewActive && ((undoState$ | async)?.length || (redoState$ | async)?.length)"
+              [disabled]="!(redoState$ | async)?.length"
+              id="redo-button">
+      </button>
+    </div>
+    <div class="button-content">
+      <button (click)="analysisViewChange()"
+              [disabled]="profileViewActive || !userHasAddedElements"
+              [ngClass]="analysisButtonClicked ? 'button-clicked' : ''"
+              id="analysis-button"></button>
+    </div>
+    <div class="button-content">
+      <button (click)="saveDFD()"
+              [disabled]="profileViewActive || analysisViewActive || !userHasAddedElements"
+              id="save-button"></button>
+    </div>
+    <div class="button-content">
+      <button id="search-button"></button>
+    </div>
+    <div class="button-content">
+      <button id="help-button"></button>
+    </div>
+    <div class="button-content">
+      <button (click)="showProfile()"
+              [disabled]="analysisViewActive"
+              [ngClass]="profileViewActive ? 'button-clicked' : ''"
+              id="profile-button"></button>
+    </div>
+  </div>
+</div>
