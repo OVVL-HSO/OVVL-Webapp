@@ -10,20 +10,20 @@
     }
 
     .ng5-slider .ng5-slider-bar {
-      background: $light-gray-background;
+      background: var(--theme-light-gray-background);
       height: 2px;
     }
 
     .ng5-slider .ng5-slider-selection {
-      background: $button-active;
+      background: var(--theme-button-active);
     }
 
     .ng5-slider .ng5-slider-bubble {
-      color: $button-unfolded !important;
+      color: var(--theme-button-unfolded) !important;
     }
 
     .ng5-slider .ng5-slider-bubble.ng5-slider-limit {
-      color: $light-gray-background !important;
+      color: var(--theme-light-gray-background) !important;
     }
 
     .ng5-slider .ng5-slider-pointer {
@@ -31,7 +31,7 @@
       width: 1.5vmin;
       height: 1.5vmin;
       top: -0.75vmin;
-      background-color: $button-unfolded;
+      background-color: var(--theme-button-unfolded);
     }
 
     .ng5-slider .ng5-slider-pointer:after {
@@ -91,22 +91,22 @@
 
 .priority-slider {
   .slider {
-    background: $main-background;
+    background: var(--theme-main-background);
   }
 
   .slider::-moz-range-thumb {
-    background: $button-unfolded;
+    background: var(--theme-button-unfolded);
   }
 
   .slider-description {
     display: flex;
 
     button {
-      color: $main-background;
+      color: var(--theme-main-background);
     }
 
     button.selected {
-      color: $button-unfolded-darkened;
+      color: var(--theme-button-unfolded)-darkened;
     }
 
     #low, #medium, #high {
@@ -117,22 +117,22 @@
 
 .priority-slider-2 {
   .slider {
-    background: $light-gray-background;
+    background: var(--theme-light-gray-background);
   }
 
   .slider::-moz-range-thumb {
-    background: $sidebar-background;
+    background: var(--theme-sidebar-background);
   }
 
   .slider-description {
     display: flex;
 
     button {
-      color: $light-gray-background;
+      color: var(--theme-light-gray-background);
     }
 
     button.selected {
-      color: $top-toolbar-background;
+      color: var(--theme-top-toolbar-background);
     }
 
     #low, #medium, #high {

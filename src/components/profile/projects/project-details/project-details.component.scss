@@ -16,7 +16,7 @@
       flex-direction: column;
       flex: 0 0 80%;
       p {
-        color: $button-active;
+        color: var(--theme-button-active);
       }
 
       .title {
@@ -33,7 +33,7 @@
     img {
       height: 5vmin;
       margin-left: 2vmin;
-      filter: $black-to-button-active-filter;
+      filter: var(--theme-black)-to-button-active-filter;
     }
 
   }
@@ -42,7 +42,7 @@
     display: flex;
     font-size: 1.7vmin;
     justify-content: center;
-    color: $button-active;
+    color: var(--theme-button-active);
     margin-top: 2vmin;
 
     img {
@@ -58,7 +58,7 @@
 
     .created-at {
       img {
-        filter: $black-to-button-active-filter;
+        filter: var(--theme-black)-to-button-active-filter;
       }
     }
   }
@@ -80,18 +80,18 @@
       img {
         margin: 0 0.5vmin 0.1vmin 0;
         height: 1.7vmin;
-        filter: $black-to-search-list-background-filter;
+        filter: var(--theme-black)-to-search-list-background-filter;
       }
     }
 
     .collaborator {
-      background: $button-active;
-      color: $search-list-background;
+      background: var(--theme-button-active);
+      color: var(--theme-search-list-background);
     }
 
     .invited-user {
-      border: 2px $button-active dashed;
-      color: $button-active;
+      border: 2px var(--theme-button-active) dashed;
+      color: var(--theme-button-active);
     }
   }
 
@@ -109,17 +109,17 @@
     border: 0;
     border-radius: $border-radius;
     padding: 0.7vmin;
-    color: $search-list-background;
-    background: $button-active;
+    color: var(--theme-search-list-background);
+    background: var(--theme-button-active);
     cursor: pointer;
     font-size: 1.5vmin;
 
     &:hover {
-      background: $button-unfolded-darkened;
+      background: var(--theme-button-unfolded)-darkened;
     }
 
     &.invite-enabled {
-      background: $light-gray-background;
+      background: var(--theme-light-gray-background);
     }
   }
 
@@ -127,7 +127,7 @@
     width: 100%;
     margin-top: 1.9vmin;
     border-radius: $border-radius;
-    background: $button-active;
+    background: var(--theme-button-active);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -139,8 +139,8 @@
       display: flex;
       input {
         border-radius: $border-radius;
-        background: $search-list-background;
-        color: $button-active;
+        background: var(--theme-search-list-background);
+        color: var(--theme-button-active);
         height: 4vmin;
         font-size: 1.8vmin;
         padding: 1vmin 1vmin 1vmin 2vmin;
@@ -155,7 +155,7 @@
         border: 0;
         height: 4vmin;
         border-radius: $border-radius;
-        background: $search-list-background;
+        background: var(--theme-search-list-background);
         padding: 0 1vmin;
         cursor: pointer;
         box-sizing: border-box;
@@ -163,16 +163,16 @@
         &[disabled] {
           opacity: 0.6;
           cursor: default;
-          background: $search-list-background !important;
+          background: var(--theme-search-list-background) !important;
         }
 
         &:hover {
-          background: $popup-button-background;
+          background: var(--theme-popup-button-background);
         }
 
         img {
           height: 2vmin;
-          filter: $black-to-button-active-filter;
+          filter: var(--theme-black)-to-button-active-filter;
         }
       }
 
@@ -184,7 +184,7 @@
         width: 0;
         height: 0;
         border: 17px solid transparent;
-        border-bottom-color:$button-active;
+        border-bottom-color:var(--theme-button-active);
         border-top: 0;
         margin-left: -17px;
         margin-top: -17px;
@@ -193,7 +193,7 @@
     .error-message {
       width: 100%;
       text-align: center;
-      color: $search-list-background;
+      color: var(--theme-search-list-background);
       font-size: 1.5vmin;
       font-style: italic;
       margin-top: 1vmin;
@@ -205,7 +205,7 @@
     margin-top: 3vmin;
 
     .no-models-available-hint {
-      color: $button-active;
+      color: var(--theme-button-active);
       text-align: center;
     }
   }
@@ -223,7 +223,7 @@
     background: transparent;
     cursor: pointer;
     img {
-      filter: $black-to-button-active-filter;
+      filter: var(--theme-black)-to-button-active-filter;
       height: 3vmin;
       transition: all 0.2s ease-out;
     }

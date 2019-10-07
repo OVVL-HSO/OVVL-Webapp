@@ -18,7 +18,7 @@
 
       button {
         padding: 0.3vmin;
-        color: $button-unfolded;
+        color: var(--theme-button-unfolded);
         cursor: pointer;
         background: transparent;
         border: 0;
@@ -26,7 +26,7 @@
       }
 
       button:hover:not(.selected) {
-        color: $button-active;
+        color: var(--theme-button-active);
       }
 
       #login-switch {
@@ -38,8 +38,8 @@
       }
 
       .selected {
-        border-bottom: 2px solid $search-list-background !important;
-        color: $search-list-background;
+        border-bottom: 2px solid var(--theme-search-list-background) !important;
+        color: var(--theme-search-list-background);
       }
     }
 
@@ -74,7 +74,7 @@
           text-align: left;
           margin-bottom: 0.5vmin;
           font-size: 2vmin;
-          color: $search-list-background;
+          color: var(--theme-search-list-background);
           padding-left: 1.8vmin;
         }
 
@@ -82,8 +82,8 @@
           height: 5.5vmin;
           border-radius: $border-radius;
           border: 0;
-          background-color: $search-list-background !important;
-          color: $textcolor;
+          background-color: var(--theme-search-list-background) !important;
+          color: var(--theme-text-color);
           text-align: center;
           font-size: 1.5vmin;
           padding: 2px;
@@ -138,14 +138,14 @@
         border: 0;
         cursor: pointer;
         border-radius: $border-radius * 2;
-        background: $button-active;
-        color: $sidebar-background;
+        background: var(--theme-button-active);
+        color: var(--theme-sidebar-background);
         transform: scale(1);
         font-size: 2.4vmin;
       }
 
       button:hover:not([disabled]) {
-        color: $light-gray-background;
+        color: var(--theme-light-gray-background);
         transform: scale(1.01);
       }
 

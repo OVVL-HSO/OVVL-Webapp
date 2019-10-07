@@ -10,7 +10,7 @@
   width: $threat-sidebar-width;
   top: 6vh;
   right: 0;
-  background-color: $top-toolbar-background;
+  background-color: var(--theme-top-toolbar-background);
   box-shadow: 26px 0 18px 26px rgba(0, 0, 0, 0.75);
 
   .button-wrapper {
@@ -20,9 +20,9 @@
     .threats-button, .vulnerability-button {
       cursor: pointer;
       border-radius: $border-radius;
-      background-color: $light-gray-background;
+      background-color: var(--theme-light-gray-background);
       font-size: $threat-sidebar-width * 0.05;
-      color: $button-active;
+      color: var(--theme-button-active);
       border: 0;
       height: 100%;
       width: $threat-sidebar-width * 0.44;
@@ -37,13 +37,13 @@
     }
 
     button:hover {
-      background-color: $button-unfolded;
-      color: $top-toolbar-background !important;
+      background-color: var(--theme-button-unfolded);
+      color: var(--theme-top-toolbar-background) !important;
     }
 
     .button-clicked {
-      background-color: $button-active !important;
-      color: $top-toolbar-background !important;
+      background-color: var(--theme-button-active) !important;
+      color: var(--theme-top-toolbar-background) !important;
     }
   }
 
@@ -51,7 +51,7 @@
     text-align: center;
     font-size: 2vmin;
     margin: 50% 1.5vw;
-    color: $button-unfolded;
+    color: var(--theme-button-unfolded);
   }
 
   .weakness-wrapper {

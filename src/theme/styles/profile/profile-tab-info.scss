@@ -37,10 +37,10 @@
     font-size: 2vmin;
     align-items: center;
     padding: 1vmin 1.5vmin;
-    background: $top-toolbar-background;
+    background: var(--theme-top-toolbar-background);
     border-radius: $border-radius;
     &:hover {
-      background: $search-list-background;
+      background: var(--theme-search-list-background);
     }
   }
 }

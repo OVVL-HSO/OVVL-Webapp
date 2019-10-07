@@ -6,15 +6,15 @@
   width: 55vmin;
   height: 6vmin;
   border-radius: $border-radius;
-  background: $search-list-background;
+  background: var(--theme-search-list-background);
   border: 0;
   display: flex;
   padding: 0.25vmin;
-  color: $button-active;
+  color: var(--theme-button-active);
   align-items: center;
 
   &.selected {
-    border: 0.1vmin solid $button-active;
+    border: 0.1vmin solid var(--theme-button-active);
     box-shadow: $float-button-box-shadow;
     // Because a border affects the element size, we add the border size once for each side to width and height
     height: 6vmin + 2 * 0.1vmin;
@@ -22,7 +22,7 @@
   }
 
   &:hover:not(.summary) {
-    background: $popup-button-background;
+    background: var(--theme-popup-button-background);
     transform: scale(1.02);
     cursor: pointer;
   }
@@ -52,7 +52,7 @@
     img {
       height: 2vmin;
       margin-right: 1vmin;
-      filter: $black-to-button-active-filter;
+      filter: var(--theme-black)-to-button-active-filter;
     }
   }
 }

@@ -35,7 +35,7 @@
     }
 
     select {
-      color: $button-active;
+      color: var(--theme-button-active);
     }
 
     textarea {
@@ -45,7 +45,7 @@
 
   .hint {
     width: 100%;
-    color: $button-active;
+    color: var(--theme-button-active);
     font-size: 1.5vmin;
     text-align: center;
     margin-bottom: 2vmin;
@@ -65,21 +65,21 @@
       padding: 1vmin;
       cursor: pointer;
       border: 0;
-      color: $textcolor;
+      color: var(--theme-text-color);;
       border-radius: $border-radius;
       margin: 0 1vmin;
-      background-color: $search-list-background;
+      background-color: var(--theme-search-list-background);
       font-size: 1.5vmin;
 
       &[disabled] {
         opacity: 0.5;
         cursor: default;
-        background-color: $search-list-background !important;
+        background-color: var(--theme-search-list-background) !important;
         transform: scale(1) !important;
       }
 
       &:hover {
-        background-color: $popup-button-background;
+        background-color: var(--theme-popup-button-background);
         transform: scale(1.05);
       }
     }

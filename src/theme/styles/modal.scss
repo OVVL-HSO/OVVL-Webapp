@@ -14,7 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: $light-gray-background;
+  background: var(--theme-light-gray-background);
   border-radius: $border-radius;
   box-shadow: $modal-box-shadow;
   z-index: 5;
@@ -27,7 +27,7 @@
   width: $base-modal-width;
   height: $base-modal-height;
   text-align: center;
-  background: $light-gray-background;
+  background: var(--theme-light-gray-background);
   border-radius: $border-radius;
   box-shadow: $modal-box-shadow;
   z-index: 5;
@@ -39,7 +39,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: $light-gray-background;
+  background: var(--theme-light-gray-background);
   border-radius: $border-radius;
   box-shadow: $modal-box-shadow;
   z-index: 7;
@@ -50,7 +50,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background: $overlay-background;
+  background: var(--theme-overlay-background);
   width: 100%;
   height: 100%;
 }
@@ -60,7 +60,7 @@
   top: 0;
   left: 0;
   z-index: 6;
-  background: $overlay-background;
+  background: var(--theme-overlay-background);
   width: 100%;
   height: 100%;
 }

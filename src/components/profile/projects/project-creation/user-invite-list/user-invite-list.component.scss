@@ -8,9 +8,9 @@
 
   .single-invite {
     font-size: 2vmin;
-    color: $button-active;
+    color: var(--theme-button-active);
     border-radius: $border-radius;
-    background: $popup-button-background;
+    background: var(--theme-popup-button-background);
     padding: 1.3vmin;
     margin: 0 1vmin 1vmin 0;
     position: relative;

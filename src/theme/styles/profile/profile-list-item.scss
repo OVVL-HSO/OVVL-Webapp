@@ -4,25 +4,25 @@
   margin: $profile-list-item-margin;
   height: $profile-list-item-height;
   width: $profile-list-item-width;
-  background: $search-list-background;
+  background: var(--theme-search-list-background);
   padding: 1vmin;
   border-radius: $border-radius;
   border: 0;
   cursor: pointer;
   display: flex;
   box-sizing: border-box;
-  color: $button-active;
+  color: var(--theme-button-active);
   align-items: center;
 
   .main-icon {
     height: 5vmin;
-    filter: $black-to-button-active-filter;
+    filter: var(--theme-black)-to-button-active-filter;
     flex: 0 0 10vmin;
     margin-right: 2vmin;
   }
 
   &.selected {
-    border: 0.5vmin solid $button-active;
+    border: 0.5vmin solid var(--theme-button-active);
     box-shadow: $float-button-box-shadow;
     // Because a border affects the element size, we add the border size once for each side to width and height
     height: 15vmin + 2 * 0.5vmin;
@@ -30,7 +30,7 @@
   }
 
   &:hover {
-    background: $popup-button-background;
+    background: var(--theme-popup-button-background);
   }
 
   .general-info {
@@ -73,7 +73,7 @@
           margin-right: 1vmin;
         }
         img:not(.profile-img) {
-          filter: $black-to-button-active-filter;
+          filter: var(--theme-black)-to-button-active-filter;
         }
 
         font-size: 1.8vmin;

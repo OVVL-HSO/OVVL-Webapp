@@ -40,6 +40,8 @@ import {dfdModelReducer, DFDModelState} from "./reducer/modelling-related/dfd-mo
 import {DFDModelEffects} from "./effects/modelling-related/dfd-model.effects";
 import {ErrorEffects} from "./effects/error.effects";
 import {ElementOptionsEffects} from "./effects/modelling-related/element-options.effects";
+import {settingsReducer, SettingsState} from "./reducer/user-related/settings.reducer";
+import {SettingsEffects} from "./effects/user-related/settings.effects";
 
 export interface State {
   dataFlowState: DataFlowDrawingState;
@@ -67,6 +69,7 @@ export interface State {
   profileState: ProfileState;
   projectState: ProjectState;
   dfdModelState: DFDModelState;
+  settingsState: SettingsState;
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -95,6 +98,7 @@ export const reducers: ActionReducerMap<State> = {
   feedbackState: feedbackReducer,
   profileState: profileReducer,
   projectState: projectReducer,
+  settingsState: settingsReducer,
   dfdModelState: dfdModelReducer
 };
 
@@ -122,4 +126,5 @@ export const effects = [
   ProjectEffects,
   DFDModelEffects,
   ElementOptionsEffects,
-  ErrorEffects];
+  ErrorEffects,
+  SettingsEffects];

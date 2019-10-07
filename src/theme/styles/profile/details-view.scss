@@ -4,8 +4,8 @@
 .details-wrapper {
   height: 100vh - $toolbar-top-height;
   width: 50vmin;
-  background: $search-list-background;
-  box-shadow: inset 10px 0 10px -10px $black;
+  background: var(--theme-search-list-background);
+  box-shadow: inset 10px 0 10px -10px var(--theme-black);
   padding: 1vmin;
   box-sizing: border-box;
 }

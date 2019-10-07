@@ -18,7 +18,7 @@
     cursor: pointer;
     img {
       height: 3vmin;
-      filter: $black-to-button-active-filter;
+      filter: var(--theme-black)-to-button-active-filter;
     }
     &:hover {
       transform: scale(1.05);

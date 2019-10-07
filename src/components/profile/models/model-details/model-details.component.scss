@@ -20,7 +20,7 @@
       flex-direction: column;
       text-align: left;
       margin: 0 1vmin;
-      color: $textcolor;
+      color: var(--theme-text-color);;
 
       #name {
         font-size: 2.5vmin;
@@ -45,7 +45,7 @@
 
         .created-at, .edited-at {
           img {
-            filter: $black-to-button-active-filter;
+            filter: var(--theme-black)-to-button-active-filter;
           }
         }
 
@@ -66,12 +66,12 @@
 
         img {
           height: 4vmin;
-          filter: $black-to-button-active-filter;
+          filter: var(--theme-black)-to-button-active-filter;
           transition: all 0.2s ease-out;
         }
 
         &:hover img {
-          filter: $black-to-white-filter;
+          filter: var(--theme-black)-to-white-filter;
           transform: scale(1.05);
         }
       }
@@ -83,7 +83,7 @@
     margin-top: 3vmin;
     justify-content: center;
     .no-projects-available {
-      color: $textcolor;
+      color: var(--theme-text-color);;
       padding: 0 1vmin;
       font-size: 1.8vmin;
     }
@@ -102,8 +102,8 @@
 
         select, .linked-project {
           height: 5vmin;
-          background: $button-unfolded-darkened;
-          color: $search-list-background;
+          background: var(--theme-button-unfolded)-darkened;
+          color: var(--theme-search-list-background);
           font-size: 2vmin;
         }
 
@@ -118,14 +118,14 @@
         select {
           margin-top: 0;
           &:hover {
-            background: $button-unfolded;
+            background: var(--theme-button-unfolded);
           }
         }
       }
 
       .link-button {
         flex: 0 0 15%;
-        background: $button-unfolded-darkened;
+        background: var(--theme-button-unfolded)-darkened;
         border: 0;
         border-radius: $border-radius;
         height: 5vmin;
@@ -135,24 +135,24 @@
         &[disabled] {
           opacity: 0.5;
           cursor: default;
-          background: $button-unfolded-darkened !important;
+          background: var(--theme-button-unfolded)-darkened !important;
         }
 
         &:hover {
-          background: $button-unfolded;
+          background: var(--theme-button-unfolded);
         }
 
         img {
           height: 3vmin;
-          filter: $black-to-search-list-background-filter;
+          filter: var(--theme-black)-to-search-list-background-filter;
         }
       }
     }
     .project-info {
       position: relative;
       width: 100%;
-      border: 5px solid $button-active;
-      background: $button-unfolded-darkened;
+      border: 5px solid var(--theme-button-active);
+      background: var(--theme-button-unfolded)-darkened;
       margin-top: 1.8vmin;
       border-radius: $border-radius;
       display: flex;
@@ -166,14 +166,14 @@
         width: 0;
         height: 0;
         border: 17px solid transparent;
-        border-bottom-color:$button-unfolded-darkened;
+        border-bottom-color:var(--theme-button-unfolded)-darkened;
         border-top: 0;
         margin-left: -17px;
         margin-top: -17px;
       }
 
       .owner, .collaborators, .project-title, .creation-date {
-        color: $search-list-background;
+        color: var(--theme-search-list-background);
         display: flex;
         align-items: center;
         font-size: 1.8vmin;
@@ -186,7 +186,7 @@
         img {
           width: 2vmin;
           margin-right: 1vmin;
-          filter: $black-to-search-list-background-filter;
+          filter: var(--theme-black)-to-search-list-background-filter;
         }
       }
 

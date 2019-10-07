@@ -9,7 +9,7 @@
   left: 0;
   width: $toolbar-left-width;
   height: $drawing-stage-height;
-  background-color: $sidebar-background;
+  background-color: var(--theme-sidebar-background);
   box-shadow: $toolbar-left-box-shadow;
   z-index: $sidebar-z-index;
 
@@ -36,7 +36,7 @@
         margin: 0.3vw;
         font-size: 0.7vw;
         text-align: center;
-        color: $textcolor;
+        color: var(--theme-text-color)
       }
 
       button:hover {
@@ -80,7 +80,7 @@
       #trustboundary-button {
         border-radius: $border-radius;
         cursor: pointer;
-        background-color: $light-gray-background;
+        background-color: var(--theme-light-gray-background);
       }
 
       #interactor-button:hover {
@@ -102,7 +102,7 @@
       }
 
       #trustboundary-button:hover, .boundary-toggle {
-        background-color: $button-active !important;
+        background-color: var(--theme-button-active) !important;
       }
     }
   }

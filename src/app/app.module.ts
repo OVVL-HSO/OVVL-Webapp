@@ -15,6 +15,7 @@ import {ModalService} from '../services/view-related/modal.service';
 import {DomService} from '../services/view-related/dom.service';
 import {StoreService} from '../services/store.service';
 import {FormsModule} from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {ThreatViewSidebarComponent} from '../components/threat-view-sidebar/threat-view-sidebar.component';
 import {ThreatModelService} from '../services/analysis-related/threat-model.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -74,6 +75,8 @@ import { JoinProjectAlertComponent } from '../components/modals/alert/join-proje
 import { DeclineInvitationAlertComponent } from '../components/modals/alert/decline-invitation/decline-invitation-alert.component';
 import { LeaveProjectAlertComponent } from '../components/modals/alert/leave-project-alert/leave-project-alert.component';
 import { TrustBoundaryOptionsComponent } from '../components/modals/option-view/trust-boundary-options/trust-boundary-options.component';
+import { SettingsComponent } from '../components/profile/settings/settings.component';
+import {SettingsService} from "../services/user-related/settings.service";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -129,7 +132,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     JoinProjectAlertComponent,
     DeclineInvitationAlertComponent,
     LeaveProjectAlertComponent,
-    TrustBoundaryOptionsComponent
+    TrustBoundaryOptionsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -142,6 +146,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         }) : [],
     EffectsModule.forRoot(effects),
     FormsModule,
+    MatSlideToggleModule,
     Ng5SliderModule,
     PerfectScrollbarModule,
     BrowserAnimationsModule
@@ -160,6 +165,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FeedbackService,
     StorageService,
     ProjectService,
+    SettingsService,
     {
       provide: reducerToken,
       useFactory: getReducers

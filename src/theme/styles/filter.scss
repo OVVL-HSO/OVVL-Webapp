@@ -13,7 +13,7 @@
     position: relative;
 
     button {
-      background: $search-list-background;
+      background: var(--theme-search-list-background);
     }
 
     #filter-toggle {
@@ -24,13 +24,13 @@
         float: left;
         font-size: 2vmin;
         height: 5vmin;
-        color: $main-background;
+        color: var(--theme-main-background);
         padding: 1.5vmin;
         box-sizing: border-box;
       }
 
       span.filter-active {
-        color: $textcolor;
+        color: var(--theme-text-color);
       }
 
       img {
@@ -53,39 +53,39 @@
       top: 1vmin;
       right: 1vmin;
       bottom: 1vmin;
-      color: $main-background;
+      color: var(--theme-main-background);
       font-size: 1vmin;
-      border: 1px solid $main-background;
+      border: 1px solid var(--theme-main-background);
       border-radius: $border-radius;
       transform: $button-default-scale;
     }
 
     #reset-button:hover {
       transform: $button-hover-small-scale;
-      color: $textcolor;
-      border: 1px solid $textcolor;
+      color: var(--theme-text-color);;
+      border: 1px solid var(--theme-text-color);
     }
 
     #reset-button.filter-active {
-      color: $textcolor;
-      border: 1px solid $textcolor;
+      color: var(--theme-text-color);;
+      border: 1px solid var(--theme-text-color);
     }
   }
 
   .filter-selector {
     margin: -1vmin 0 0 0;
-    background: $popup-button-background;
+    background: var(--theme-popup-button-background);
     width: $threat-sidebar-width;
 
     .breaker {
       height: 1.5vmin;
-      background: $search-list-background;
+      background: var(--theme-search-list-background);
     }
 
     .title {
       text-align: center;
       font-size: 1.8vmin;
-      color: $textcolor;
+      color: var(--theme-text-color);;
       margin: 0;
       padding: 1vmin 0;
     }

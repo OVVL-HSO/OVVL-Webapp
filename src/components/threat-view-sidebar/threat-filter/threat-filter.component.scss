@@ -22,8 +22,8 @@
 
   .filter-button {
     flex: 1 1 $threat-sidebar-width * 0.3;
-    color: $textcolor;
-    background: $light-gray-background;
+    color: var(--theme-text-color);;
+    background: var(--theme-light-gray-background);
     border-radius: $border-radius;
     opacity: 0.3;
     box-sizing: border-box;

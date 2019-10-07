@@ -3,7 +3,7 @@
 
 .sidebar-wrapper {
   width: $profile-sidebar-width;
-  background: $sidebar-background;
+  background: var(--theme-sidebar-background);
   height: 100%;
   box-shadow: $toolbar-left-box-shadow;
   display: flex;
@@ -90,15 +90,15 @@
       img {
         margin-left: 2.5vmin;
         height: 3vmin;
-        filter: $black-to-white-filter;
+        filter: var(--theme-black)-to-white-filter;
       }
 
       &:hover {
-        background: $search-list-background;
+        background: var(--theme-search-list-background);
       }
 
       &.button-active {
-        background: $light-gray-background;
+        background: var(--theme-light-gray-background);
       }
     }
   }
@@ -121,19 +121,19 @@
 
       img {
         height: 2vmin;
-        filter: $black-to-white-filter;
+        filter: var(--theme-black)-to-white-filter;
       }
 
       span {
         flex: 1 1 85%;
         font-size: 2vmin;
         margin-left: 2vmin;
-        color: $textcolor;
+        color: var(--theme-text-color);
         text-align: left;
       }
 
       &:hover {
-        background: $search-list-background;
+        background: var(--theme-search-list-background);
       }
     }
   }

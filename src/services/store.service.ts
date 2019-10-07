@@ -20,6 +20,7 @@ import {ModelStorageData, StoredWork} from "../models/user-related/storage.model
 import {Project} from "../models/user-related/project.model";
 import {ElementUtil} from "../utils/element.util";
 import {OptionState} from "../store/reducer/modelling-related/element-options.reducer";
+import {Settings} from "../models/user-related/settings.model";
 
 @Injectable()
 export class StoreService {
@@ -257,4 +258,14 @@ export class StoreService {
   selectInvitationCount(): Observable<number> {
     return this.store.pipe(select((state: State) => state.storageState.storage.invites.length));
   }
+
+  selectUserSettings(): Observable<Settings> {
+    return this.store.pipe(select((state: State) => state.settingsState));
+  }
+
+  selectUserTheme(): Observable<boolean> {
+    return this.store.pipe(select((state: State) => state.settingsState.darktheme));
+  }
+
+
 }

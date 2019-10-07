@@ -28,7 +28,7 @@
       background: $severity-medium !important;
 
       .cvss-score, .impact-level {
-        color: $top-toolbar-background !important;
+        color: var(--theme-top-toolbar-background) !important;
       }
 
       .cve-title-wrapper img {
@@ -80,7 +80,7 @@
       flex: 1 1 85%;
       display: flex;
       height: 6vmin;
-      background: $light-gray-background;
+      background: var(--theme-light-gray-background);
       border-radius: $border-radius;
       align-items: center;
       padding-left: 5vmin;
@@ -117,7 +117,7 @@
       justify-content: center;
       align-items: center;
       padding-left: 1vmin;
-      color: $button-active;
+      color: var(--theme-button-active);
 
       .cvss-score, .impact-level {
         font-weight: bold;
@@ -136,7 +136,7 @@
 
   .dropdown-data {
     .cve-info {
-      background: $button-unfolded;
+      background: var(--theme-button-unfolded);
       padding: 1vmin 1.5vmin 1.5vmin 1.5vmin;
     }
 
@@ -148,7 +148,7 @@
 
       &:hover {
         p {
-          color: $button-active !important;
+          color: var(--theme-button-active) !important;
         }
 
         img {
@@ -168,7 +168,7 @@
       p {
         flex: 1 1 45%;
         text-align: center;
-        color: $button-unfolded;
+        color: var(--theme-button-unfolded);
         padding: 0;
         font-size: 1.5vmin;
       }
@@ -182,7 +182,7 @@
     .meta-data {
       display: flex;
       padding: 0 1.5vmin 1vmin 1.5vmin;
-      color: $popup-button-background;
+      color: var(--theme-popup-button-background);
       flex-wrap: wrap;
 
       .impact-segment, .date-segment, .more-info-segment {
