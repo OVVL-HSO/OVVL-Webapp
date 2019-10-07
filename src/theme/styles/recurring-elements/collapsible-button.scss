@@ -13,29 +13,29 @@
     border: 0;
     cursor: pointer;
     border-radius: $border-radius;
-    color: $button-active;
-    background: $light-gray-background;
+    color: var(--theme-button-active);
+    background: var(--theme-light-gray-background);
   }
 
   .toggle-button:hover {
-    color: $sidebar-background;
+    color: var(--theme-sidebar-background);
   }
 
   .dropdown-toggled {
     border-radius: $border-radius $border-radius 0 0;
-    background-color: $button-active;
-    color: $top-toolbar-background;
+    background-color: var(--theme-button-active);
+    color: var(--theme-top-toolbar-background);
   }
 
   .dropdown-data {
-    background-color: $button-unfolded-darkened;
+    background-color: var(--theme-button-unfolded)-darkened;
     border-radius: 0 0 $border-radius $border-radius;
 
     p {
       font-size: 1.5vmin;
       line-break: normal;
       margin: 0;
-      color: $top-toolbar-background;
+      color: var(--theme-top-toolbar-background);
     }
 
     span {

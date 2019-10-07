@@ -28,7 +28,7 @@
 
     img {
       width: 5vmin;
-      filter: $black-to-button-active-filter;
+      filter: var(--theme-black)-to-button-active-filter;
       margin-bottom: 1vmin;
     }
 

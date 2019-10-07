@@ -28,7 +28,7 @@
       <span class="button-text">Invites</span>
       <span id="notification"><span>{{inviteCount$  | async}}</span></span>
     </button>
-    <button [disabled]="true"
+    <button (click)="switchTab('settings')"
             [ngClass]="((shownTab$ | async) === 'settings') ? 'button-active' : ''"
             class="settings">
       <img alt="S" src="../../../assets/settings.svg">

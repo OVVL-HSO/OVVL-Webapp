@@ -5,7 +5,9 @@ import {
   ErrorLoadingInvitationsAction,
   ErrorLoadingStoredWorkAction,
   LOAD_INVITES,
-  LOAD_STORED_WORK, LoadInvitesAction, LoadInvitesCompleteAction, LoadStoredWorkAction,
+  LOAD_STORED_WORK,
+  LoadInvitesAction,
+  LoadInvitesCompleteAction,
   LoadStoredWorkCompleteAction,
 } from "../../actions/user-related/storage.action";
 import {Observable, of} from "rxjs";

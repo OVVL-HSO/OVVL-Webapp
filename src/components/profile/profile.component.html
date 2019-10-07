@@ -3,4 +3,5 @@
   <app-projects *ngIf="(shownTab$ | async) == 'projects'" [projects]="projects"></app-projects>
   <app-models *ngIf="(shownTab$ | async) == 'models'" [models]="models"></app-models>
   <app-invites *ngIf="(shownTab$ | async) == 'invites'" [invites]="invites"></app-invites>
+  <app-settings *ngIf="(shownTab$ | async) == 'settings'" [settings]="settings"></app-settings>
 </div>

@@ -2,7 +2,7 @@
 @import "../../../../theme/general";
 @import "../../../../theme/styles/profile/profile-list-item";
 .list-item-wrapper {
-  background: $button-unfolded-darkened;
+  background: var(--theme-button-unfolded)-darkened;
   display: flex;
   border-radius: $border-radius;
   height: $profile-list-item-height;
@@ -24,7 +24,7 @@
     .date-wrapper {
       img {
         height: 1.8vmin;
-        filter: $black-to-button-active-filter;
+        filter: var(--theme-black)-to-button-active-filter;
         margin-right: 1vmin;
       }
     }
@@ -39,7 +39,7 @@
 
       .owner, .collaborator-count {
         display: flex;
-        color: $button-active;
+        color: var(--theme-button-active);
         font-size: 1.8vmin;
         margin: 0.7vmin 0;
         align-items: center;
@@ -50,7 +50,7 @@
         }
 
         img:not(.profile-icon) {
-          filter: $black-to-button-active-filter;
+          filter: var(--theme-black)-to-button-active-filter;
         }
       }
     }
@@ -59,7 +59,7 @@
   &:hover {
     .list-item {
       cursor: default;
-      background: $search-list-background;
+      background: var(--theme-search-list-background);
       flex: 1;
       width: $profile-list-item-width * 0.9;
       .general-info {
@@ -85,12 +85,12 @@
 
       img {
         height: 2.5vmin;
-        filter: $black-to-search-list-background-filter;
+        filter: var(--theme-black)-to-search-list-background-filter;
       }
 
       .accept, .decline {
         padding-left: -1vmin;
-        background: $button-unfolded-darkened;
+        background: var(--theme-button-unfolded)-darkened;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -101,7 +101,7 @@
         border: 0;
 
         &:hover {
-          background: $button-active;
+          background: var(--theme-button-active);
           box-shadow: inset 0 0 9px -2px rgba(0,0,0,0.75);
         }
       }

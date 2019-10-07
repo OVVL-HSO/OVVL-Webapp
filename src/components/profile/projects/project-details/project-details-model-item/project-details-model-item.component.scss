@@ -3,14 +3,14 @@
 
 .small-model-item {
   width: 99%;
-  background: $button-unfolded-darkened !important;
-  color: $search-list-background;
+  background: var(--theme-button-unfolded)-darkened !important;
+  color: var(--theme-search-list-background);
   cursor: default !important;
   position: relative;
   padding-right: 0;
   .normal-display {
-    background: $button-active;
-    color: $search-list-background;
+    background: var(--theme-button-active);
+    color: var(--theme-search-list-background);
     height: 6vmin;
     border-radius: $border-radius;
     display: flex;
@@ -77,21 +77,21 @@
       justify-content: right;
 
       .created-by {
-        color: $sidebar-background;
+        color: var(--theme-sidebar-background);
         display: flex;
         align-items: center;
         margin-right: 6vmin;
         font-size: 1.8vmin;
         img {
           height: 3vmin;
-          filter: $black-to-search-list-background-filter;
+          filter: var(--theme-black)-to-search-list-background-filter;
           margin-right: 1vmin;
         }
       }
 
       .unlink, .load {
         display: flex;
-        background: $main-background;
+        background: var(--theme-main-background);
         align-items: center;
         justify-content: center;
         height: 6vmin;
@@ -99,16 +99,16 @@
         cursor: pointer;
 
         &:hover {
-          background: $sidebar-background;
+          background: var(--theme-sidebar-background);
         }
         img {
           height: 2.5vmin;
-          filter: $black-to-button-active-filter;
+          filter: var(--theme-black)-to-button-active-filter;
         }
       }
 
       .unlink {
-        border-right: 1px solid $button-unfolded-darkened;
+        border-right: 1px solid var(--theme-button-unfolded)-darkened;
       }
 
       .load {
@@ -119,6 +119,6 @@
   }
 
   .model-release img {
-    filter: $black-to-search-list-background-filter;
+    filter: var(--theme-black)-to-search-list-background-filter;
   }
 }

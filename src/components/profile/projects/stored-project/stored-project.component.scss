@@ -15,7 +15,7 @@
 
     .owner, .collaborator-count, .model-count {
       display: flex;
-      color: $button-active;
+      color: var(--theme-button-active);
       font-size: 1.8vmin;
       margin: 0.7vmin 0;
       align-items: center;
@@ -26,7 +26,7 @@
       }
 
       img:not(.profile-icon) {
-        filter: $black-to-button-active-filter;
+        filter: var(--theme-black)-to-button-active-filter;
       }
     }
   }

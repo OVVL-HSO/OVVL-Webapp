@@ -40,7 +40,7 @@
           }
 
           p {
-            color: $textcolor;
+            color: var(--theme-text-color);;
             margin: 0 0 0 $element-spacing * 2;
             font-size: 2.5vmin;
             word-wrap: break-word;
@@ -71,7 +71,7 @@
 
           .trust-boundary-button {
             border-radius: $border-radius;
-            background-color: $button-active;
+            background-color: var(--theme-button-active);
           }
         }
       }
@@ -109,8 +109,8 @@
         }
 
         .confirm-delete {
-          border: 2px solid $button-unfolded;
-          color: $button-unfolded;
+          border: 2px solid var(--theme-button-unfolded);
+          color: var(--theme-button-unfolded);
           border-radius: $border-radius;
           height: $option-modal-title-size * 0.5;
           background: transparent;
@@ -118,8 +118,8 @@
         }
 
         .confirm-delete:hover {
-          border: 2px solid $button-active;
-          color: $button-active;
+          border: 2px solid var(--theme-button-active);
+          color: var(--theme-button-active);
           transform: $button-hover-scale;
         }
 
@@ -141,15 +141,15 @@
           flex: 1 0 40%;
           font-size: 2.5vmin;
           height: $option-modal-title-size * 0.5;
-          background: $button-active;
+          background: var(--theme-button-active);
           border: 0;
           border-radius: $border-radius;
-          color: $popup-button-background;
+          color: var(--theme-popup-button-background);
         }
 
         button:hover {
           cursor: pointer;
-          background: $button-unfolded;
+          background: var(--theme-button-unfolded);
         }
 
         #save-button {

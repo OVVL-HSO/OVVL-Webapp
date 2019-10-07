@@ -8,7 +8,7 @@
   height: $drawing-stage-height;
   width: $drawing-stage-width;
   top: $toolbar-top-height;
-  background-color: $main-background;
+  background-color: var(--theme-main-background);
 
   .drawing-board {
     width: 100%;
@@ -29,12 +29,12 @@
   }
 
   .zoom-active {
-    background-color: rgba($button-unfolded, 0.5) !important;
+    background-color: rgba(var(--theme-button-unfolded), 0.5) !important;
   }
 
   .zoom-level-indicator {
     background-color: transparent;
-    color: $textcolor;
+    color: var(--theme-text-color);;
     font-size: 2vmin;
     width: 8.5vmin;
     padding: 0.7vmin 0.5vmin 0.5vmin 0.5vmin;
@@ -55,13 +55,13 @@
     .zoom-button {
       height: 3vmin;
       margin-left: 0.4vmin;
-      background-color: $sidebar-background;
+      background-color: var(--theme-sidebar-background);
       display: flex;
       align-items: center;
 
       img {
         width: 1.5vmin;
-        filter: $black-to-white-filter;
+        filter: var(--theme-black)-to-white-filter;
       }
     }
 
@@ -82,7 +82,7 @@
 
   .zoom-button:hover {
     transform: $button-hover-scale;
-    background-color: $top-toolbar-background !important;
+    background-color: var(--theme-top-toolbar-background) !important;
   }
 }
 

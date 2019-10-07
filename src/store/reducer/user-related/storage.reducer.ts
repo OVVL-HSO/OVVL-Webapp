@@ -1,8 +1,11 @@
 import {
   ERROR_LOADING_INVITATIONS,
-  ERROR_LOADING_STORED_WORK, LOAD_INVITES, LOAD_INVITES_COMPLETE,
+  ERROR_LOADING_STORED_WORK,
+  LOAD_INVITES,
+  LOAD_INVITES_COMPLETE,
   LOAD_STORED_WORK,
-  LOAD_STORED_WORK_COMPLETE, RESET_STORAGE,
+  LOAD_STORED_WORK_COMPLETE,
+  RESET_STORAGE,
   StorageActions
 } from "../../actions/user-related/storage.action";
 import {StoredWork} from "../../../models/user-related/storage.model";

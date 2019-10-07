@@ -7,7 +7,7 @@
   z-index: $toolbar-top-z-index;
   top: 0;
   width: 100vw;
-  background-color: $top-toolbar-background;
+  background-color: var(--theme-top-toolbar-background);
   height: $toolbar-top-height;
   box-shadow: $toolbar-top-box-shadow;
 
@@ -32,7 +32,7 @@
       flex: 1 0;
       margin: 0 0 0 0.5vw;
       font-size: $toolbar-top-name-element-height;
-      color: $textcolor;
+      color: var(--theme-text-color);;
     }
   }
 
@@ -50,7 +50,7 @@
         height: $toolbar-top-button-size;
         border-radius: 50%;
         border: 0;
-        background-color: $main-background;
+        background-color: var(--theme-main-background);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 60%;
@@ -60,7 +60,7 @@
         cursor: auto !important;
         transform: none !important;
         opacity: 0.5;
-        background-color: $main-background !important;
+        background-color: var(--theme-main-background) !important;
         box-shadow: none !important;
       }
 
@@ -71,12 +71,12 @@
       #profile-button:hover {
         cursor: pointer;
         transform: $button-hover-scale;
-        background-color: $light-gray-background;
+        background-color: var(--theme-light-gray-background);
         box-shadow: $float-button-box-shadow;
       }
 
       .button-clicked {
-        background-color: $light-gray-background !important;
+        background-color: var(--theme-light-gray-background) !important;
         transform: $button-hover-scale;
         box-shadow: $float-button-box-shadow;
       }

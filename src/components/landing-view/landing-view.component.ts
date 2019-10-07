@@ -8,6 +8,7 @@ import {StoreService} from "../../services/store.service";
 import {untilDestroyed} from "ngx-take-until-destroy";
 import {AddModalAction} from "../../store/actions/view-related/modal.action";
 import {ModalConfig} from "../../config/modal.config";
+import {Settings} from "../../models/user-related/settings.model";
 
 @Component({
   selector: 'app-landing-view',

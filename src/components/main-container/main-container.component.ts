@@ -17,6 +17,8 @@ import {SessionStorageService} from "../../services/session-storage.service";
 import {LoadProfileDataAction} from "../../store/actions/user-related/user.action";
 import {LoadStoredWorkAction} from "../../store/actions/user-related/storage.action";
 import {RedrawAllAction} from "../../store/actions/view-related/redraw.action";
+import {LoadUserSettingsAction} from "../../store/actions/user-related/settings.action";
+import {SetViewAction} from "../../store/actions/view-related/view.action";
 
 @Component({
   selector: 'app-main-container',
@@ -31,6 +33,7 @@ export class MainContainerComponent implements OnInit, OnDestroy {
   analysisViewShown: boolean;
   landingViewShown: boolean;
   profileViewShown: boolean;
+  darkTheme: boolean;
   drawingStage: Konva.Stage;
   freeDrawStage: Konva.Stage;
   images: Images = GeneralUtil.createEmptyImagesObject();
@@ -75,6 +78,7 @@ export class MainContainerComponent implements OnInit, OnDestroy {
       return 'analysis-view';
     }
   }
+
 
   loadASingleImage(imageSource: string) {
     return new Promise((resolve, reject) => {
@@ -169,6 +173,24 @@ export class MainContainerComponent implements OnInit, OnDestroy {
     if (SessionStorageService.isSignedIn()) {
       this.store.dispatch(new LoadProfileDataAction());
       this.store.dispatch(new LoadStoredWorkAction());
+      this.store.dispatch(new LoadUserSettingsAction());
+    }
+  }
+
+  getTheme() {
+    this.storeService.selectUserTheme()
+      .pipe(untilDestroyed(this))
+      .subscribe((theme: Boolean) => {
+        if (theme) {
+          this.darkTheme = true;
+        } else {
+          this.darkTheme = false;
+        }
+      });
+    if (this.darkTheme) {
+      return 'theme-dark';
+    } else {
+      return 'theme-light';
     }
   }
 }

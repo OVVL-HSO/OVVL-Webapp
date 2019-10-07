@@ -1,3 +1,4 @@
+
 //ORANGE
 $orange-shape: #DE713F;
 $orange-shape-highlight: #FF7400;
@@ -26,96 +27,119 @@ $red-content: #B71C1F;
 $red-content-highlight: #CF1618;
 $red-border: #9B110F;
 
-//GRAY
-$textcolor: #FFFFFF;
-$button-active: #CDCDCD;
-$button-unfolded: #BEBEBE;
-$button-unfolded-darkened: #B2B2B2;
-$light-gray-background: #878787;
-$main-background: #7A7A7A;
-$sidebar-background: #646464;
-$top-toolbar-background: #5A5A5A;
-$popup-button-background: #505050;
-$search-list-background: #464646;
-$black: #000000;
-$overlay-background: rgba($black, 0.4);
+// DEFAULT GREY THEME
+:root {
+  --theme-text-color: #FFFFFF;
+  --theme-button-active: #CDCDCD;
+  --theme-button-unfolded: #BEBEBE;
+  --theme-main-background: #7A7A7A;
+  --theme-button-unfolded-darkened: #B2B2B2;
+  --theme-light-gray-background: #878787;
+  --theme-sidebar-background: #646464;
+  --theme-top-toolbar-background: #5A5A5A;
+  --theme-popup-button-background: #505050;
+  --theme-search-list-background: #464646;
+  --theme-black-light: #000000;
+  --theme-black: #000000;
+  --theme-overlay-background: rgba(var(--theme-black), 0.4);
+}
+
+.theme-dark {
+  --theme-text-color: #FFFFFF;
+  --theme-button-active: #CDCDCD;
+  --theme-button-unfolded: #BEBEBE;
+  --theme-main-background: #7A7A7A;
+  --theme-button-unfolded-darkened: #B2B2B2;
+  --theme-light-gray-background: #878787;
+  --theme-sidebar-background: #646464;
+  --theme-top-toolbar-background: #5A5A5A;
+  --theme-popup-button-background: #505050;
+  --theme-search-list-background: #464646;
+  --theme-black-light: #000000;
+  --theme-black: #000000;
+  --theme-overlay-background: rgba(var(--theme-black), 0.4);
+}
+
 
 // LIGHT THEME
-/*$main-background: #C8C8C8;
-$top-toolbar-background: #969596;
-$popup-button-background: #9F9F9F;
-$light-gray-background: #CDCDCD;
-$sidebar-background: #9F9F9F;
-$search-list-background: $main-background;
-$black: #000000;
-$button-active: #CDCDCD;
-$button-unfolded: #BEBEBE;
-$overlay-background: rgba($black, 0.6);
-$textcolor: #464646;*/
+.theme-light > *{
+  --theme-text-color: #464646;
+  --theme-button-active: #CDCDCD;
+  --theme-button-unfolded: #BEBEBE;
+//  --theme-main-background: #7A7A7A;
+  --theme-light-gray-background: #CDCDCD;
+  --theme-main-background: #C8C8C8;
+  --theme-sidebar-background: #9F9F9F;
+  --theme-top-toolbar-background: #969596;
+  --theme-popup-button-background: #9F9F9F;
+  --theme-search-list-background: var(--theme-main-background);
+  --theme-black-light: #000000;
+  --theme-black: #000000;
+  --theme-overlay-background: rgba(var(--theme-black), 0.6);
+}
 
+  //GENERAL
+  $border-radius: 14px;
+  $large-button-border-radius: 40px;
 
-//GENERAL
-$border-radius: 14px;
-$large-button-border-radius: 40px;
+  // Z-INDEXES
+  $highlight-stage-default: 4;
+  $drawing-stage-z-index: 5;
+  $above-drawing-stage-z-index: 6;
+  $sidebar-z-index: 6;
+  $toolbar-top-z-index: 7;
 
-// Z-INDEXES
-$highlight-stage-default: 4;
-$drawing-stage-z-index: 5;
-$above-drawing-stage-z-index: 6;
-$sidebar-z-index: 6;
-$toolbar-top-z-index: 7;
+  // MODAL
+  $base-modal-width: 60vw;
+  $base-modal-height: 72vh;
+  $login-modal-width: 36vmin;
+  $login-modal-height: 48vmin;
 
-// MODAL
-$base-modal-width: 60vw;
-$base-modal-height: 72vh;
-$login-modal-width: 36vmin;
-$login-modal-height: 48vmin;
+  // OPTION MODAL
+  $element-size: 7vmin;
+  $element-spacing: 1vmin;
+  $option-modal-title-size: 8vmin;
 
-// OPTION MODAL
-$element-size: 7vmin;
-$element-spacing: 1vmin;
-$option-modal-title-size: 8vmin;
+  // STORAGE MODAL
+  $dfd-info-width: $base-modal-width * 0.32;
+  $dfd-info-height: $base-modal-width * 0.18;
+  $dfd-info-margin: $base-modal-width * 0.05;
 
-// STORAGE MODAL
-$dfd-info-width: $base-modal-width * 0.32;
-$dfd-info-height: $base-modal-width * 0.18;
-$dfd-info-margin: $base-modal-width * 0.05;
+  //BUTTON BEHAVIOUR
+  $button-hover-scale: scale(1.05);
+  $button-default-scale: scale(1);
+  $button-transition: all .4s ease-in-out;
+  $button-hover-small-scale: scale(1.02);
+  $button-small-transition: all .2s ease-in-out;
 
-//BUTTON BEHAVIOUR
-$button-hover-scale: scale(1.05);
-$button-default-scale: scale(1);
-$button-transition: all .4s ease-in-out;
-$button-hover-small-scale: scale(1.02);
-$button-small-transition: all .2s ease-in-out;
+  //BOX-SHADOWS
+  $toolbar-top-box-shadow: 0px -26px 18px 26px rgba(0, 0, 0, 0.75);
+  $toolbar-left-box-shadow: -26px 0px 18px 26px rgba(0, 0, 0, 0.75);
+  $modal-box-shadow: 4px 6px 14px -4px black;
+  $float-button-box-shadow: 4px 6px 11px -4px rgba(0, 0, 0, 0.65);
+  $large-button-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.45);
 
-//BOX-SHADOWS
-$toolbar-top-box-shadow: 0px -26px 18px 26px rgba(0, 0, 0, 0.75);
-$toolbar-left-box-shadow: -26px 0px 18px 26px rgba(0, 0, 0, 0.75);
-$modal-box-shadow: 4px 6px 14px -4px black;
-$float-button-box-shadow: 4px 6px 11px -4px rgba(0, 0, 0, 0.65);
-$large-button-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.45);
+  //DIMENSIONS
+  $drawing-stage-width: 94vw;
+  $drawing-stage-height: 94vh;
+  $threat-sidebar-width: 20vw;
+  $profile-sidebar-width: 13vw;
 
-//DIMENSIONS
-$drawing-stage-width: 94vw;
-$drawing-stage-height: 94vh;
-$threat-sidebar-width: 20vw;
-$profile-sidebar-width: 13vw;
+  //PROFILE
+  $profile-list-item-margin: 2.5vmin 0;
+  $profile-list-item-height: 15vmin;
+  $profile-list-item-width: 90vmin;
 
-//PROFILE
-$profile-list-item-margin: 2.5vmin 0;
-$profile-list-item-height: 15vmin;
-$profile-list-item-width: 90vmin;
+  //SEVERITY
+  $severity-high: #801515;
+  $severity-high-filter: invert(13%) sepia(37%) saturate(5586%) hue-rotate(348deg) brightness(94%) contrast(96%);
+  $severity-medium: #D6C64C;
+  $severity-medium-filter: invert(86%) sepia(69%) saturate(467%) hue-rotate(340deg) brightness(86%) contrast(95%);
+  $severity-low: #2A6921;
+  $severity-low-filter: invert(32%) sepia(35%) saturate(866%) hue-rotate(66deg) brightness(95%) contrast(95%);
 
-//SEVERITY
-$severity-high: #801515;
-$severity-high-filter: invert(13%) sepia(37%) saturate(5586%) hue-rotate(348deg) brightness(94%) contrast(96%);
-$severity-medium: #D6C64C;
-$severity-medium-filter: invert(86%) sepia(69%) saturate(467%) hue-rotate(340deg) brightness(86%) contrast(95%);
-$severity-low: #2A6921;
-$severity-low-filter: invert(32%) sepia(35%) saturate(866%) hue-rotate(66deg) brightness(95%) contrast(95%);
-
-//FILTER
-$filter-button-height: 2.3vmin;
+  //FILTER
+  $filter-button-height: 2.3vmin;
 $black-to-white-filter: invert(98%) sepia(0%) saturate(453%) hue-rotate(266deg) brightness(119%) contrast(100%);
 $black-to-button-active-filter: invert(100%) sepia(1%) saturate(1515%) hue-rotate(335deg) brightness(110%) contrast(61%);
 $black-to-search-list-background-filter: invert(35%) sepia(16%) saturate(0%) hue-rotate(245deg) brightness(78%) contrast(101%);

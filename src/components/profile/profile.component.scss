@@ -5,6 +5,6 @@
   width: 100vw;
   height: 94vh;
   margin-top: 6vh;
-  background: $main-background;
+  background: var(--theme-main-background);
   z-index: $above-drawing-stage-z-index;
 }

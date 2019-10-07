@@ -17,6 +17,6 @@
 
   img {
     height: 1vmin;
-    filter: $black-to-white-filter;
+    filter: var(--theme-black)-to-white-filter;
   }
 }

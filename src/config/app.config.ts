@@ -10,4 +10,5 @@ export class AppConfig {
   static readonly FEEDBACK_URL = AppConfig.SERVER_URL + 'feedback';
   static readonly STORAGE_URL = AppConfig.SERVER_URL + 'storage';
   static readonly PROJECT_URL = AppConfig.SERVER_URL + 'project';
+  static readonly SETTINGS_URL = AppConfig.SERVER_URL + 'settings';
 }

@@ -7,7 +7,7 @@
   padding: $element-spacing;
   box-sizing: border-box;
   height: 100%;
-  background-color: $search-list-background;
+  background-color: var(--theme-search-list-background);
 
   .cpe-count {
     width: 100%;
@@ -16,7 +16,7 @@
 
     p {
       text-align: center;
-      color: $button-active;
+      color: var(--theme-button-active);
       font-size: 1.3vmin;
       margin: 0;
     }
@@ -26,9 +26,9 @@
     padding: 0.5vmin 0;
 
     input {
-      background: $main-background;
+      background: var(--theme-main-background);
       border: 0;
-      color: $button-unfolded;
+      color: var(--theme-button-unfolded);
       height: 2.5vmin;
       width: 100%;
       padding-left: 1vmin;
@@ -38,7 +38,7 @@
   }
 
   .none-found {
-    color: $textcolor;
+    color: var(--theme-text-color);;
     font-size: 2vmin;
     height: 100%;
     width: 100%;
@@ -93,22 +93,22 @@
           padding-left: 1vmin;
           flex: 1 1 80%;
           font-size: 1.6vmin;
-          color: $top-toolbar-background;
+          color: var(--theme-top-toolbar-background);
           text-decoration: none;
         }
       }
 
       button {
         border-radius: $border-radius;
-        background: $search-list-background;
+        background: var(--theme-search-list-background);
         cursor: pointer;
-        color: $button-active;
+        color: var(--theme-button-active);
         padding: 1vmin;
         border: 0;
         font-size: 1.5vmin;
 
         &:hover {
-          color: $textcolor;
+          color: var(--theme-text-color);;
         }
       }
     }

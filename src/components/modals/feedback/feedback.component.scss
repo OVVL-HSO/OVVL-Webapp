@@ -10,7 +10,7 @@
 
   .general {
     margin-bottom: 3vmin;
-    color: $textcolor;
+    color: var(--theme-text-color);;
     text-align: left;
 
     .title {
@@ -47,8 +47,8 @@
       background: transparent;
       font-size: 2.5vmin;
       cursor: pointer;
-      color: $textcolor;
-      border: 1px solid $textcolor;
+      color: var(--theme-text-color);;
+      border: 1px solid var(--theme-text-color);
       border-radius: $border-radius;
       transition: $button-small-transition;
 
@@ -73,7 +73,7 @@
     height: 100%;
 
     p {
-      color: $textcolor;
+      color: var(--theme-text-color);;
       font-size: 2.5vmin;
     }
 
@@ -99,7 +99,7 @@
 
     img {
       height: 3.5vmin;
-      filter: $black-to-white-filter;
+      filter: var(--theme-black)-to-white-filter;
     }
   }
 

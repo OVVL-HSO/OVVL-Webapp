@@ -27,18 +27,18 @@
     .leave-button, .cancel-button {
       cursor: pointer;
       border-radius: $border-radius;
-      background-color: $popup-button-background;
+      background-color: var(--theme-popup-button-background);
       width: 12vmin;
       height: 5vmin;
       font-size: 1.8vmin;
       font-family: 'Comfortaa', cursive;
       margin: 0 $element-spacing;
-      color: $textcolor;
+      color: var(--theme-text-color);;
       border: 0;
     }
 
     button:hover {
-      background-color: $top-toolbar-background;
+      background-color: var(--theme-top-toolbar-background);
     }
   }
 }

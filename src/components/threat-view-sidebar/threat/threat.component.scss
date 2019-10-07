@@ -4,7 +4,7 @@
 
 .threat-info {
   padding: 1.5vmin;
-  background: $button-unfolded;
+  background: var(--theme-button-unfolded);
 }
 
 .threat-adjust {
@@ -19,8 +19,8 @@
     .applicable-button {
       border-radius: $border-radius;
       height: $filter-button-height;
-      background: $light-gray-background;
-      color: $top-toolbar-background;
+      background: var(--theme-light-gray-background);
+      color: var(--theme-top-toolbar-background);
       opacity: 0.6;
       border: 0;
       cursor: pointer;
@@ -34,8 +34,8 @@
 
     .applicable-button.selected {
       opacity: 1;
-      background: $sidebar-background;
-      color: $button-active;
+      background: var(--theme-sidebar-background);
+      color: var(--theme-button-active);
     }
 
     .left {
