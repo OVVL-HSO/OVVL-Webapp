@@ -1,0 +1,26 @@
+@import "../../../theme/variables";
+
+.row{
+  height: 50px;
+}
+
+.settings-slide-toggle{
+  padding: 10px;
+  padding-left: 50px;
+}
+
+.settings-button{
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    padding: 1vmin;
+    background: var(--theme-search-list-background);
+    box-shadow: $float-button-box-shadow;
+    margin: 10px;
+    color: #fff;
+
+    &:hover {
+      transform: scale(1.05);
+      background: var(--theme-popup-button-background);
+    }
+}
