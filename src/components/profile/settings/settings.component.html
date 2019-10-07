@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <perfect-scrollbar class="perfect-scrollbar" style="max-width: 95vmin; max-height: 98%;">
+    <div class="row">
+      <span>Toggle Dark/Lightmode</span>
+      <mat-slide-toggle (click)="toggleNightmodeMode()"
+            class="settings-slide-toggle"
+            title="Toggle Lightmode"
+            checked={userSettings.nightmode}>
+      </mat-slide-toggle>
+    </div>
+  <button (click)="saveSettings()"
+          class="settings-button"
+          title="Save user settings">
+  Save settings permanently</button>
+  </perfect-scrollbar>
+</div>
