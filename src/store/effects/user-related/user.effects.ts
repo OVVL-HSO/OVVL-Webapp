@@ -28,6 +28,7 @@ import {CancelProjectCreationAction} from "../../actions/user-related/projects/p
 import {ResetProfileStateAction} from "../../actions/user-related/profile.action";
 import {SetViewAction} from "../../actions/view-related/view.action";
 import {View} from "../../../models/view-related/view.model";
+import {LoadUserSettingsAction} from "../../actions/user-related/settings.action";
 
 @Injectable()
 export class UserEffects {
@@ -64,7 +65,7 @@ export class UserEffects {
 
   @Effect() loginCompleteAction$ = this.action$.pipe(
     ofType(LOG_IN_COMPLETE),
-    switchMap(() => [new RemoveModalAction(ModalConfig.LOGIN_MODAL), new LoadProfileDataAction(), new LoadStoredWorkAction()])
+    switchMap(() => [new RemoveModalAction(ModalConfig.LOGIN_MODAL), new LoadProfileDataAction(), new LoadStoredWorkAction(), new LoadUserSettingsAction()])
   );
 
   @Effect() loadUserdataCompleteAction$ = this.action$.pipe(

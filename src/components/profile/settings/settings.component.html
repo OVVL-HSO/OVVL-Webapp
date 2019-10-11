@@ -1,11 +1,11 @@
 <div class="wrapper">
   <perfect-scrollbar class="perfect-scrollbar" style="max-width: 95vmin; max-height: 98%;">
     <div class="row">
-      <span>Toggle Dark/Lightmode</span>
-      <mat-slide-toggle (click)="toggleNightmodeMode()"
+      <span>Toggle {{getSelectableThemeName()}}</span>
+      <mat-slide-toggle (change)="toggleTheme()"
             class="settings-slide-toggle"
-            title="Toggle Lightmode"
-            checked={userSettings.nightmode}>
+            title="Toggle Light/Dark themme"
+            checked={{userSettings.darktheme}}>
       </mat-slide-toggle>
     </div>
   <button (click)="saveSettings()"

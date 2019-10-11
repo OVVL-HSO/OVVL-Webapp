@@ -3,7 +3,7 @@ import {
   LOAD_USER_SETTINGS_COMPLETE,
   RESET_SETTINGS,
   SAVE_SETTINGS,
-  SET_NIGHTMODE,
+  TOOGLE_THEME,
   SettingsActions
 } from "../../actions/user-related/settings.action";
 
@@ -16,7 +16,7 @@ const initialState: SettingsState = {darktheme: true
 
 export function settingsReducer(state: SettingsState = initialState, action: SettingsActions): SettingsState {
   switch (action.type) {
-    case SET_NIGHTMODE:
+    case TOOGLE_THEME:
       return {
         ...state,
         darktheme: !state.darktheme
