@@ -30,11 +30,13 @@ import {ResetAnalysisDataAction, UpdateThreatDataAction} from "../../store/actio
 export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   @ViewChild('highlightStageContainer') highlightStageContainer: ElementRef;
 
-  foundThreats: Threat[];
-  showThreats = true;
+  foundSecurityThreats: Threat[];
+  foundPrivacyThreats: Threat[];
+  activeTab: string;
   foundCVEs: CVE[] = [];
   moveHighlightStageToTop: boolean;
-  displayedThreats: Threat[];
+  displayedSecurityThreats: Threat[];
+  displayedPrivacyThreats: Threat[];
   displayedVulnerabilities: CVE[];
 
   private dfdElements: (DFDElementType | DataFlow)[];
@@ -58,6 +60,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.setHighlighStageListener();
     this.subscribeToDfdElements();
     this.subscribeToThreatsAndVulnerabilities();
+    this.activeTab = "securityThreats";
   }
 
   ngOnDestroy() {
@@ -66,16 +69,16 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new ResetAnalysisDataAction());
   }
 
-  toggleThreatElementView() {
+  toggleThreatElementView(selectedTab: string) {
     this.removeHighlightingAndUnselectThreatsAndVulnerabilities();
-    this.showThreats = !this.showThreats;
+    this.activeTab = selectedTab;
   }
 
-  selectThreat(threat: Threat) {
+  selectSecurityThreat(threat: Threat) {
     this.clearView();
     if (!threat.selected) {
       this.moveHighlightStageToTop = true;
-      AnalysisViewUtil.dropDownSelectedDanger(this.foundThreats, threat);
+      AnalysisViewUtil.dropDownSelectedDanger(this.foundSecurityThreats, threat);
       const affectedElements: (DFDElementType | DataFlow)[] =
         ThreatUtil.findAffectedElements(this.dfdElements, threat.affectedElements);
       this.highlightElements(affectedElements);
@@ -83,6 +86,20 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
       this.removeHighlightingAndUnselectThreatsAndVulnerabilities();
     }
   }
+
+  selectPrivacyThreat(threat: Threat) {
+    this.clearView();
+    if (!threat.selected) {
+      this.moveHighlightStageToTop = true;
+      AnalysisViewUtil.dropDownSelectedDanger(this.foundPrivacyThreats, threat);
+      const affectedElements: (DFDElementType | DataFlow)[] =
+        ThreatUtil.findAffectedElements(this.dfdElements, threat.affectedElements);
+      this.highlightElements(affectedElements);
+    } else {
+      this.removeHighlightingAndUnselectThreatsAndVulnerabilities();
+    }
+  }
+
 
   selectVulnerability(cve: CVE) {
     this.clearView();
@@ -112,7 +129,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   }
 
   updatedDisplayedThreats(updatedThreats: Threat[]) {
-    this.displayedThreats = updatedThreats;
+    this.displayedSecurityThreats = updatedThreats;
   }
 
   updatedDisplayedCVEs(updatedCVEs: CVE[]) {
@@ -137,10 +154,11 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.storeService.selectAnalysisState()
       .pipe(untilDestroyed(this))
       .subscribe((analysisState: AnalysisState) => {
-        this.foundThreats = CopyUtils.copyThreats(analysisState.threats);
+        this.foundSecurityThreats = CopyUtils.copyThreats(analysisState.securityThreats);
+        this.foundPrivacyThreats = CopyUtils.copyThreats(analysisState.privacyThreats);
         this.foundCVEs = CopyUtils.copyVulnerabilities(analysisState.vulnerabilities);
         this.foundCVEs = CveUtil.sortCVEsByTheirImpact(this.foundCVEs);
-        this.displayedThreats = this.foundThreats;
+        this.displayedSecurityThreats = this.foundSecurityThreats;
         this.displayedVulnerabilities = this.foundCVEs;
       });
   }
@@ -148,8 +166,10 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   private highlightRelevantThreatsDependingOnSelectedElements() {
     this.selectedElement = ElementUtil.findTheFirstSelectedDFDElementInAnArray(this.dfdElements);
     if (this.selectedElement) {
-      if (this.showThreats) {
-        this.highlightElementsAndTheirCorrespondingThreats();
+      if (this.activeTab === "securityThreats") {
+        this.highlightElementsAndTheirCorrespondingSecurityThreats();
+      } else if (this.activeTab === "privacyThreats") {
+        this.highlightElementsAndTheirCorrespondingPrivacyThreats();
       } else {
         this.highlightElementsAndTheirCorrespondingVulnerabilities();
       }
@@ -211,7 +231,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
 
   private removeHighlightingAndUnselectThreatsAndVulnerabilities() {
     this.store.dispatch(new SetZoomEnabledAction(true));
-    AnalysisViewUtil.resetDangerDropdowns(this.foundThreats);
+    AnalysisViewUtil.resetDangerDropdowns(this.foundSecurityThreats);
     AnalysisViewUtil.resetDangerDropdowns(this.foundCVEs);
     if (this.selectedElement) {
       this.store.dispatch(new UnselectAllDFDElementsAction());
@@ -224,10 +244,17 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.clearView();
   }
 
-  private highlightElementsAndTheirCorrespondingThreats() {
+  private highlightElementsAndTheirCorrespondingSecurityThreats() {
     const highlightMetaData: ThreatViewHighlightData = AnalysisViewUtil
-      .combineDataRequiredForThreatAnalysisHighlighting(this.foundThreats, this.selectedElement.id, this.dfdElements);
-    this.foundThreats = highlightMetaData.updatedThreats;
+      .combineDataRequiredForThreatAnalysisHighlighting(this.foundSecurityThreats, this.selectedElement.id, this.dfdElements);
+    this.foundSecurityThreats = highlightMetaData.updatedThreats;
+    this.highlightElements(highlightMetaData.affectedElements);
+  }
+
+  private highlightElementsAndTheirCorrespondingPrivacyThreats() {
+    const highlightMetaData: ThreatViewHighlightData = AnalysisViewUtil
+      .combineDataRequiredForThreatAnalysisHighlighting(this.foundPrivacyThreats, this.selectedElement.id, this.dfdElements);
+    this.foundPrivacyThreats = highlightMetaData.updatedThreats;
     this.highlightElements(highlightMetaData.affectedElements);
   }
 

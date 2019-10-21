@@ -1,7 +1,10 @@
 import {ApplicableFilterState, CVEFilter, NumberRange, StrideFilter, ThreatFilter, ThreatFilterPriority} from "../models/view-related/filter.model";
-import {ApplicableState, StrideCategory, Threat, ThreatPrority} from "../models/analysis-related/threat.model";
+import {ApplicableState, Threat, ThreatPrority} from "../models/analysis-related/threat.model";
 import {CVE} from "../models/analysis-related/cve.model";
 import {CveUtil} from "./analysis/cve.util";
+import {SecurityThreat, StrideCategory} from "../models/analysis-related/security-threat.model";
+import {filterToMembersWithDecorator} from "@angular/compiler-cli/src/ngtsc/metadata";
+import {forEach} from "@angular/router/src/utils/collection";
 
 export class FilterUtil {
   static setDefaultThreatFilter(): ThreatFilter {
@@ -75,9 +78,13 @@ export class FilterUtil {
     return filteredCVEs;
   }
 
-  static applyThreatFilter(unfilteredThreats: Threat[], filter: ThreatFilter): Threat[] {
+  static applyThreatFilter(unfilteredThreats: Threat[] , filter: ThreatFilter): Threat[] {
     let filteredThreats = unfilteredThreats;
-    filteredThreats = this.applyStrideFilter(filteredThreats, filter.stride);
+
+    if (filteredThreats.filter(threat => 'strideCategory' in threat).length === filteredThreats.length){
+      filteredThreats = this.applyStrideFilter(filteredThreats, filter.stride);
+    }
+
     filteredThreats = this.applyPriorityFilter(filteredThreats, filter.priority);
     filteredThreats = this.applyApplicableFilter(filteredThreats, filter.applicable);
     return filteredThreats;
@@ -99,12 +106,12 @@ export class FilterUtil {
     return impactRange.min === 0 && impactRange.max === 10;
   }
 
-  private static applyStrideFilter(threats: Threat[], strideFilter: StrideFilter): Threat[] {
+  private static applyStrideFilter(threats: SecurityThreat[], strideFilter: StrideFilter): SecurityThreat[] {
     if (this.strideUnfiltered(strideFilter)) {
       return threats;
     }
     return threats.filter((threat) => {
-      switch (threat.strideCategory) {
+      switch (threat.threatCategory) {
         case StrideCategory.SPOOFING:
           return strideFilter.spoofing;
         case StrideCategory.TAMPERING:

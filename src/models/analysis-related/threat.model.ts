@@ -1,15 +1,16 @@
 import {DataFlow} from '../modelling-related/dataflow.model';
 import {DFDElementType} from "../types/types.model";
+import {StrideCategory} from "./security-threat.model";
 
 export interface Threat {
   threatID: string;
-  strideCategory: StrideCategory;
   title: string;
   description: string;
   affectedElements: string[];
   selected?: boolean;
   applicable?: ApplicableState;
   priority?: ThreatPrority;
+  threatCategory: any;
 }
 
 export interface ThreatViewHighlightData {
@@ -22,14 +23,6 @@ export interface ThreatSpecificationUpdate {
   threat: Threat;
 }
 
-export enum StrideCategory {
-  SPOOFING = 'Spoofing',
-  TAMPERING = 'Tampering',
-  REPUDIATION = 'Repudiation',
-  INFORMATION_DISCLOSURE = 'Information Disclosure',
-  DENIAL_OF_SERVICE = 'Denial Of Service',
-  ELEVATION_OF_PRIVILEGE = 'Elevation Of Privilege'
-}
 
 export enum ApplicableState {
   NOT_SELECTED = 'Not Selected',

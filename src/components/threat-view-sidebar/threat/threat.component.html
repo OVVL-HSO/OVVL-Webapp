@@ -2,7 +2,7 @@
   <button (click)="selectThreat(threat)"
           [ngClass]="threat.selected ? 'dropdown-toggled' : ''"
           class="toggle-button">
-    Threat {{currentThreat + 1}}: {{threat.strideCategory}}
+    Threat {{currentThreat + 1}}: {{threat.threatCategory}}
   </button>
   <div *ngIf="threat.selected" class=dropdown-data>
     <div class="threat-info">
