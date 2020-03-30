@@ -1,15 +1,18 @@
-import {Threat} from './threat.model';
 import {CVE} from './cve.model';
+import {SecurityThreat} from "./security-threat.model";
+import {PrivacyThreat} from "./privacy-threat.model";
 
 export interface AnalysisResult {
   modelID: string;
-  threats: Threat[];
+  securityThreats: SecurityThreat[];
+  privacyThreats: PrivacyThreat[];
   vulnerabilities: CVE[];
 }
 
 export interface AnalysisState {
   analyzingModel: boolean;
-  threats: Threat[];
+  securityThreats: SecurityThreat[];
+  privacyThreats: PrivacyThreat[];
   vulnerabilities: CVE[];
   error: {};
 }

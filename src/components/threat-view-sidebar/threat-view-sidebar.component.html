@@ -3,43 +3,66 @@
 <div class="sidebar-wrapper">
   <div class="button-wrapper">
     <button class="threats-button"
-            (click)="toggleThreatElementView()"
-            [ngClass]="showThreats ? 'button-clicked' : ''">
+            (click)="toggleThreatElementView('securityThreats')"
+            [ngClass]="activeTab === 'securityThreats' ? 'button-clicked' : ''">
       Threats
     </button>
+    <button class="threats-button"
+            (click)="toggleThreatElementView('privacyThreats')"
+            [ngClass]="activeTab === 'privacyThreats' ? 'button-clicked' : ''" hidden>
+      Privacy
+    </button>
     <button class="vulnerability-button"
-            (click)="toggleThreatElementView()"
-            [ngClass]="!showThreats ? 'button-clicked' : ''">
+            (click)="toggleThreatElementView('vulnerabilities')"
+            [ngClass]="activeTab === 'vulnerabilities' ? 'button-clicked' : ''">
       Vulnerabilities
     </button>
   </div>
-  <app-threat-filter *ngIf="showThreats && foundThreats.length > 1"
-                     [threats]="foundThreats"
+  <app-threat-filter *ngIf="activeTab === 'securityThreats' && foundSecurityThreats.length > 1"
+                     [threats]="foundSecurityThreats"
                      (updatedThreats)="updatedDisplayedThreats($event)"></app-threat-filter>
-  <app-cve-filter *ngIf="!showThreats && foundCVEs.length > 1"
+  <app-threat-filter *ngIf="activeTab === 'privacyThreats' && foundPrivacyThreats.length > 1"
+                     [threats]="foundPrivacyThreats"
+                     (updatedThreats)="updatedDisplayedThreats($event)" hidden></app-threat-filter>
+  <app-cve-filter *ngIf="activeTab === 'vulnerabilities' && foundCVEs.length > 1"
                   [vulnerabilities]="foundCVEs"
                   (updatedCVEs)="updatedDisplayedCVEs($event)"></app-cve-filter>
   <perfect-scrollbar style="max-width: 100%; max-height: 92%;" class="perfect-scrollbar">
-    <div class="nothing-found" *ngIf="showThreats && foundThreats.length < 1">
-      No threats found.
+
+    <div class="nothing-found" *ngIf="activeTab === 'securityThreats' && foundSecurityThreats.length < 1">
+      No security threats found.
     </div>
-    <div class="nothing-found" *ngIf="!showThreats && foundCVEs.length < 1">
+    <div class="nothing-found" *ngIf="activeTab === 'privacyThreats' && foundPrivacyThreats.length < 1">
+      No privacy threats found.
+    </div>
+    <div class="nothing-found" *ngIf="activeTab === 'vulnerabilities' && foundSecurityThreats.length < 1">
       No vulnerabilities found.
     </div>
+
     <div class="weakness-wrapper">
-      <div *ngFor="let threat of displayedThreats; let i = index; trackBy: trackThreatsByFn">
+      <div *ngFor="let threat of displayedSecurityThreats; let i = index; trackBy: trackThreatsByFn">
         <app-threat
-          *ngIf="showThreats"
+          *ngIf="activeTab === 'securityThreats'"
           [threatData]="threat"
           [index]="i"
-          (threatSelected)="selectThreat($event)"
+          (threatSelected)="selectSecurityThreat($event)"
+          (priorityUpdated)="setThreatPriority($event)"
+          (applicableStateUpdated)="setThreatApplicableState($event)">
+        </app-threat>
+      </div>
+      <div *ngFor="let threat of displayedPrivacyThreats; let i = index; trackBy: trackThreatsByFn">
+        <app-threat
+          *ngIf="activeTab === 'privacyThreats'"
+          [threatData]="threat"
+          [index]="i"
+          (threatSelected)="selectPrivacyThreat($event)"
           (priorityUpdated)="setThreatPriority($event)"
           (applicableStateUpdated)="setThreatApplicableState($event)">
         </app-threat>
       </div>
       <div *ngFor="let cve of displayedVulnerabilities; let n = index; trackBy: trackCVEsByFn">
         <app-cve
-          *ngIf="!showThreats"
+          *ngIf="activeTab === 'vulnerabilities'"
           [cveData]="cve"
           [index]="n"
           (cveSelected)="selectVulnerability($event)">
