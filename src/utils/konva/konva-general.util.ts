@@ -38,20 +38,9 @@ export class KonvaGeneralUtil {
     return new Konva.Group().add(elementShape, elementImage);
   }
 
-  static createBaseDataFlowGroup(dataFlowVectorMetaData: DataFlowVectorMetaData, dataFlowTipImage: Konva.Image): Konva.Group {
-    let dataFlowTipSitsOnRectangle: boolean;
+  static createBaseDataFlowGroup(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Group {
     const dataFlowGroup: Konva.Group = new Konva.Group();
-    if (DataFlowUtil.dataFlowIsLongEnoughToContainBodyShape(dataFlowVectorMetaData.length)) {
-      const dataFlowRectangle: Konva.Rect = DataFlowUtil.getBodyRectangleMatchingVector(dataFlowVectorMetaData);
-      dataFlowGroup.add(dataFlowRectangle);
-      dataFlowTipSitsOnRectangle = true;
-    } else {
-      dataFlowTipSitsOnRectangle = false;
-    }
-
-    const dataFlowTip: Konva.Image = KonvaGeneralUtil
-      .configureDataFlowTip(dataFlowTipImage, dataFlowVectorMetaData, dataFlowTipSitsOnRectangle);
-    dataFlowGroup.add(dataFlowTip);
+    dataFlowGroup.add(KonvaElementsUtil.getDataFlowArrow(dataFlowVectorMetaData))
     return dataFlowGroup;
   }
 
@@ -62,10 +51,9 @@ export class KonvaGeneralUtil {
 
   static destroyExistingAndDrawNewTemporaryDataFlow(dataFlowVectorMetaData: DataFlowVectorMetaData,
                                                     drawingLayer: Konva.Layer,
-                                                    drawingStage: Konva.Stage,
-                                                    dataFlowTip: Konva.Image) {
+                                                    drawingStage: Konva.Stage,) {
     drawingStage.find('.TempDataFlow').each(tempDataFlow => tempDataFlow.destroy());
-    const dataFlowGroup: Konva.Group = KonvaGeneralUtil.createBaseDataFlowGroup(dataFlowVectorMetaData, dataFlowTip);
+    const dataFlowGroup: Konva.Group = KonvaGeneralUtil.createBaseDataFlowGroup(dataFlowVectorMetaData);
     dataFlowGroup.name("TempDataFlow");
     let dataFlowName: Konva.Text;
     if (DataFlowUtil.dataFlowIsLongEnoughToContainDescription(dataFlowVectorMetaData.length, dataFlowVectorMetaData.position)) {
@@ -117,23 +105,6 @@ export class KonvaGeneralUtil {
   static addGroupToLayerAndMoveLayerToTop(layer: Konva.Layer, group: Konva.Group) {
     layer.add(group);
     layer.moveToTop();
-  }
-
-  static configureDataFlowTip(image, vectorMetaData: DataFlowVectorMetaData, tipSitsOnTopOfRectangle: boolean): Konva.Image {
-    let dataFlowTip: Konva.Image;
-    if (tipSitsOnTopOfRectangle) {
-      dataFlowTip = KonvaElementsUtil.getDataFlowTip(image, ShapeConfig.GET_DFD_SHAPE_RADIUS() * 4);
-    } else {
-      dataFlowTip = KonvaElementsUtil.getDataFlowTip(image, vectorMetaData.length);
-    }
-    if (GeometryUtil.drawingStartDoesNotEqualVectorStart(vectorMetaData)) {
-      KonvaAdjustmentUtil.adjustDataFlowTipPositionToPointLeft(dataFlowTip, vectorMetaData);
-    } else {
-      KonvaAdjustmentUtil.adjustDataFlowTipPositionToPointRight(dataFlowTip, vectorMetaData);
-    }
-    dataFlowTip = KonvaAdjustmentUtil
-      .adjustDataFlowTipSizeAndOffsetIfTwoDataFlowsConnectSameElements(dataFlowTip, vectorMetaData, tipSitsOnTopOfRectangle);
-    return dataFlowTip;
   }
 
   static getDataFlowText(dataFlowVectorMetaData: DataFlowVectorMetaData, name: string): Konva.Text {

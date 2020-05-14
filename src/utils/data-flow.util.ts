@@ -34,14 +34,11 @@ export class DataFlowUtil {
     // Changing the coordinates of the connected elements in the dataflow would be cheating
     const updatedCoordinates: VectorCoordinates = this.getDataFlowCoordsRelativeToTwoElements(startCoordinates, endCoordinates);
     // We need to know at what rotation the elements on the arrows are placed so it always fits
-    const rotationOfArrowElements: number = GeometryUtil
-      .getAngleOfVector(updatedCoordinates.startCoord, updatedCoordinates.endCoord);
+    const rotationOfArrowElements: number = GeometryUtil.getAngleOfVector(updatedCoordinates.startCoord, updatedCoordinates.endCoord);
     // We want the length of the arrow to position all elements on it correctly
-    const vectorLength: number = GeometryUtil
-      .getLengthOfAVector(originalCoordinates.startCoord, updatedCoordinates.endCoord);
+    const vectorLength: number = GeometryUtil.getLengthOfAVector(originalCoordinates.startCoord, updatedCoordinates.endCoord);
     // These coordinates are needed for the startposition of all the other elements on  the arrow
-    const drawingStartCoordinates: PointCoordinates =
-      GeometryUtil.getCoordsForShownArrowDataDependingOnItsPosition(startCoordinates, endCoordinates);
+    const drawingStartCoordinates: PointCoordinates = GeometryUtil.getCoordsForShownArrowDataDependingOnItsPosition(startCoordinates, endCoordinates);
     return {
       originalVector: originalCoordinates,
       updatedVector: updatedCoordinates,
@@ -66,13 +63,15 @@ export class DataFlowUtil {
   }
 
   static getBodyRectangleMatchingVector(vectorMetaData: DataFlowVectorMetaData) {
-    if (vectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
+    return KonvaElementsUtil.getDataFlowArrow(vectorMetaData);
+    /*if (vectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
       return KonvaElementsUtil.getNormalDataFlowBaseShape(vectorMetaData);
     }
     if (vectorMetaData.position === DataFlowDrawingPosition.TOP) {
       return KonvaElementsUtil.getTopDataFlowBaseShape(vectorMetaData);
     }
     return KonvaElementsUtil.getBottomDataFlowBaseShape(vectorMetaData);
+    */
   }
 
   static createScaledDataFlowVector(startCoords: PointCoordinates, endCoords: PointCoordinates, stageZoom: StageZoom) {
@@ -90,6 +89,7 @@ export class DataFlowUtil {
     return dataFlowVector;
   }
 
+  // returns vector between two elements
   static getDataFlowCoordsRelativeToTwoElements(startCoords: PointCoordinates, endCoords: PointCoordinates): VectorCoordinates {
     // A dataFlow (read: the displayed arrow) needs to move around an element freely and be visible at all times
     // Just using the center hides the arrow tip and its start

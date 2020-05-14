@@ -25,6 +25,7 @@ export class KonvaElementsUtil {
     });
   }
 
+  // UNUSED !!!!
   static getNormalDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
@@ -37,10 +38,11 @@ export class KonvaElementsUtil {
       fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
       opacity: 0.8,
       scaleX: 1,
-      scaleY: 1
+      scaleY: 0.5,
     });
   }
 
+  // UNUSED !!!!
   static getTopDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
@@ -57,6 +59,7 @@ export class KonvaElementsUtil {
     });
   }
 
+  // UNUSED !!!!
   static getBottomDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
@@ -66,23 +69,29 @@ export class KonvaElementsUtil {
       offsetY: KonvaAdjustmentUtil.setDataFlowYOffsetDependingOnRotation(vectorMetaData.rotation, vectorMetaData.position),
       offsetX: GeometryUtil.getDataFlowRectangleXAxisOffset(vectorMetaData, ShapeConfig.GET_REDUCED_DATA_FLOW_TIP_LENGTH()),
       rotation: vectorMetaData.rotation,
-      fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      //fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      fill: "red",
       opacity: 0.8,
       scaleX: 1,
       scaleY: 1
     });
   }
-
-  static getDataFlowTip(image, height: number): Konva.Image {
-    return new Konva.Image({
-      image: image,
-      width: height / 2,
-      height: height,
-      offset: {
-        x: height / 4,
-        y: ShapeConfig.GET_DFD_SHAPE_RADIUS() * 2
-      },
-      opacity: 0.8
+  
+  static getDataFlowArrow(vectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
+    return new Konva.Arrow({
+      // x1, y1, x2, y2
+      points: [
+        vectorMetaData.start.x, // x1
+        vectorMetaData.start.y, // y1
+        vectorMetaData.start.x + (vectorMetaData.length - ShapeConfig.GET_REDUCED_DATA_FLOW_TIP_LENGTH() / 2), // x2
+        vectorMetaData.start.y + (ShapeConfig.GET_DFD_SHAPE_RADIUS() / 2) // y2
+      ],
+      rotation: vectorMetaData.rotation,
+      pointerLength : 10,
+      pointerWidth : 12,
+      fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      stroke: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      strokeWidth: 5,
     });
   }
 

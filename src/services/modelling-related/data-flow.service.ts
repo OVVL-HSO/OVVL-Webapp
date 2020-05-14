@@ -36,7 +36,6 @@ export class DataFlowService {
   private drawingLayer: Konva.Layer<Konva.Node>;
 
   private destroyed$: Subject<void>;
-  private dataFlowTip;
 
   constructor(private store: Store<State>) {
   }
@@ -48,7 +47,6 @@ export class DataFlowService {
     this.drawingStage = drawingStage;
 
     this.destroyed$ = new Subject<void>();
-    this.loadDataFlowTipImage();
     this.setDrawingStageListener();
   }
 
@@ -64,6 +62,7 @@ export class DataFlowService {
     }
   }
 
+  // place arrow after drawing
   drawDataFlows(dataFlows: DataFlow[], redrawState: RedrawState) {
     dataFlows.forEach((dataFlow: DataFlow) => {
       if (redrawState.redrawAll) {
@@ -89,8 +88,7 @@ export class DataFlowService {
   }
 
   drawTemporaryDataFlow(dataFlowVectorMetaData: DataFlowVectorMetaData) {
-    KonvaGeneralUtil
-      .destroyExistingAndDrawNewTemporaryDataFlow(dataFlowVectorMetaData, this.drawingLayer, this.drawingStage, this.dataFlowTip);
+    KonvaGeneralUtil.destroyExistingAndDrawNewTemporaryDataFlow(dataFlowVectorMetaData, this.drawingLayer, this.drawingStage);
   }
 
   removeStageListener() {
@@ -99,8 +97,7 @@ export class DataFlowService {
   }
 
   private updateTemporaryDataFlow() {
-    const initialScaledVector: VectorCoordinates = DataFlowUtil
-      .createScaledDataFlowVector(this.startElement.coordinates, this.drawingStage.getPointerPosition(), this.stageZoom);
+    const initialScaledVector: VectorCoordinates = DataFlowUtil.createScaledDataFlowVector(this.startElement.coordinates, this.drawingStage.getPointerPosition(), this.stageZoom);
     const dataFlowVectorMetaData: DataFlowVectorMetaData = DataFlowUtil.getDataFlowMetaData(
       initialScaledVector.startCoord,
       initialScaledVector.endCoord,
@@ -113,7 +110,8 @@ export class DataFlowService {
       dataFlow.connectedElements.startElement.coordinates,
       dataFlow.connectedElements.endElement.coordinates,
       dataFlow.position);
-    const dataFlowGroup: Konva.Group = KonvaGeneralUtil.createBaseDataFlowGroup(dataFlowVectorMetaData, this.dataFlowTip);
+    // createBaseDataFlowGroup returns the Konva Group, that is drawn to the drawing layer
+    const dataFlowGroup: Konva.Group = KonvaGeneralUtil.createBaseDataFlowGroup(dataFlowVectorMetaData);
     dataFlowGroup.name(dataFlow.id);
     this.addTextToDataFlowGroup(dataFlowVectorMetaData, dataFlow.name, dataFlowGroup);
     this.setDataFlowListener(dataFlowGroup, dataFlow);
@@ -182,10 +180,5 @@ export class DataFlowService {
       const newDataFlow: DataFlowConnectionInfo = DataFlowUtil.createDataFlow(this.genericStartElement, this.genericEndElement);
       this.store.dispatch(new AddDataFlowAction(newDataFlow));
     }
-  }
-
-  private loadDataFlowTipImage() {
-    this.dataFlowTip = new Image();
-    this.dataFlowTip.src = '../assets/dftip.png';
   }
 }
