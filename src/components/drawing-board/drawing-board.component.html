@@ -1,14 +1,17 @@
 <div [ngClass]="showingDesignView ? 'design-view' : 'analysis-view'" id="drawing-board-wrapper">
   <div class="drawing-board">
     <div [ngClass]="!showingDesignView ? 'move-left' : ''" class="zoom">
+      <!-- percentage number button to reset zoom level -->
       <button (click)="resetZoomLevel()" *ngIf="stageZoomFactor !== 0" class="zoom-level-indicator">
         <span class="math-symbol">{{stageZoomFactor >= 0 ? '+' : '-'}}</span>
         <span class="zoom-level">{{getZoomLevelWithouthSymbol()}}%</span>
       </button>
       <div class="zoom-button-wrapper">
+        <!-- zoom in plus button -->
         <button (click)="zoomIn()" class="zoom-button zoom-active" id="plus-button">
           <img alt="add" src="../../assets/add.svg">
         </button>
+        <!-- zoom out minus button -->
         <button (click)="zoomOut()" class="zoom-button zoom-active" id="minus-button">
           <img alt="minus" src="../../assets/remove.svg">
         </button>
