@@ -89,9 +89,11 @@ export class KonvaAdjustmentUtil {
       y: dataFlowVectorMetaData.start.y
     });
     let offsetY = 0;
+    // single data flows
     if (dataFlowVectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
       dataFlowText.fontSize(ShapeConfig.GET_ELEMENT_FONTSIZE() * 2);
       offsetY = ShapeConfig.GET_ELEMENT_FONTSIZE();
+    // double data flows
     } else {
       dataFlowText.fontSize(ShapeConfig.GET_ELEMENT_FONTSIZE());
       // We need to account for the edge case of a data flow being drawn at -90°. This is a workaround and can probably be done better.
