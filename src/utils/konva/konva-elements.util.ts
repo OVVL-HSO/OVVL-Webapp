@@ -26,7 +26,7 @@ export class KonvaElementsUtil {
   }
 
   // UNUSED !!!!
-  static getNormalDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
+  /*static getNormalDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
       y: vectorMetaData.start.y,
@@ -40,10 +40,10 @@ export class KonvaElementsUtil {
       scaleX: 1,
       scaleY: 0.5,
     });
-  }
+  }*/
 
   // UNUSED !!!!
-  static getTopDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
+  /*static getTopDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
       y: vectorMetaData.start.y,
@@ -57,10 +57,10 @@ export class KonvaElementsUtil {
       scaleX: 1,
       scaleY: 1
     });
-  }
+  }*/
 
   // UNUSED !!!!
-  static getBottomDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
+  /*static getBottomDataFlowBaseShape(vectorMetaData: DataFlowVectorMetaData): Konva.Rect {
     return new Konva.Rect({
       x: vectorMetaData.start.x,
       y: vectorMetaData.start.y,
@@ -75,9 +75,9 @@ export class KonvaElementsUtil {
       scaleX: 1,
       scaleY: 1
     });
-  }
+  }*/
   
-  static getDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
+  static getNormalDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
     return new Konva.Arrow({
       points: [
         dataFlowVectorMetaData.start.x, // x1
@@ -85,6 +85,41 @@ export class KonvaElementsUtil {
         dataFlowVectorMetaData.updatedVector.endCoord.x, // x2
         dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
       ],
+      //rotation: dataFlowVectorMetaData.rotation,
+      pointerLength : 10,
+      pointerWidth : 12,
+      fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      stroke: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      strokeWidth: 5,
+    });
+  }
+
+  static getTopDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
+    return new Konva.Arrow({
+      points: [
+        dataFlowVectorMetaData.start.x + 10, // x1
+        dataFlowVectorMetaData.start.y, // y1
+        dataFlowVectorMetaData.updatedVector.endCoord.x + 10, // x2
+        dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
+      ],
+      //rotation: dataFlowVectorMetaData.rotation,
+      pointerLength : 10,
+      pointerWidth : 12,
+      fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      stroke: KonvaColorUtil.getDataFlowShapeHEXColor(),
+      strokeWidth: 5,
+    });
+  }
+
+  static getBottomDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
+    return new Konva.Arrow({
+      points: [
+        dataFlowVectorMetaData.start.x - 10, // x1
+        dataFlowVectorMetaData.start.y, // y1
+        dataFlowVectorMetaData.updatedVector.endCoord.x - 10, // x2
+        dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
+      ],
+      //rotation: dataFlowVectorMetaData.rotation,
       pointerLength : 10,
       pointerWidth : 12,
       fill: KonvaColorUtil.getDataFlowShapeHEXColor(),

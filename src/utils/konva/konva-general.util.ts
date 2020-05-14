@@ -39,7 +39,7 @@ export class KonvaGeneralUtil {
 
   static createBaseDataFlowGroup(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Group {
     const dataFlowGroup: Konva.Group = new Konva.Group();
-    dataFlowGroup.add(KonvaElementsUtil.getDataFlowArrow(dataFlowVectorMetaData))
+    dataFlowGroup.add(KonvaElementsUtil.getNormalDataFlowArrow(dataFlowVectorMetaData))
     return dataFlowGroup;
   }
 

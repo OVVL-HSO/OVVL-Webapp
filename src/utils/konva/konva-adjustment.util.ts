@@ -21,7 +21,8 @@ export class KonvaAdjustmentUtil {
     };
   }
 
-  static adjustDataFlowTipSizeAndOffsetIfTwoDataFlowsConnectSameElements(dataFlowTip: Konva.Image,
+  // UNUSED !!!!
+  /*static adjustDataFlowTipSizeAndOffsetIfTwoDataFlowsConnectSameElements(dataFlowTip: Konva.Image,
                                                                          vectorMetaData: DataFlowVectorMetaData,
                                                                          tipSitsOnTopOfRectangle: boolean): Konva.Image {
     if (vectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
@@ -53,7 +54,7 @@ export class KonvaAdjustmentUtil {
       dataFlowTip.offsetX(offsetX);
       return dataFlowTip;
     }
-  }
+  }*/
 
   static getElementTypeOffsetDependingOnNameLenght(nameHeight: number) {
     if (nameHeight <= ShapeConfig.GET_ELEMENT_FONTSIZE()) {
@@ -65,7 +66,8 @@ export class KonvaAdjustmentUtil {
     }
   }
 
-  static adjustDataFlowTipPositionToPointLeft(dataFlowTip: Konva.Image, vectorMetaData: DataFlowVectorMetaData) {
+  // UNUSED !!!!
+  /*static adjustDataFlowTipPositionToPointLeft(dataFlowTip: Konva.Image, vectorMetaData: DataFlowVectorMetaData) {
     // Here the drawing start of the dataFlowTip is defined
     dataFlowTip.position(GeometryUtil.applyARotatedVectorOffsetToAPoint(
       vectorMetaData,
@@ -81,7 +83,7 @@ export class KonvaAdjustmentUtil {
       // Since in this case the image is drawn beginning from the start element, we need to offset it be the vector length
       vectorMetaData.length));
     dataFlowTip.rotation(vectorMetaData.rotation + 90);
-  }
+  }*/
 
   static adjustDataFlowNamePosition(dataFlowText: Konva.Text, dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Text {
     dataFlowText.position({
@@ -182,7 +184,8 @@ export class KonvaAdjustmentUtil {
     };
   }
 
-  static setDataFlowYOffsetDependingOnRotation(rotation: number, position: DataFlowDrawingPosition) {
+  // UNUSED !!!! (callers are unused too)
+  /*static setDataFlowYOffsetDependingOnRotation(rotation: number, position: DataFlowDrawingPosition) {
     let offsetY = 0;
     if (position === DataFlowDrawingPosition.TOP) {
       if (rotation !== -90) {
@@ -195,7 +198,7 @@ export class KonvaAdjustmentUtil {
       }
     }
     return offsetY;
-  }
+  }*/
 
   static getOffsetOfDataFlowContentWhenAtMinus90Degrees(vectorMetaData: DataFlowVectorMetaData): number {
     let offsetX = 0;
@@ -207,13 +210,14 @@ export class KonvaAdjustmentUtil {
     return offsetX;
   }
 
-  static getXOffsetOfDataFlowTipDependingOnDrawingStart(vectorMetaData: DataFlowVectorMetaData): number {
+  // UNUSED !!!!
+  /*static getXOffsetOfDataFlowTipDependingOnDrawingStart(vectorMetaData: DataFlowVectorMetaData): number {
     if (!GeometryUtil.drawingStartDoesNotEqualVectorStart(vectorMetaData)) {
       return vectorMetaData.position === DataFlowDrawingPosition.TOP ? ShapeConfig.GET_DFD_SHAPE_RADIUS() : -ShapeConfig.GET_HEIGHT_REDUCTION();
     } else {
       return vectorMetaData.position === DataFlowDrawingPosition.TOP ? -ShapeConfig.GET_HEIGHT_REDUCTION() : ShapeConfig.GET_DFD_SHAPE_RADIUS();
     }
-  }
+  }*/
 
   private static scaleElementByDefaultScaleFactor(element: Konva.Node) {
     element.scale({x: 1 + ShapeConfig.DFD_SHAPE_SCALE_FACTOR, y: 1 + ShapeConfig.DFD_SHAPE_SCALE_FACTOR});
