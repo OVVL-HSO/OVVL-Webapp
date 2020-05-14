@@ -16,8 +16,7 @@ export class KonvaGeneralUtil {
   static createElementGroup(dfdElement: DFDElementType,
                             image: HTMLImageElement,
                             draggable: boolean): Konva.Group {
-    const elementShape: Konva.Circle = KonvaElementsUtil
-      .createElementShape(dfdElement.genericType, dfdElement.coordinates, dfdElement.selected);
+    const elementShape: Konva.Circle = KonvaElementsUtil.createElementShape(dfdElement.genericType, dfdElement.coordinates, dfdElement.selected);
     const elementImage: Konva.Image = KonvaElementsUtil.createElementImage(image, dfdElement.coordinates);
     const elementText: Konva.Text = KonvaElementsUtil.createElementText(dfdElement);
     const elementTypeText: Konva.Text = KonvaElementsUtil.createElementTypeText(dfdElement, elementText.getHeight());

@@ -64,7 +64,7 @@ export class ShapeConfig {
 
   // Same size as defined for the respective buttons in toolbar-left.component.scss
   static GET_DFD_SHAPE_RADIUS() {
-    return window.innerWidth * 0.04 / 2;
+    return window.innerWidth * 0.02;
   }
 
 }
