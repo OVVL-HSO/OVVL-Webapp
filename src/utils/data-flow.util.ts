@@ -63,15 +63,16 @@ export class DataFlowUtil {
   }
 
   static getBodyRectangleMatchingVector(vectorMetaData: DataFlowVectorMetaData) {
-    return KonvaElementsUtil.getDataFlowArrow(vectorMetaData);
-    /*if (vectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
-      return KonvaElementsUtil.getNormalDataFlowBaseShape(vectorMetaData);
+    //return KonvaElementsUtil.getNormalDataFlowArrow(vectorMetaData);
+    if (vectorMetaData.position === DataFlowDrawingPosition.NORMAL) {
+      return KonvaElementsUtil.getNormalDataFlowArrow(vectorMetaData);
     }
-    if (vectorMetaData.position === DataFlowDrawingPosition.TOP) {
-      return KonvaElementsUtil.getTopDataFlowBaseShape(vectorMetaData);
+    else if (vectorMetaData.position === DataFlowDrawingPosition.TOP) {
+      return KonvaElementsUtil.getTopDataFlowArrow(vectorMetaData);
     }
-    return KonvaElementsUtil.getBottomDataFlowBaseShape(vectorMetaData);
-    */
+    else {
+      return KonvaElementsUtil.getBottomDataFlowArrow(vectorMetaData);
+    }
   }
 
   static createScaledDataFlowVector(startCoords: PointCoordinates, endCoords: PointCoordinates, stageZoom: StageZoom) {
