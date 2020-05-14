@@ -77,16 +77,14 @@ export class KonvaElementsUtil {
     });
   }
   
-  static getDataFlowArrow(vectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
+  static getDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
     return new Konva.Arrow({
-      // x1, y1, x2, y2
       points: [
-        vectorMetaData.start.x, // x1
-        vectorMetaData.start.y, // y1
-        vectorMetaData.start.x + (vectorMetaData.length - ShapeConfig.GET_REDUCED_DATA_FLOW_TIP_LENGTH() / 2), // x2
-        vectorMetaData.start.y + (ShapeConfig.GET_DFD_SHAPE_RADIUS() / 2) // y2
+        dataFlowVectorMetaData.start.x, // x1
+        dataFlowVectorMetaData.start.y, // y1
+        dataFlowVectorMetaData.updatedVector.endCoord.x, // x2
+        dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
       ],
-      rotation: vectorMetaData.rotation,
       pointerLength : 10,
       pointerWidth : 12,
       fill: KonvaColorUtil.getDataFlowShapeHEXColor(),
@@ -131,8 +129,9 @@ export class KonvaElementsUtil {
       // If we just always draw it in the center, it looks weird when the data flow is too short and drawn "the other way around".
       // It is then drawn in the tip.
       // To solve this, when the drawing start is not the actual vector start, we just add half the tip length to make up for it
-      width: GeometryUtil.drawingStartDoesNotEqualVectorStart(dataFlowVectorMetaData) ?
-        dataFlowVectorMetaData.length + ShapeConfig.GET_DATA_FLOW_TIP_LENGTH() / 2 : dataFlowVectorMetaData.length,
+      // TODO Check if GET_DATA_FLOW_TIP_LENGTH() is neccessairy
+      //width: GeometryUtil.drawingStartDoesNotEqualVectorStart(dataFlowVectorMetaData) ? dataFlowVectorMetaData.length + ShapeConfig.GET_DATA_FLOW_TIP_LENGTH() / 2 : dataFlowVectorMetaData.length,
+      width: dataFlowVectorMetaData.length,
       fontFamily: 'Comfortaa',
       rotation: dataFlowVectorMetaData.rotation,
       align: 'center',
