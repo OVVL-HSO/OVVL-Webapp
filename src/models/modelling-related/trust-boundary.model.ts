@@ -12,6 +12,7 @@ export interface TrustBoundary {
   type: TrustBoundaryType;
   cpe?: CPEITem[];
   options: TrustBoundaryOptions;
+  elements: string[];
   ip: string;
 }
 

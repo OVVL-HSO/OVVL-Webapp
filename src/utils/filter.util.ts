@@ -2,7 +2,7 @@ import {ApplicableFilterState, CVEFilter, NumberRange, StrideFilter, ThreatFilte
 import {ApplicableState, Threat, ThreatPrority} from "../models/analysis-related/threat.model";
 import {CVE} from "../models/analysis-related/cve.model";
 import {CveUtil} from "./analysis/cve.util";
-import {SecurityThreat, StrideCategory} from "../models/analysis-related/security-threat.model";
+import {StrideThreat, StrideCategory} from "../models/analysis-related/stride-threat.model";
 import {filterToMembersWithDecorator} from "@angular/compiler-cli/src/ngtsc/metadata";
 import {forEach} from "@angular/router/src/utils/collection";
 
@@ -106,7 +106,7 @@ export class FilterUtil {
     return impactRange.min === 0 && impactRange.max === 10;
   }
 
-  private static applyStrideFilter(threats: SecurityThreat[], strideFilter: StrideFilter): SecurityThreat[] {
+  private static applyStrideFilter(threats: StrideThreat[], strideFilter: StrideFilter): StrideThreat[] {
     if (this.strideUnfiltered(strideFilter)) {
       return threats;
     }

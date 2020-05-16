@@ -30,12 +30,12 @@ import {ResetAnalysisDataAction, UpdateThreatDataAction} from "../../store/actio
 export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   @ViewChild('highlightStageContainer') highlightStageContainer: ElementRef;
 
-  foundSecurityThreats: Threat[];
+  foundStrideThreats: Threat[];
   foundPrivacyThreats: Threat[];
   activeTab: string;
   foundCVEs: CVE[] = [];
   moveHighlightStageToTop: boolean;
-  displayedSecurityThreats: Threat[];
+  displayedStrideThreats: Threat[];
   displayedPrivacyThreats: Threat[];
   displayedVulnerabilities: CVE[];
 
@@ -78,7 +78,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.clearView();
     if (!threat.selected) {
       this.moveHighlightStageToTop = true;
-      AnalysisViewUtil.dropDownSelectedDanger(this.foundSecurityThreats, threat);
+      AnalysisViewUtil.dropDownSelectedDanger(this.foundStrideThreats, threat);
       const affectedElements: (DFDElementType | DataFlow)[] =
         ThreatUtil.findAffectedElements(this.dfdElements, threat.affectedElements);
       this.highlightElements(affectedElements);
@@ -129,7 +129,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   }
 
   updatedDisplayedThreats(updatedThreats: Threat[]) {
-    this.displayedSecurityThreats = updatedThreats;
+    this.displayedStrideThreats = updatedThreats;
   }
 
   updatedDisplayedCVEs(updatedCVEs: CVE[]) {
@@ -154,11 +154,11 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.storeService.selectAnalysisState()
       .pipe(untilDestroyed(this))
       .subscribe((analysisState: AnalysisState) => {
-        this.foundSecurityThreats = CopyUtils.copyThreats(analysisState.securityThreats);
+        this.foundStrideThreats = CopyUtils.copyThreats(analysisState.strideThreats);
         this.foundPrivacyThreats = CopyUtils.copyThreats(analysisState.privacyThreats);
         this.foundCVEs = CopyUtils.copyVulnerabilities(analysisState.vulnerabilities);
         this.foundCVEs = CveUtil.sortCVEsByTheirImpact(this.foundCVEs);
-        this.displayedSecurityThreats = this.foundSecurityThreats;
+        this.displayedStrideThreats = this.foundStrideThreats;
         this.displayedVulnerabilities = this.foundCVEs;
       });
   }
@@ -231,7 +231,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
 
   private removeHighlightingAndUnselectThreatsAndVulnerabilities() {
     this.store.dispatch(new SetZoomEnabledAction(true));
-    AnalysisViewUtil.resetDangerDropdowns(this.foundSecurityThreats);
+    AnalysisViewUtil.resetDangerDropdowns(this.foundStrideThreats);
     AnalysisViewUtil.resetDangerDropdowns(this.foundCVEs);
     if (this.selectedElement) {
       this.store.dispatch(new UnselectAllDFDElementsAction());
@@ -246,8 +246,8 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
 
   private highlightElementsAndTheirCorrespondingSecurityThreats() {
     const highlightMetaData: ThreatViewHighlightData = AnalysisViewUtil
-      .combineDataRequiredForThreatAnalysisHighlighting(this.foundSecurityThreats, this.selectedElement.id, this.dfdElements);
-    this.foundSecurityThreats = highlightMetaData.updatedThreats;
+      .combineDataRequiredForThreatAnalysisHighlighting(this.foundStrideThreats, this.selectedElement.id, this.dfdElements);
+    this.foundStrideThreats = highlightMetaData.updatedThreats;
     this.highlightElements(highlightMetaData.affectedElements);
   }
 

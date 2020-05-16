@@ -1,6 +1,5 @@
 import {DataFlow} from '../modelling-related/dataflow.model';
 import {DFDElementType} from "../types/types.model";
-import {StrideCategory} from "./security-threat.model";
 
 export interface Threat {
   threatID: string;

@@ -6,6 +6,8 @@ import {GenericElementType} from "../../models/modelling-related/base.model";
 import {ElementUtil} from "../element.util";
 import {DataFlowUtil} from "../data-flow.util";
 import {DFDElementState} from "../../store/reducer/modelling-related/dfd-element.reducer";
+import {BoundaryUtil} from "../boundary.util";
+import {TrustBoundaryService} from "../../services/modelling-related/trust-boundary.service";
 
 export class AnalysisUtils {
 
@@ -21,7 +23,7 @@ export class AnalysisUtils {
       dataStores: ElementUtil.convertDFDElementsToDTOs(dataStores),
       processes: ElementUtil.convertDFDElementsToDTOs(processes),
       dataFlows: DataFlowUtil.convertDataFlowsToDTOs(elementState.dataFlows),
-      trustBoundaries: elementState.trustBoundaries,
+      trustBoundaries: BoundaryUtil.addElementsInTrustBoundaries(elementState),
       modelID: elementState.modelID ? elementState.modelID : ""
     };
   }

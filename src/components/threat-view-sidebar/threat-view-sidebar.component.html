@@ -18,8 +18,8 @@
       Vulnerabilities
     </button>
   </div>
-  <app-threat-filter *ngIf="activeTab === 'securityThreats' && foundSecurityThreats.length > 1"
-                     [threats]="foundSecurityThreats"
+  <app-threat-filter *ngIf="activeTab === 'securityThreats' && foundStrideThreats.length > 1"
+                     [threats]="foundStrideThreats"
                      (updatedThreats)="updatedDisplayedThreats($event)"></app-threat-filter>
   <app-threat-filter *ngIf="activeTab === 'privacyThreats' && foundPrivacyThreats.length > 1"
                      [threats]="foundPrivacyThreats"
@@ -29,18 +29,18 @@
                   (updatedCVEs)="updatedDisplayedCVEs($event)"></app-cve-filter>
   <perfect-scrollbar style="max-width: 100%; max-height: 92%;" class="perfect-scrollbar">
 
-    <div class="nothing-found" *ngIf="activeTab === 'securityThreats' && foundSecurityThreats.length < 1">
+    <div class="nothing-found" *ngIf="activeTab === 'securityThreats' && foundStrideThreats.length < 1">
       No security threats found.
     </div>
     <div class="nothing-found" *ngIf="activeTab === 'privacyThreats' && foundPrivacyThreats.length < 1">
       No privacy threats found.
     </div>
-    <div class="nothing-found" *ngIf="activeTab === 'vulnerabilities' && foundSecurityThreats.length < 1">
+    <div class="nothing-found" *ngIf="activeTab === 'vulnerabilities' && foundCVEs.length < 1">
       No vulnerabilities found.
     </div>
 
     <div class="weakness-wrapper">
-      <div *ngFor="let threat of displayedSecurityThreats; let i = index; trackBy: trackThreatsByFn">
+      <div *ngFor="let threat of displayedStrideThreats; let i = index; trackBy: trackThreatsByFn">
         <app-threat
           *ngIf="activeTab === 'securityThreats'"
           [threatData]="threat"

@@ -35,7 +35,9 @@ export class CopyUtils {
   }
 
   static copyThreats(threats: Threat[]): Threat[] {
-    return threats.map((threat: Threat) => this.copyThreat(threat));
+    if (threats != null) {
+      return threats.map((threat: Threat) => this.copyThreat(threat));
+    }
   }
 
   static copyVulnerabilities(cves: CVE[]): CVE[] {

@@ -26,11 +26,15 @@ import {UpdateTrustBoundaryAction} from "../../store/actions/modelling-related/e
 import {SelectElementAction} from "../../store/actions/modelling-related/dfd-element.action";
 import {AddTrustBoundaryAction} from "../../store/actions/modelling-related/element-add.action";
 import {InitOptionsViewAction} from "../../store/actions/modelling-related/element-options.action";
+import {DFDElementState} from "../../store/reducer/modelling-related/dfd-element.reducer";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrustBoundaryService {
+
+  constructor(private store: Store<State>) {
+  }
 
   private drawingLayer: Konva.Layer;
   private drawingStage: Konva.Stage;
@@ -46,10 +50,6 @@ export class TrustBoundaryService {
   private dfdElements: (DFDElementType)[];
   private lastElementsCollectedByBoundary: (DFDElementType)[] = [];
   private boundaryIsAlreadyHoveringOnTrashCan: boolean;
-
-  constructor(private store: Store<State>) {
-  }
-
 
   init(drawingStage: Konva.Stage, drawingLayer: Konva.Layer, freeDrawingStage: Konva.Stage) {
     // For the actual boundaries
@@ -336,4 +336,6 @@ export class TrustBoundaryService {
     this.IDOfBoundaryWithTransformer = "";
     this.destroyExistingTransformers();
   }
+
+
 }

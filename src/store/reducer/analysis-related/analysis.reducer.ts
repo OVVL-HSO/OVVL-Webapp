@@ -9,7 +9,7 @@ import {
 
 const initialState: AnalysisState = {
   analyzingModel: false,
-  securityThreats: [],
+  strideThreats: [],
   privacyThreats: [],
   vulnerabilities: [],
   error: {}
@@ -22,7 +22,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
         ...state,
         analyzingModel: true,
         error: {},
-        securityThreats: [...state.securityThreats],
+        strideThreats: [...state.strideThreats],
         privacyThreats: [...state.privacyThreats],
         vulnerabilities: [...state.vulnerabilities]
       };
@@ -30,7 +30,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
       return {
         ...state,
         analyzingModel: false,
-        securityThreats: action.payload.securityThreats,
+        strideThreats: action.payload.strideThreats,
         privacyThreats: action.payload.privacyThreats,
         vulnerabilities: action.payload.vulnerabilities,
         error: {}
@@ -39,7 +39,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
       return {
         ...state,
         analyzingModel: false,
-        securityThreats: [...state.securityThreats],
+        strideThreats: [...state.strideThreats],
         privacyThreats: [...state.privacyThreats],
         vulnerabilities: [...state.vulnerabilities],
         error: action.error

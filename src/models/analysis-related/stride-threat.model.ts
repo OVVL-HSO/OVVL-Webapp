@@ -1,6 +1,6 @@
-import {Threat, ThreatSpecificationUpdate, ThreatViewHighlightData} from "./threat.model";
+import {Threat} from "./threat.model";
 
-export interface SecurityThreat extends Threat {
+export interface StrideThreat extends Threat {
   threatCategory: StrideCategory;
 }
 

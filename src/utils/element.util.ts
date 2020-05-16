@@ -93,6 +93,7 @@ export class ElementUtil {
       genericType: GenericElementType.TRUST_BOUNDARY,
       type: TrustBoundaryType.GENERIC,
       ip: "",
+      elements: null,
       options: OptionUtil.getDefaultTrustBoundaryOptions()
     };
   }
