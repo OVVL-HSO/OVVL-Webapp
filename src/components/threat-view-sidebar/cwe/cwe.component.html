@@ -1,0 +1,77 @@
+<div class="collapsible">
+  <button (click)="selectCweThreat(cweThreat)"
+          [ngClass]="cweThreat.selected ? 'dropdown-toggled' : ''"
+          class="cwe-toggle-button">
+    {{cweThreat.cwe.name}}
+  </button>
+  <div *ngIf="cweThreat.selected" class=dropdown-data>
+    <div class="threat-info">
+      <p class="title">{{cweThreat.cwe.description}}</p>
+      <p>
+        {{cweThreat.description}}
+      </p>
+    </div>
+
+      <div class="cwe-stride-info">
+        <div class="cwe-stride-info-top-row">
+          <div class="cwe-stride-info-col">S</div>
+          <div class="cwe-stride-info-col">T</div>
+          <div class="cwe-stride-info-col">R</div>
+          <div class="cwe-stride-info-col">I</div>
+          <div class="cwe-stride-info-col">D</div>
+          <div class="cwe-stride-info-col">E</div>
+        </div>
+        <div class="cwe-stride-info-bottom-row">
+          <div class="cwe-stride-info-col">
+            <ng-container *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.spoofingProportion)">
+              <img src="../../../assets/accept.svg" width="9px" height="9px"/>
+            </ng-container>
+          </div>
+          <div class="cwe-stride-info-col">
+              <ng-container class="cwe-stride-existing" *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.tamperingProportion)">
+                <div><img src="../../../assets/accept.svg" width="9px" height="9px"/></div>
+              </ng-container>
+          </div>
+          <div class="cwe-stride-info-col">
+              <ng-container *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.repudiationProportion)">
+                <div><img src="../../../assets/accept.svg" width="9px" height="9px"/></div>
+              </ng-container>
+          </div>
+          <div class="cwe-stride-info-col">
+              <ng-container *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.informationDisclosureProportion)">
+                <img src="../../../assets/accept.svg" width="9px" height="9px"/>
+              </ng-container>
+          </div>
+          <div class="cwe-stride-info-col">
+              <ng-container *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.denialOfServiceProportion)">
+                <img src="../../../assets/accept.svg" width="9px" height="9px"/>
+              </ng-container>
+          </div>
+          <div class="cwe-stride-info-col">
+              <ng-container *ngIf="getSTIRDEThreatAffectsCWE(cweThreat.cwe.analysisInformation.elevationOfPrivilegeProportion)">
+                <img src="../../../assets/accept.svg" width="9px" height="9px"/>
+              </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="cwe-stride-info">
+        <div class="cwe-stride-info-top-row">
+          <div class="cwe-metric-info">
+            Impact:
+          </div>
+            <div class="cwe-metric-info" [ngStyle]="{'color':getCvssScoreCorrespondingColor(cweThreat.cwe.analysisInformation.meanImpactScore)}">
+              {{getCvssScoreToString(cweThreat.cwe.analysisInformation.meanImpactScore)}}
+            </div>
+        </div>
+        <div class="cwe-stride-info-bottom-row">
+          <div class="cwe-metric-info">
+            Exploitability:
+          </div>
+          <div class="cwe-metric-info"  [ngStyle]="{'color':getCvssScoreCorrespondingColor(cweThreat.cwe.analysisInformation.meanExploitabilityScore)}">
+            {{getCvssScoreToString(cweThreat.cwe.analysisInformation.meanExploitabilityScore)}}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

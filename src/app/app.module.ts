@@ -41,6 +41,7 @@ import {ProfileComponent} from '../components/profile/profile.component';
 import { ThreatFilterComponent } from '../components/threat-view-sidebar/threat-filter/threat-filter.component';
 import { ThreatComponent } from '../components/threat-view-sidebar/threat/threat.component';
 import { CveComponent } from '../components/threat-view-sidebar/cve/cve.component';
+import { CweComponent } from '../components/threat-view-sidebar/cwe/cwe.component';
 import { CveFilterComponent } from '../components/threat-view-sidebar/cve-filter/cve-filter.component';
 import {Ng5SliderModule} from "ng5-slider";
 import { FeedbackComponent } from '../components/modals/feedback/feedback.component';
@@ -106,6 +107,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ThreatFilterComponent,
     ThreatComponent,
     CveComponent,
+    CweComponent,
     CveFilterComponent,
     FeedbackComponent,
     ProfileSidebarComponent,

@@ -10,7 +10,7 @@ import {
 const initialState: AnalysisState = {
   analyzingModel: false,
   strideThreats: [],
-  privacyThreats: [],
+  cweThreats: [],
   vulnerabilities: [],
   error: {}
 };
@@ -23,7 +23,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
         analyzingModel: true,
         error: {},
         strideThreats: [...state.strideThreats],
-        privacyThreats: [...state.privacyThreats],
+        cweThreats: [...state.cweThreats],
         vulnerabilities: [...state.vulnerabilities]
       };
     case ANALYZE_THREAT_MODEL_COMPLETE:
@@ -31,7 +31,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
         ...state,
         analyzingModel: false,
         strideThreats: action.payload.strideThreats,
-        privacyThreats: action.payload.privacyThreats,
+        cweThreats: action.payload.cweThreats,
         vulnerabilities: action.payload.vulnerabilities,
         error: {}
       };
@@ -40,7 +40,7 @@ export function analysisReducer(state = initialState, action: AnalysisActions): 
         ...state,
         analyzingModel: false,
         strideThreats: [...state.strideThreats],
-        privacyThreats: [...state.privacyThreats],
+        cweThreats: [...state.cweThreats],
         vulnerabilities: [...state.vulnerabilities],
         error: action.error
       };

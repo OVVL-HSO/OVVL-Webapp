@@ -21,6 +21,7 @@ import {SetZoomEnabledAction} from "../../store/actions/view-related/view.action
 import {AnalysisState} from "../../models/analysis-related/analysis.model";
 import {CopyUtils} from "../../utils/copy.util";
 import {ResetAnalysisDataAction, UpdateThreatDataAction} from "../../store/actions/analysis-related/analysis.action";
+import {CweThreat} from "../../models/analysis-related/cwe-threat.model";
 
 @Component({
   selector: 'app-threat-view-sidebar',
@@ -31,12 +32,12 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
   @ViewChild('highlightStageContainer') highlightStageContainer: ElementRef;
 
   foundStrideThreats: Threat[];
-  foundPrivacyThreats: Threat[];
+  foundCweThreats: Threat[];
   activeTab: string;
   foundCVEs: CVE[] = [];
   moveHighlightStageToTop: boolean;
   displayedStrideThreats: Threat[];
-  displayedPrivacyThreats: Threat[];
+  displayedCweThreats: Threat[];
   displayedVulnerabilities: CVE[];
 
   private dfdElements: (DFDElementType | DataFlow)[];
@@ -87,13 +88,13 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     }
   }
 
-  selectPrivacyThreat(threat: Threat) {
+  selectCweThreat(cwe: CweThreat) {
     this.clearView();
-    if (!threat.selected) {
+    if (!cwe.selected) {
       this.moveHighlightStageToTop = true;
-      AnalysisViewUtil.dropDownSelectedDanger(this.foundPrivacyThreats, threat);
+      AnalysisViewUtil.dropDownSelectedDanger(this.foundCweThreats, cwe);
       const affectedElements: (DFDElementType | DataFlow)[] =
-        ThreatUtil.findAffectedElements(this.dfdElements, threat.affectedElements);
+        ThreatUtil.findAffectedElements(this.dfdElements, cwe.affectedElements);
       this.highlightElements(affectedElements);
     } else {
       this.removeHighlightingAndUnselectThreatsAndVulnerabilities();
@@ -116,6 +117,10 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
 
   trackThreatsByFn(index, item: Threat) {
     return (item.threatID);
+  }
+
+  trackCweByFn(index, item: CweThreat) {
+    return (item.cwe.id);
   }
 
   trackCVEsByFn(index, item: CVE) {
@@ -155,10 +160,11 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
       .pipe(untilDestroyed(this))
       .subscribe((analysisState: AnalysisState) => {
         this.foundStrideThreats = CopyUtils.copyThreats(analysisState.strideThreats);
-        this.foundPrivacyThreats = CopyUtils.copyThreats(analysisState.privacyThreats);
+        this.foundCweThreats = CopyUtils.copyThreats(analysisState.cweThreats);
         this.foundCVEs = CopyUtils.copyVulnerabilities(analysisState.vulnerabilities);
         this.foundCVEs = CveUtil.sortCVEsByTheirImpact(this.foundCVEs);
         this.displayedStrideThreats = this.foundStrideThreats;
+        this.displayedCweThreats = this.foundCweThreats;
         this.displayedVulnerabilities = this.foundCVEs;
       });
   }
@@ -233,6 +239,7 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new SetZoomEnabledAction(true));
     AnalysisViewUtil.resetDangerDropdowns(this.foundStrideThreats);
     AnalysisViewUtil.resetDangerDropdowns(this.foundCVEs);
+    AnalysisViewUtil.resetDangerDropdowns(this.foundCweThreats);
     if (this.selectedElement) {
       this.store.dispatch(new UnselectAllDFDElementsAction());
     }
@@ -253,8 +260,8 @@ export class ThreatViewSidebarComponent implements OnInit, OnDestroy {
 
   private highlightElementsAndTheirCorrespondingPrivacyThreats() {
     const highlightMetaData: ThreatViewHighlightData = AnalysisViewUtil
-      .combineDataRequiredForThreatAnalysisHighlighting(this.foundPrivacyThreats, this.selectedElement.id, this.dfdElements);
-    this.foundPrivacyThreats = highlightMetaData.updatedThreats;
+      .combineDataRequiredForThreatAnalysisHighlighting(this.foundCweThreats, this.selectedElement.id, this.dfdElements);
+    this.foundCweThreats = highlightMetaData.updatedThreats;
     this.highlightElements(highlightMetaData.affectedElements);
   }
 

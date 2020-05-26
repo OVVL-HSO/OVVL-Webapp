@@ -1,0 +1,42 @@
+@import "../../../theme/styles/recurring-elements/collapsible-button";
+@import "../../../theme/styles/slider";
+@import "../../../theme/variables";
+
+
+.threat-info {
+  padding: 1.5vmin;
+  background: var(--theme-button-unfolded);
+}
+
+.title {
+  font-size: 1.5vmin;
+  font-weight: bold;
+  margin-bottom: 0.8vmin;
+}
+
+.cwe-stride-info{
+  display: table;
+  border-top: solid 1px var(--theme-top-toolbar-background);
+  width: 100%;
+}
+
+.cwe-stride-info-top-row, .cwe-stride-info-bottom-row{
+  display: table-row;
+}
+
+.cwe-stride-info-col{
+  display: table-cell;
+  padding: 3px 10px;
+  width: 10px;
+  color: var(--theme-top-toolbar-background);
+  font-size: 1.5vmin
+}
+
+.cwe-metric-info{
+  display: table-cell;
+  padding: 3px 10px;
+  width: 10px;
+  text-align: left;
+  color: var(--theme-top-toolbar-background);
+  font-size: 1.5vmin
+}

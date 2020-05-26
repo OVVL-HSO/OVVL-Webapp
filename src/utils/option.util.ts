@@ -1,6 +1,6 @@
 import {Interactor, InteractorOptions, InteractorType} from '../models/modelling-related/interactor.model';
 import {DataFlowOptions, NetworkType, PayloadType} from '../models/modelling-related/dataflow.model';
-import {DataHandling, InputOrigin, Process, ProcessOptions} from '../models/modelling-related/process.model';
+import {DataHandling, InputOrigin, Process, ProcessOptions, ProgrammingLanguage} from '../models/modelling-related/process.model';
 import {DataStoreOptions} from '../models/modelling-related/datastore.model';
 import {PhysicalAccess, TrustBoundaryOptions} from "../models/modelling-related/trust-boundary.model";
 import {GenericElementType, GenericSelection, ScaleSelection} from "../models/modelling-related/base.model";
@@ -27,6 +27,7 @@ export class OptionUtil {
 
   static getDefaultProcessOptions(): ProcessOptions {
     return {
+      programmingLanguage: ProgrammingLanguage.NOT_SELECTED,
       trustLevel: ScaleSelection.NOT_SELECTED,
       privilegeLevel: ScaleSelection.NOT_SELECTED,
       managed: GenericSelection.NOT_SELECTED,

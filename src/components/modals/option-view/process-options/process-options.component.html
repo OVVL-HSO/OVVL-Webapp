@@ -71,6 +71,14 @@
     </select>
   </div>
   <div class="select-option">
+    <label for="programmingLanguage">Programming Language</label>
+    <select [(ngModel)]="process.options.programmingLanguage"
+            id="programmingLanguage"
+            name="programmingLanguage">
+      <option *ngFor="let programmingLanguageSelection of programmingLanguageOptions">{{programmingLanguageSelection}}</option>
+    </select>
+  </div>
+  <div class="select-option">
     <label for="ddosProtection">DDoS Protection</label>
     <select [(ngModel)]="process.options.ddosProtection"
             id="ddosProtection"

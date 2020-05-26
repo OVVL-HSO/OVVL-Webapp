@@ -21,6 +21,12 @@
     color: var(--theme-sidebar-background);
   }
 
+  .cwe-toggle-button {
+    @extend .toggle-button;
+    height: auto;
+    min-height: 6vmin;
+  }
+
   .dropdown-toggled {
     border-radius: $border-radius $border-radius 0 0;
     background-color: var(--theme-button-active);
@@ -28,7 +34,7 @@
   }
 
   .dropdown-data {
-    background-color: var(--theme-button-unfolded)-darkened;
+    background-color: var(--theme-button-unfolded-darkened);
     border-radius: 0 0 $border-radius $border-radius;
 
     p {

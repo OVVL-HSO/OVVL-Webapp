@@ -17,7 +17,7 @@
     margin: 2vmin auto 2vmin auto;
     height: 5vmin;
 
-    .threats-button, .vulnerability-button {
+    .threats-button, .vulnerability-button, .cwe-threats-button {
       cursor: pointer;
       border-radius: $border-radius;
       background-color: var(--theme-light-gray-background);
@@ -25,7 +25,7 @@
       color: var(--theme-button-active);
       border: 0;
       height: 100%;
-      width: $threat-sidebar-width * 0.44;
+      width: $threat-sidebar-width * 0.28;
     }
 
     .threats-button {

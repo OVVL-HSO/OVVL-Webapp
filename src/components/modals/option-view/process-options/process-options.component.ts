@@ -1,7 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {DataHandling, InputOrigin, Process} from "../../../../models/modelling-related/process.model";
+import {DataHandling, InputOrigin, Process, ProgrammingLanguage} from "../../../../models/modelling-related/process.model";
 import {GeneralUtil} from "../../../../utils/general.util";
-import {ElementRelationInfo, GenericSelection, ScaleSelection} from "../../../../models/modelling-related/base.model";
+import {
+  ElementRelationInfo,
+  GenericSelection,
+  ScaleSelection
+} from "../../../../models/modelling-related/base.model";
 import {OptionState} from "../../../../store/reducer/modelling-related/element-options.reducer";
 import {Interactor} from "../../../../models/modelling-related/interactor.model";
 
@@ -19,6 +23,7 @@ export class ProcessOptionsComponent implements OnInit {
   genericSelectionOptions: string[];
   dataHandlingOptions: string[];
   inputOriginOptions: string[];
+  programmingLanguageOptions: string[];
   connectedElements: ElementRelationInfo;
 
   constructor() {
@@ -35,6 +40,7 @@ export class ProcessOptionsComponent implements OnInit {
     this.scaleSelectionOptions = GeneralUtil.getStringEnumAsArrayOfStrings(ScaleSelection);
     this.dataHandlingOptions = GeneralUtil.getStringEnumAsArrayOfStrings(DataHandling);
     this.inputOriginOptions = GeneralUtil.getStringEnumAsArrayOfStrings(InputOrigin);
+    this.programmingLanguageOptions = GeneralUtil.getStringEnumAsArrayOfStrings(ProgrammingLanguage);
   }
 
   selectOptions() {

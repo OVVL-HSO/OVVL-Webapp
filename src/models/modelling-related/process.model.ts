@@ -21,6 +21,7 @@ export interface ProcessOptions {
   managed: GenericSelection;
   dataHandling: DataHandling;
   inputOrigin: InputOrigin;
+  programmingLanguage: ProgrammingLanguage;
   sanitizesInput: GenericSelection;
   validatesInput: GenericSelection;
   requiresAuthentication: GenericSelection;
@@ -53,4 +54,12 @@ export enum ProcessType {
   THREAD = 'Thread',
   APPLICATION = 'Application',
   WEB_SERVICE = 'Web Service'
+}
+
+export enum ProgrammingLanguage {
+  COMPILED = "Compiled",
+  INTERPRETED = "Interpreted",
+  WEB = "Web",
+  JIT_COMPILED = "JIT-Compiled",
+  NOT_SELECTED = "Not Selected"
 }
