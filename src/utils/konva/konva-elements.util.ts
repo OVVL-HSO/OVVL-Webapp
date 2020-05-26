@@ -168,7 +168,7 @@ export class KonvaElementsUtil {
       //width: GeometryUtil.drawingStartDoesNotEqualVectorStart(dataFlowVectorMetaData) ? dataFlowVectorMetaData.length + ShapeConfig.GET_DATA_FLOW_TIP_LENGTH() / 2 : dataFlowVectorMetaData.length,
       width: dataFlowVectorMetaData.length,
       fontFamily: 'Comfortaa',
-      //rotation: dataFlowVectorMetaData.rotation,
+      rotation: dataFlowVectorMetaData.rotation,
       align: 'center',
       fill: '#464646',
       text: name,
