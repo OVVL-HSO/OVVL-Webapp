@@ -80,8 +80,8 @@ export class KonvaElementsUtil {
   static getNormalDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
     return new Konva.Arrow({
       points: [
-        dataFlowVectorMetaData.start.x, // x1
-        dataFlowVectorMetaData.start.y, // y1
+        dataFlowVectorMetaData.updatedVector.startCoord.x, // x1
+        dataFlowVectorMetaData.updatedVector.startCoord.y, // y1
         dataFlowVectorMetaData.updatedVector.endCoord.x, // x2
         dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
       ],
@@ -97,10 +97,10 @@ export class KonvaElementsUtil {
   static getTopDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
     return new Konva.Arrow({
       points: [
-        dataFlowVectorMetaData.start.x + 10, // x1
-        dataFlowVectorMetaData.start.y, // y1
-        dataFlowVectorMetaData.updatedVector.endCoord.x + 10, // x2
-        dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
+        dataFlowVectorMetaData.updatedVector.startCoord.x, // x1
+        dataFlowVectorMetaData.updatedVector.startCoord.y, + 100, // y1
+        dataFlowVectorMetaData.updatedVector.endCoord.x, // x2
+        dataFlowVectorMetaData.updatedVector.endCoord.y + 100  // y2
       ],
       //rotation: dataFlowVectorMetaData.rotation,
       pointerLength : 10,
@@ -114,10 +114,10 @@ export class KonvaElementsUtil {
   static getBottomDataFlowArrow(dataFlowVectorMetaData: DataFlowVectorMetaData): Konva.Arrow {
     return new Konva.Arrow({
       points: [
-        dataFlowVectorMetaData.start.x - 10, // x1
-        dataFlowVectorMetaData.start.y, // y1
-        dataFlowVectorMetaData.updatedVector.endCoord.x - 10, // x2
-        dataFlowVectorMetaData.updatedVector.endCoord.y  // y2
+        dataFlowVectorMetaData.updatedVector.startCoord.x, // x1
+        dataFlowVectorMetaData.updatedVector.startCoord.y, - 100, // y1
+        dataFlowVectorMetaData.updatedVector.endCoord.x, // x2
+        dataFlowVectorMetaData.updatedVector.endCoord.y - 100  // y2
       ],
       //rotation: dataFlowVectorMetaData.rotation,
       pointerLength : 10,
@@ -168,7 +168,7 @@ export class KonvaElementsUtil {
       //width: GeometryUtil.drawingStartDoesNotEqualVectorStart(dataFlowVectorMetaData) ? dataFlowVectorMetaData.length + ShapeConfig.GET_DATA_FLOW_TIP_LENGTH() / 2 : dataFlowVectorMetaData.length,
       width: dataFlowVectorMetaData.length,
       fontFamily: 'Comfortaa',
-      rotation: dataFlowVectorMetaData.rotation,
+      //rotation: dataFlowVectorMetaData.rotation,
       align: 'center',
       fill: '#464646',
       text: name,
